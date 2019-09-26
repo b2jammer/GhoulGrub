@@ -50,7 +50,7 @@ public class PlayerInteract : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit, interactionRange, interactableLayer)) {
             // TODO: perform an action when an interactable object is within range - most likely grab a script and run a
-            // function inside this script
+            // function inside this script (probably the InteractionBehavior)
         }
         
     }
