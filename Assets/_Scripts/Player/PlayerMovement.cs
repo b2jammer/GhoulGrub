@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     #region Public Variables
@@ -16,11 +17,13 @@ public class PlayerMovement : MonoBehaviour
 
     #region Private Variables
     private Vector3 direction;
+    private Rigidbody body;
     #endregion
 
     #region MonoBehavior Methods
     private void Awake() {
         direction = Vector3.zero;
+        body = GetComponent<Rigidbody>();
     }
 
     // Start is called before the first frame update
@@ -44,7 +47,8 @@ public class PlayerMovement : MonoBehaviour
     /// Moves the player in the given direction at the given speed.
     /// </summary>
     private void Move() {
-        transform.position += direction * speed * Time.deltaTime;
+        Vector3 displacement = direction * speed * Time.deltaTime;
+        body.MovePosition(transform.position + displacement);
     }
     #endregion
 }
