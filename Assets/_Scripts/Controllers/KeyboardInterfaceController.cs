@@ -7,6 +7,7 @@ public class KeyboardInterfaceController : MonoBehaviour
     #region Private Variables
     private Vector3 direction;
     private bool isInteracting;
+    private bool isOpeningStation;
     #endregion
 
     #region Properties
@@ -20,11 +21,20 @@ public class KeyboardInterfaceController : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns whether or not the player is pressing the key bound to 'Interact'
+    /// Returns whether or not the player pressed the key bound to 'Interact'
     /// </summary>
     public bool IsInteracting {
         get {
             return isInteracting;
+        }
+    }
+
+    /// <summary>
+    /// Returns whether or not the player pressed the key bound to 'OpenStationInventory'
+    /// </summary>
+    public bool IsOpeningStation {
+        get {
+            return isOpeningStation;
         }
     }
     #endregion
@@ -33,6 +43,7 @@ public class KeyboardInterfaceController : MonoBehaviour
     private void Awake() {
         direction = Vector3.zero;
         isInteracting = false;
+        isOpeningStation = false;
     }
 
     // Start is called before the first frame update
@@ -46,6 +57,7 @@ public class KeyboardInterfaceController : MonoBehaviour
     {
         CheckMovement();
         CheckInteract();
+        CheckOpenStationInventory();
     }
     #endregion
 
@@ -79,6 +91,14 @@ public class KeyboardInterfaceController : MonoBehaviour
     /// </summary>
     private void CheckInteract() {
         isInteracting = Input.GetButtonDown("Interact");
+    }
+
+    /// <summary>
+    /// Checks whether the key bound to the player opening a station inventory
+    /// was pressed down and sets a boolean
+    /// </summary>
+    private void CheckOpenStationInventory() {
+        isOpeningStation = Input.GetButtonDown("OpenStationInventory");
     }
     #endregion
 }
