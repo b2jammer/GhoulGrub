@@ -34,6 +34,14 @@ public class TestCrate : MonoBehaviour {
 
     }
 
+    public void RemoveFoodItemFromPlayer() {
+        Debug.Log("You've lost some food");
+
+        int randomFoodItemIndex = Random.Range(0, crateFood.Length - 1);
+
+        playerInventory.RemoveInventoryItem(crateFood[randomFoodItemIndex]);
+    }
+
     #endregion
 }
 
