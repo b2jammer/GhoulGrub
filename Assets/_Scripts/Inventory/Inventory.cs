@@ -5,9 +5,11 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public List<FoodItem> items;
+    public List<Sprite> itemSprites;
 
     private void Awake() {
         items = new List<FoodItem>();
+        itemSprites = new List<Sprite>();
     }
 
     // Start is called before the first frame update
@@ -24,13 +26,16 @@ public class Inventory : MonoBehaviour
 
     public void ClearInventory() {
         items.Clear();
+        itemSprites.Clear();
     }
 
-    public void RemoveInventoryItem(FoodItem item) {
+    public void RemoveInventoryItem(FoodItem item, Sprite itemSprite) {
         items.Remove(item);
+        itemSprites.Remove(itemSprite);
     }
 
-    public void AddInventoryItem(FoodItem item) {
+    public void AddInventoryItem(FoodItem item, Sprite itemSprite) {
         items.Add(item);
+        itemSprites.Add(itemSprite);
     }
 }
