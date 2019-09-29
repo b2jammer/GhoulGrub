@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5781376890325025445}
   - component: {fileID: 5781376890325025444}
   - component: {fileID: 6616177960032423873}
-  - component: {fileID: 9032940556651634376}
+  - component: {fileID: 7704093944176726341}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyboardInput: {fileID: 0}
   myInteractAgent: {fileID: 0}
---- !u!114 &9032940556651634376
+--- !u!114 &7704093944176726341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  itemImages: []
 --- !u!1 &5781376890655644276
 GameObject:
   m_ObjectHideFlags: 0
