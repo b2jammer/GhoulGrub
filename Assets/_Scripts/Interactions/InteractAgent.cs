@@ -9,6 +9,10 @@ public class InteractAgent : MonoBehaviour
     private Interactable currentInteractable;
     #endregion
 
+    /// <summary>
+    /// Calls the functions tied to the other colliding objects OnApproach event if it is an interactable object
+    /// </summary>
+    /// <param name="other"></param>
     #region MonoBehaviour Methods
     private void OnTriggerEnter(Collider other)
     {
@@ -21,6 +25,10 @@ public class InteractAgent : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calls the functions tied to the other colliding objects OnRetreat event if it is an interactable object
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerExit(Collider other)
     {
         Interactable otherInteract;
@@ -34,9 +42,20 @@ public class InteractAgent : MonoBehaviour
     #endregion
 
     #region Script Specific Methods
+    /// <summary>
+    /// Calls the functions tied to an objects OnInteract event  
+    /// </summary>
     public void Interact()
     {
-        currentInteractable.OnInteract.Invoke();
+        if (currentInteractable != null) {
+            currentInteractable.OnInteract.Invoke();
+        }
+    }
+
+    public void OpenStationInventory() {
+        if (currentInteractable != null) {
+            currentInteractable.OnStationInventoryOpened.Invoke();
+        }
     }
     #endregion
 }

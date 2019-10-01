@@ -9,5 +9,6 @@ public class Interactable : MonoBehaviour
     public UnityEvent OnInteract;
     public UnityEvent OnApproach;
     public UnityEvent OnRetreat;
+    public UnityEvent OnStationInventoryOpened;
     #endregion
 }
