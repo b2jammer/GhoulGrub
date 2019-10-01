@@ -62,8 +62,8 @@ public class KeyboardInterfaceController : MonoBehaviour
             direction.x = 0;
         }
 
-        if (Input.GetButton("Vertical")) {
-            direction.z = Input.GetAxisRaw("Vertical");
+        if (Input.GetButton("Forward")) {
+            direction.z = Input.GetAxisRaw("Forward");
         }
         else {
             direction.z = 0;
