@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Interactable))]
+[RequireComponent(typeof(Inventory))]
 public class Station : MonoBehaviour
 {
     #region Public Variables
+    public string stationTitle;
     public RecipeList recipeList;
-    public Inventory playerInventory;
+    public Inventory StationInventory
+    {
+        get
+        {
+            return _stationInventory;
+        }
+    }
     #endregion
 
     #region Private Variables
     private Interactable interactable;
-    private Inventory stationInventory;
+    private Inventory _stationInventory;
     
     #endregion
 
@@ -20,31 +28,15 @@ public class Station : MonoBehaviour
     private void Awake()
     {
         interactable = GetComponent<Interactable>();
-        stationInventory = GetComponent<Inventory>();
-    }
-
-    private void Start()
-    {
-        
+        _stationInventory = GetComponent<Inventory>();
     }
     #endregion
 
     #region Script Specific Scripts
-    public void OnInteract() {
-        Debug.Log("Here is some food");
-
-        // TODO: Compare items in the station inventory to recipes,
-        // add the most appropriate recipe to the player inventory,
-        // and clear the station inventory
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public void OnInventoryOpened() {
-        Debug.Log("Here is my inventory");
-
-        // TODO: Open a GUI element where we can place our food
+    public void OpenStationPanel()
+    {
+        StationPanel stationPanel = StationPanel.Instance;
+        stationPanel.OpenStation(this);
     }
     #endregion
 }

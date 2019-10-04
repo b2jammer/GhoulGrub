@@ -344,7 +344,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6266113390797783103}
+        m_MethodName: OpenStationPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnApproach:
@@ -391,8 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afa5aa7601177b4f9037b6aba71a5ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationTitle: 
   recipeList: {fileID: 0}
-  playerInventory: {fileID: 0}
 --- !u!95 &6266113390797783101
 Animator:
   serializedVersion: 3
@@ -436,4 +447,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2429056116ab5a489d6ea8a62cf0eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  OnClear:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnAddItem:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Inventory+ItemEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnRemoveItem:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Inventory+ItemEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

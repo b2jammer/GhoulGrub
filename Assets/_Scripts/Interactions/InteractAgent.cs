@@ -21,7 +21,6 @@ public class InteractAgent : MonoBehaviour
         {
             currentInteractable = otherInteract;
             otherInteract.OnApproach.Invoke();
-            Debug.Log("Approached.");
         }
     }
 
@@ -36,7 +35,6 @@ public class InteractAgent : MonoBehaviour
         {
             currentInteractable = null;
             otherInteract.OnRetreat.Invoke();
-            Debug.Log("Retreated.");
         }
     }
     #endregion
@@ -49,12 +47,6 @@ public class InteractAgent : MonoBehaviour
     {
         if (currentInteractable != null) {
             currentInteractable.OnInteract.Invoke();
-        }
-    }
-
-    public void OpenStationInventory() {
-        if (currentInteractable != null) {
-            currentInteractable.OnStationInventoryOpened.Invoke();
         }
     }
     #endregion

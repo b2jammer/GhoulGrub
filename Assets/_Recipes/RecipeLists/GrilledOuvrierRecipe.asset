@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GrilledOuvrierRecipe
   m_EditorClassIdentifier: 
   recipes:
-  - target: {fileID: 0}
+  - target: {fileID: 11400000, guid: cddcdcf877ed020499fa1683b83e87bc, type: 2}
     targetQuantity: 1
     ingredients:
     - type: {fileID: 0}

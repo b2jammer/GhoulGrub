@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Variables")]
     [Tooltip("How fast, in unity units per second, the player can move")]
     public float speed = 5f;
+
+    public bool frozen;
     #endregion
 
     #region Private Variables
@@ -47,8 +49,11 @@ public class PlayerMovement : MonoBehaviour
     /// Moves the player in the given direction at the given speed.
     /// </summary>
     private void Move() {
-        Vector3 displacement = direction * speed * Time.deltaTime;
-        body.MovePosition(transform.position + displacement);
+        if (!frozen)
+        {
+            Vector3 displacement = direction * speed * Time.deltaTime;
+            body.MovePosition(transform.position + displacement);
+        }
     }
     #endregion
 }
