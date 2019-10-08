@@ -18,10 +18,12 @@ public class InventoryPanel : MonoBehaviour
             {
                 _inventory.OnAddItem.RemoveListener(AddItem);
                 _inventory.OnRemoveItem.RemoveListener(RemoveItem);
+                _inventory.OnClear.RemoveListener(ResetInventory);
             }
             _inventory = value;
             _inventory.OnAddItem.AddListener(AddItem);
             _inventory.OnRemoveItem.AddListener(RemoveItem);
+            _inventory.OnClear.AddListener(ResetInventory);
             ResetInventory();
         }
     }

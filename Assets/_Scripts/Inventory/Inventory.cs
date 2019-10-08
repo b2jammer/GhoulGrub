@@ -9,12 +9,12 @@ public class Inventory : MonoBehaviour
     [System.Serializable]
     public class ItemEvent : UnityEvent<FoodItem> { }
 
+    #region Public Variables
     public UnityEvent OnClear;
     public ItemEvent OnAddItem;
     public ItemEvent OnRemoveItem;
 
-    #region Private Variables
-    private Dictionary<FoodItem, int> items;
+    public Dictionary<FoodItem, int> items;
     #endregion
 
     #region MonoBehaviour Methods

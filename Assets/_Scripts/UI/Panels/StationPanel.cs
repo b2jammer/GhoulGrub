@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Closeable))]
@@ -8,6 +9,9 @@ public class StationPanel : MonoBehaviour
 {
     #region Public Variables
     public static StationPanel Instance;
+    public UnityEvent OnCombineAttempt;
+    public RecipeList.RecipeEvent OnCombineSucceed;
+    public UnityEvent OnCombineFail;
     #endregion
 
     #region Private Variables
@@ -19,6 +23,8 @@ public class StationPanel : MonoBehaviour
 
     private Station currentStation;
     private Closeable closeable;
+
+    private Inventory playerInventory;
     #endregion
 
     #region MonoBehaviour Methods
@@ -34,6 +40,7 @@ public class StationPanel : MonoBehaviour
         }
         closeable = GetComponent<Closeable>();
         closeable.ClosePanel();
+        playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
     #endregion
 
@@ -52,6 +59,24 @@ public class StationPanel : MonoBehaviour
         {
             closeable.ClosePanel();
         }
+    }
+
+    public void Combine()
+    {
+        RecipeList recipes = currentStation.recipeList;
+        RecipeList.Recipe foundRecipe = RecipeList.FindMatchingRecipe(itemPanel.InventoryData.items, recipes);
+        OnCombineAttempt.Invoke();
+        if (foundRecipe != null)
+        {
+            for (int i=0; i<foundRecipe.targetQuantity; i++)
+                playerInventory.AddInventoryItem(foundRecipe.target);
+            OnCombineSucceed.Invoke(foundRecipe);
+        }
+        else
+        {
+            OnCombineFail.Invoke();
+        }
+        itemPanel.InventoryData.ClearInventory();
     }
     #endregion
 }
