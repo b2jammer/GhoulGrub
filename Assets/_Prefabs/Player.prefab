@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyboardInput: {fileID: 0}
-  myInteractAgent: {fileID: 0}
+  myInteractAgent: {fileID: 5781376890325025444}
 --- !u!114 &7704093944176726341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,8 +119,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2429056116ab5a489d6ea8a62cf0eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
-  itemImages: []
+  OnClear:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnAddItem:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Inventory+ItemEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnRemoveItem:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Inventory+ItemEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &5781376890655644276
 GameObject:
   m_ObjectHideFlags: 0

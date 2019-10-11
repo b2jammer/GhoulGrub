@@ -38,14 +38,9 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
         isInteracting = keyboardInput.IsInteracting;
-        isOpeningStationInventory = keyboardInput.IsOpeningStation;
 
         if (isInteracting) {
             myInteractAgent.Interact();
-        }
-
-        if (isOpeningStationInventory) {
-            myInteractAgent.OpenStationInventory();
         }
     }
     #endregion

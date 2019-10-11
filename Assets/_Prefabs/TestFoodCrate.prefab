@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4138899845572067790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalScale: {x: 1.6077625, y: 0.99, z: 1.0118138}
   m_Children: []
   m_Father: {fileID: 4138899846365562565}
   m_RootOrder: 0
@@ -232,8 +232,8 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnInteract
+      - m_Target: {fileID: 3343279561039078244}
+        m_MethodName: GivePlayerFood
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -277,22 +277,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  OnStationInventoryOpened:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnInventoryOpened
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!95 &4138899846365562561
 Animator:
   serializedVersion: 3
@@ -324,6 +308,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397ac430bf9919c459eeb8e484d5e492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventory: {fileID: 0}
+  crateFood:
+  - {fileID: 11400000, guid: 4aeaec0316d5d0141ba80fa47c93c100, type: 2}
+  - {fileID: 11400000, guid: 4aeaec0316d5d0141ba80fa47c93c100, type: 2}
+  - {fileID: 11400000, guid: 4aeaec0316d5d0141ba80fa47c93c100, type: 2}
+  - {fileID: 11400000, guid: e8e7251f1dea3fa4fa56098abf63410b, type: 2}
+  - {fileID: 11400000, guid: bf7fcd925bcc86a4b94bd3abf8d18404, type: 2}
 --- !u!114 &4138899846365562562
 MonoBehaviour:
   m_ObjectHideFlags: 0

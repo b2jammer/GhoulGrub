@@ -1,60 +1,94 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    //public const int inventorySize = 9;
+    [System.Serializable]
+    public class ItemEvent : UnityEvent<FoodItem> { }
 
-    public FoodItem[] items;
-    public Image[] itemImages;
-    public Text[] itemCount; 
-    
+    #region Public Variables
+    public UnityEvent OnClear;
+    public ItemEvent OnAddItem;
+    public ItemEvent OnRemoveItem;
 
-    public void ClearInventory() {
-        for (int i = 0; i < items.Length; i++) {
-            items[i] = null;
-            itemImages[i].sprite = null;
-            itemImages[i].enabled = false;
-            itemCount[i].text = "0";
+    public Dictionary<FoodItem, int> items;
+    #endregion
+
+    #region MonoBehaviour Methods
+    private void Awake()
+    {
+        items = new Dictionary<FoodItem, int>();
+    }
+    #endregion
+
+    #region Script-Specific Methods
+    public int Count(FoodItem item)
+    {
+        if (items.ContainsKey(item))
+        {
+            return items[item];
+        }
+        else //Does not have this item, thus 0 copies.
+        {
+            return 0;
         }
     }
 
-    public void RemoveInventoryItem(FoodItem item) {
-        for (int i = 0; i < items.Length; i++) {
-            if (items[i] == item) {
-
-                if (itemCount[i].text == "1") {
-                    items[i] = null;
-                    itemImages[i].sprite = null;
-                    itemImages[i].enabled = false;
-                    itemCount[i].text = "0";
-                }
-                else {
-                    itemCount[i].text = "" + (int.Parse(itemCount[i].text) - 1);
-                }
-
-                return;
-            }
+    public int TotalItems()
+    {
+        int sum = 0;
+        foreach (FoodItem foodType in items.Keys)
+        {
+            sum += Count(foodType);
         }
+        return sum;
+    }
+
+    public void ClearInventory() {
+        items = new Dictionary<FoodItem, int>();
+        OnClear.Invoke();
+    }
+
+    /// <summary>
+    /// Attempts to remove one copy of the specified item.
+    /// </summary>
+    /// <param name="item">The item to remove from this inventory.</param>
+    /// <returns>True if the item was successfully removed, false otherwise.</returns>
+    public bool RemoveInventoryItem(FoodItem item) {
+        if (items.ContainsKey(item))
+        {
+            items[item] -= 1;
+            if (items[item] <= 0)
+            {
+                items.Remove(item);
+            }
+            OnRemoveItem.Invoke(item);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public IEnumerable GetFoodTypes()
+    {
+        return items.Keys;
     }
 
     public void AddInventoryItem(FoodItem item) {
-        for (int i = 0; i < items.Length; i++) {
-            if (items[i] == null) {
-                items[i] = item;
-                itemImages[i].sprite = item.sprite;
-                itemImages[i].enabled = true;
-                itemCount[i].text = "1";
-                return;
-            }
-            else {
-                if (items[i] == item) {
-                    itemCount[i].text = "" + (int.Parse(itemCount[i].text) + 1);
-                    return;
-                }
-            }
+        if (items.ContainsKey(item))
+        {
+            items[item] += 1;
         }
+        else
+        {
+            items.Add(item, 1);
+        }
+        OnAddItem.Invoke(item);
     }
+    #endregion
 }
