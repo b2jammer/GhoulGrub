@@ -1229,6 +1229,12 @@ PrefabInstance:
       propertyPath: stationTitle
       value: Mixing Bowl
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: recipeList
+      value: 
+      objectReference: {fileID: 11400000, guid: c37896fc2be292c4180848c2be96d820,
+        type: 2}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2323,6 +2329,12 @@ PrefabInstance:
       propertyPath: stationTitle
       value: Pot
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: recipeList
+      value: 
+      objectReference: {fileID: 11400000, guid: 15d1455d0db4e054782429985383e2a6,
+        type: 2}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3958,7 +3970,8 @@ PrefabInstance:
         type: 3}
       propertyPath: recipeList
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 5ae552d6e66fa4f4cb6b150f6e226e6b,
+        type: 2}
     - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: stationTitle
@@ -4676,6 +4689,12 @@ PrefabInstance:
       propertyPath: stationTitle
       value: Cutting Board
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: recipeList
+      value: 
+      objectReference: {fileID: 11400000, guid: f440ff3ecd324f644b75eaaa0b28b770,
+        type: 2}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5590,7 +5609,7 @@ PrefabInstance:
     - target: {fileID: 3343279561039078244, guid: d537e0fc19f5b764db1ff4e17a207374,
         type: 3}
       propertyPath: crateFood.Array.size
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3343279561039078244, guid: d537e0fc19f5b764db1ff4e17a207374,
         type: 3}
@@ -5614,6 +5633,48 @@ PrefabInstance:
       propertyPath: crateFood.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: fb13bc3e234259543b1674701808e924,
+        type: 2}
+    - target: {fileID: 3343279561039078244, guid: d537e0fc19f5b764db1ff4e17a207374,
+        type: 3}
+      propertyPath: crateFood.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 95fd73e1a2160524398ec45ece328668,
+        type: 2}
+    - target: {fileID: 3343279561039078244, guid: d537e0fc19f5b764db1ff4e17a207374,
+        type: 3}
+      propertyPath: crateFood.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 17744aa41bd4087479108ae666ffd850,
+        type: 2}
+    - target: {fileID: 3343279561039078244, guid: d537e0fc19f5b764db1ff4e17a207374,
+        type: 3}
+      propertyPath: crateFood.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4aeaec0316d5d0141ba80fa47c93c100,
+        type: 2}
+    - target: {fileID: 3343279561039078244, guid: d537e0fc19f5b764db1ff4e17a207374,
+        type: 3}
+      propertyPath: crateFood.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: c61e14354c6056f499f279f450f5cbb2,
+        type: 2}
+    - target: {fileID: 3343279561039078244, guid: d537e0fc19f5b764db1ff4e17a207374,
+        type: 3}
+      propertyPath: crateFood.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4610657755882934a87cb104cfad71cd,
+        type: 2}
+    - target: {fileID: 3343279561039078244, guid: d537e0fc19f5b764db1ff4e17a207374,
+        type: 3}
+      propertyPath: crateFood.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: fbf9d59807a721f4fa53606772185e1b,
+        type: 2}
+    - target: {fileID: 3343279561039078244, guid: d537e0fc19f5b764db1ff4e17a207374,
+        type: 3}
+      propertyPath: crateFood.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 40a4193fc86212948a234c809adee5cd,
         type: 2}
     - target: {fileID: 4138899846718470441, guid: d537e0fc19f5b764db1ff4e17a207374,
         type: 3}

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209ce924723fbf54384d169039704664, type: 3}
+  m_Name: MixingBowlRecipes
+  m_EditorClassIdentifier: 
+  recipes:
+  - target: {fileID: 11400000, guid: d5694d7877701df408d482c1acc4e1cb, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: bf7fcd925bcc86a4b94bd3abf8d18404, type: 2}
+      quantity: 1
+  - target: {fileID: 11400000, guid: 7e6692fd65ac2ce4eb353ca8652605cc, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 17744aa41bd4087479108ae666ffd850, type: 2}
+      quantity: 1
+  - target: {fileID: 11400000, guid: 7c7978722eabfc34bb15a01647e23ac1, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: fb13bc3e234259543b1674701808e924, type: 2}
+      quantity: 1
