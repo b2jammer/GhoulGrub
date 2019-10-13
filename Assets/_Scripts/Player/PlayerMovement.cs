@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
     #region Public Variables
     [Header("Controllers/References")]
     [Tooltip("The level's keyboard controller")]
@@ -29,15 +28,19 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        // get the direction from the keyboard controller
+    //void Update() {
+    //    // get the direction from the keyboard controller
+    //    direction = keyboardInput.Direction;
+
+    //    Move();
+    //}
+
+    private void FixedUpdate() {
         direction = keyboardInput.Direction;
 
         Move();
@@ -49,9 +52,8 @@ public class PlayerMovement : MonoBehaviour
     /// Moves the player in the given direction at the given speed.
     /// </summary>
     private void Move() {
-        if (!frozen)
-        {
-            Vector3 displacement = direction * speed * Time.deltaTime;
+        if (!frozen) {
+            Vector3 displacement = direction * speed * Time.fixedDeltaTime;
             body.MovePosition(transform.position + displacement);
         }
     }
