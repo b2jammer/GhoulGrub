@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ouvrier
   m_EditorClassIdentifier: 
   itemName: Ouvrier
-  sprite: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
+  sprite: {fileID: 21300000, guid: 6a8b8e475ff065f499a4d3cbeba536b9, type: 3}
   type: 6
   isCore: 0
