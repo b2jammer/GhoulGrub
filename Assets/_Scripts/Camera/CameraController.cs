@@ -18,7 +18,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateCamera();
+        //RotateCamera();
+
+        transform.position = playerTransform.position + cameraOffset;
+        transform.LookAt(playerTransform);
     }
 
     void RotateCamera() {
@@ -38,9 +41,6 @@ public class CameraController : MonoBehaviour
 
         Quaternion rotation = Quaternion.AngleAxis(rotationAmount, Vector3.up);
         cameraOffset = rotation * cameraOffset;
-
-        transform.position = playerTransform.position + cameraOffset;
-        transform.LookAt(playerTransform);
         
     }
 }

@@ -20,6 +20,8 @@ public class StationPanel : MonoBehaviour
 
     [SerializeField]
     private Text label;
+    [SerializeField]
+    private Image icon;
 
     private Station currentStation;
     private Closeable closeable;
@@ -50,6 +52,7 @@ public class StationPanel : MonoBehaviour
         currentStation = station;
         itemPanel.InventoryData = station.StationInventory;
         label.text = station.stationTitle;
+        icon.sprite = station.recipeList.listIcon;
         closeable.OpenPanel();
     }
 
