@@ -19,7 +19,8 @@ public class RecipeList : ScriptableObject
         public int targetQuantity;
         public IngredientEntry[] ingredients;
     }
-
+    public string listTitle;
+    public Sprite listIcon;
     [System.Serializable]
     public class RecipeEvent : UnityEvent<RecipeList.Recipe> { }
 

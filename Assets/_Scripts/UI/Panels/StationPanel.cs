@@ -53,7 +53,7 @@ public class StationPanel : MonoBehaviour
         closeable.OpenPanel();
     }
 
-    public void Closetation(Station station)
+    public void CloseStation(Station station)
     {
         if (currentStation == station)
         {

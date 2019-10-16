@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Interactable))]
 [RequireComponent(typeof(Inventory))]
+[ExecuteInEditMode]
 public class Station : MonoBehaviour
 {
     #region Public Variables
     public string stationTitle;
     public RecipeList recipeList;
+
+    public Image iconRenderer;
     public Inventory StationInventory
     {
         get
@@ -30,6 +34,18 @@ public class Station : MonoBehaviour
         interactable = GetComponent<Interactable>();
         _stationInventory = GetComponent<Inventory>();
     }
+
+    private void Update()
+    {
+        if (recipeList != null)
+        {
+            stationTitle = recipeList.listTitle;
+            if (iconRenderer != null)
+            {
+                iconRenderer.sprite = recipeList.listIcon;
+            }
+        }
+    }
     #endregion
 
     #region Script Specific Scripts
@@ -37,6 +53,12 @@ public class Station : MonoBehaviour
     {
         StationPanel stationPanel = StationPanel.Instance;
         stationPanel.OpenStation(this);
+    }
+
+    public void CloseStationPanel()
+    {
+        StationPanel stationPanel = StationPanel.Instance;
+        stationPanel.CloseStation(this);
     }
     #endregion
 }
