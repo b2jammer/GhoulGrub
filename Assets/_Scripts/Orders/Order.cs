@@ -1,15 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Order : MonoBehaviour {
-    #region Public Variables
-    public float totalTime;
-    public float currentTime;
 
+    [HideInInspector]
+    public UnityEvent<int> OnOrderTimedOut;
+    [HideInInspector]
+    public UnityEvent<int> OnOrderCompleted;
+
+    #region Public Variables
+    [HideInInspector]
+    public float totalTime;
+    [HideInInspector]
+    public float currentTime;
+    [HideInInspector]
+    public int orderNumber;
+
+    [HideInInspector]
     public Dictionary<MealItem, int> orderFoodItems;
+    [HideInInspector]
     public Dictionary<MealItem, int> preppedFoodItems;
     #endregion
+
+    private void Awake() {
+        preppedFoodItems = new Dictionary<MealItem, int>();
+    }
 
     #region Default Methods
     // Start is called before the first frame update
@@ -19,7 +36,7 @@ public class Order : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        currentTime -= Time.deltaTime;
     }
     #endregion
 
@@ -39,6 +56,12 @@ public class Order : MonoBehaviour {
         }
         else {
             preppedFoodItems.Remove(preppedItem);
+        }
+    }
+
+    private void CheckTime() {
+        if (currentTime <= 0) {
+            OnOrderTimedOut.Invoke(orderNumber);
         }
     }
     #endregion

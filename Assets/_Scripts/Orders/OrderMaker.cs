@@ -2,19 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class OrderMaker : MonoBehaviour {
+    public class OrderEvent : UnityEvent<Order> { }
+
     public MealItem[] availableMeals;
     public GameObject orderPrefab;
+    public Dictionary<int, Order> orders;
+
+    public OrderEvent OnOrderMade;
+    public OrderEvent OnOrderRemoved;
 
     private int totalMealRank;
     private float increaseRankProbability;
     private int rankIncreaseAmount;
     private Dictionary<int, List<MealItem>> rankedFoodItems;
+    private int orderNumber;
 
     private void Awake() {
         increaseRankProbability = 0.0f;
         rankIncreaseAmount = 1;
+        orderNumber = 0;
+        orders = new Dictionary<int, Order>();
         rankedFoodItems = new Dictionary<int, List<MealItem>>();
     }
 
@@ -40,6 +50,19 @@ public class OrderMaker : MonoBehaviour {
         orderComponent.totalTime = totalTime;
         orderComponent.currentTime = currentTime;
         orderComponent.orderFoodItems = orderItems;
+        orderComponent.orderNumber = orderNumber;
+        orderComponent.OnOrderTimedOut.AddListener(RemoveOrder);
+
+        orders.Add(orderNumber++, orderComponent);
+
+        OnOrderMade.Invoke(orderComponent);
+    }
+
+    private void RemoveOrder(int orderNumber) {
+        if (orders.ContainsKey(orderNumber)) {
+            OnOrderRemoved.Invoke(orders[orderNumber]);
+            orders.Remove(orderNumber);
+        }
     }
 
     private void SetTime(out float totalTime, out float currentTime) {
