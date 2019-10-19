@@ -7,8 +7,8 @@ public class Order : MonoBehaviour {
     public float totalTime;
     public float currentTime;
 
-    public Dictionary<FoodItem, int> orderFoodItems;
-    public Dictionary<FoodItem, int> preppedFoodItems;
+    public Dictionary<MealItem, int> orderFoodItems;
+    public Dictionary<MealItem, int> preppedFoodItems;
     #endregion
 
     #region Default Methods
@@ -24,7 +24,7 @@ public class Order : MonoBehaviour {
     #endregion
 
     #region Script Specific Methods
-    public void AddPreppedItem(FoodItem preppedItem) {
+    public void AddPreppedItem(MealItem preppedItem) {
         if (preppedFoodItems.ContainsKey(preppedItem)) {
             preppedFoodItems[preppedItem]++;
         }
@@ -33,7 +33,7 @@ public class Order : MonoBehaviour {
         }
     }
 
-    public void RemovePreppedItem(FoodItem preppedItem) {
+    public void RemovePreppedItem(MealItem preppedItem) {
         if (preppedFoodItems.ContainsKey(preppedItem) && preppedFoodItems[preppedItem] > 1) {
             preppedFoodItems[preppedItem]--;
         }

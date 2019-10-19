@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OrderMaker : MonoBehaviour
-{
+public class OrderMaker : MonoBehaviour {
     public MealItem[] availableMeals;
-
-    private float totalTime;
-    private float currentTime;
-    private Dictionary<MealItem, int> orderItems;
+    public GameObject orderPrefab;
 
     private int totalMealRank;
     private float increaseRankProbability;
     private int rankIncreaseAmount;
     private Dictionary<int, List<MealItem>> rankedFoodItems;
 
-    private void Start() {
-        SetRankedItems();
+    private void Awake() {
         increaseRankProbability = 0.0f;
         rankIncreaseAmount = 1;
+        rankedFoodItems = new Dictionary<int, List<MealItem>>();
+    }
+
+    private void Start() {
+        SetRankedItems();
+
     }
 
     private void Update() {
@@ -27,26 +28,44 @@ public class OrderMaker : MonoBehaviour
     }
 
     private void MakeOrder() {
+        Dictionary<MealItem, int> orderItems = new Dictionary<MealItem, int>();
 
+        SetTime(out float totalTime, out float currentTime);
+        SetOrderItems(orderItems);
+
+        var order = Instantiate(orderPrefab);
+        order.transform.position = transform.position;
+
+        var orderComponent = order.GetComponent<Order>();
+        orderComponent.totalTime = totalTime;
+        orderComponent.currentTime = currentTime;
+        orderComponent.orderFoodItems = orderItems;
     }
 
-    private void SetTime() {
+    private void SetTime(out float totalTime, out float currentTime) {
         // TODO: Have the time take into account restaurant rating, number of meal items 
         // and the rank of meal items
         totalTime = Random.Range(30, 60);
         currentTime = totalTime;
     }
 
-    private void SetOrderItems() {
-        // TODO: Have the number of items in the order take into account restaurant rating
-        // as well as meal rank
+    private void SetOrderItems(Dictionary<MealItem, int> orderMealItems) {
+
         int[] mealRanks = GetMealRanks();
 
+        foreach (var mealRank in mealRanks) {
+            int numberOfMealItemsWithMealRank = rankedFoodItems[mealRank].Count;
+            int randomMealWithMealRank = Random.Range(0, numberOfMealItemsWithMealRank - 1);
 
+            var mealItem = rankedFoodItems[mealRank][randomMealWithMealRank];
+
+            AddMealItemToOrder(orderMealItems, mealItem);
+        }
     }
 
     private int[] GetMealRanks() {
-        int numberOfMealItems = Random.Range(1, 5);
+
+        int numberOfMealItems = DetermineNumberOfMealItems();
 
         int[] mealRanks = new int[numberOfMealItems];
 
@@ -55,7 +74,7 @@ public class OrderMaker : MonoBehaviour
 
             if (IncreaseRank()) {
                 if (mealRank <= 6) {
-                    mealRank++;
+                    mealRank += rankIncreaseAmount;
                 }
             }
 
@@ -63,6 +82,13 @@ public class OrderMaker : MonoBehaviour
         }
 
         return mealRanks;
+    }
+
+    private int DetermineNumberOfMealItems() {
+        // TODO: Have the number of items in the order take into account restaurant rating
+        // as well as meal rank
+        int numberOfMealItems = Random.Range(1, 5);
+        return numberOfMealItems;
     }
 
     private bool IncreaseRank() {
@@ -97,12 +123,12 @@ public class OrderMaker : MonoBehaviour
         }
     }
 
-    private void AddMealItem(MealItem mealItem) {
+    private void AddMealItemToOrder(Dictionary<MealItem, int> orderItems, MealItem mealItem) {
         if (orderItems.ContainsKey(mealItem)) {
             orderItems[mealItem]++;
         }
         else {
-           orderItems.Add(mealItem, 1);
+            orderItems.Add(mealItem, 1);
         }
     }
 }
