@@ -5,10 +5,16 @@ using UnityEngine.Events;
 
 public class Order : MonoBehaviour {
 
+    public class OrderEvent : UnityEvent<int> { }
+
     [HideInInspector]
-    public UnityEvent<int> OnOrderTimedOut;
+    public OrderEvent OnOrderTimedOut;
     [HideInInspector]
-    public UnityEvent<int> OnOrderCompleted;
+    public OrderEvent OnOrderCompleted;
+    [HideInInspector]
+    public UnityEvent OnPrepItemAdded;
+    [HideInInspector]
+    public UnityEvent OnPrepItemRemoved;
 
     #region Public Variables
     [HideInInspector]
@@ -26,6 +32,10 @@ public class Order : MonoBehaviour {
 
     private void Awake() {
         preppedFoodItems = new Dictionary<MealItem, int>();
+        OnPrepItemAdded = new UnityEvent();
+        OnPrepItemRemoved = new UnityEvent();
+        OnOrderTimedOut = new OrderEvent();
+        OnOrderCompleted = new OrderEvent();
     }
 
     #region Default Methods
@@ -48,6 +58,7 @@ public class Order : MonoBehaviour {
         else {
             preppedFoodItems.Add(preppedItem, 1);
         }
+        OnPrepItemAdded.Invoke();
     }
 
     public void RemovePreppedItem(MealItem preppedItem) {
@@ -57,6 +68,7 @@ public class Order : MonoBehaviour {
         else {
             preppedFoodItems.Remove(preppedItem);
         }
+        OnPrepItemRemoved.Invoke();
     }
 
     private void CheckTime() {

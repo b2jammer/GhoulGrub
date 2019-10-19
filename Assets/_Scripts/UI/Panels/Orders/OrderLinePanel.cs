@@ -24,15 +24,18 @@ public class OrderLinePanel : MonoBehaviour {
     }
 
     private void Start() {
-        orderMaker.OnOrderMade.AddListener(AddOrder);
-        orderMaker.OnOrderRemoved.AddListener(RemoveOrder);
+        if (orderMaker != null) {
+            orderMaker.OnOrderMade.AddListener(AddOrder);
+            orderMaker.OnOrderRemoved.AddListener(RemoveOrder);
+        }
+        
     }
     #endregion
 
     public void AddOrder(Order order) {
 
         OrderPanel newOrderPanel = GameObject.Instantiate(orderPanelPrefab, panelContainer);
-        newOrderPanel.orderLinePanel = this;
+        newOrderPanel.Order = order;
         orderPanels.Add(order, newOrderPanel);
 
     }

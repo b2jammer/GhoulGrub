@@ -5,20 +5,29 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class OrderMaker : MonoBehaviour {
-    public class OrderEvent : UnityEvent<Order> { }
+    public class OrderMakerEvent : UnityEvent<Order> { }
 
+    [HideInInspector]
+    public Dictionary<int, Order> orders;
     public MealItem[] availableMeals;
     public GameObject orderPrefab;
-    public Dictionary<int, Order> orders;
+    public float timeTilFirstOrder = 10f;
+    [Range(1, 7)]
+    public int maxMealRank = 7;
 
-    public OrderEvent OnOrderMade;
-    public OrderEvent OnOrderRemoved;
+    [HideInInspector]
+    public OrderMakerEvent OnOrderMade;
+    [HideInInspector]
+    public OrderMakerEvent OnOrderRemoved;
 
     private int totalMealRank;
     private float increaseRankProbability;
     private int rankIncreaseAmount;
     private Dictionary<int, List<MealItem>> rankedFoodItems;
     private int orderNumber;
+    private float timeTilNextOrder;
+    private int minMealRank = 1;
+
 
     private void Awake() {
         increaseRankProbability = 0.0f;
@@ -26,11 +35,13 @@ public class OrderMaker : MonoBehaviour {
         orderNumber = 0;
         orders = new Dictionary<int, Order>();
         rankedFoodItems = new Dictionary<int, List<MealItem>>();
+        OnOrderMade = new OrderMakerEvent();
+        OnOrderRemoved = new OrderMakerEvent();
     }
 
     private void Start() {
         SetRankedItems();
-
+        Invoke("MakeOrder", timeTilFirstOrder);
     }
 
     private void Update() {
@@ -39,9 +50,10 @@ public class OrderMaker : MonoBehaviour {
 
     private void MakeOrder() {
         Dictionary<MealItem, int> orderItems = new Dictionary<MealItem, int>();
+        int totalOrderRank = 0;
 
         SetTime(out float totalTime, out float currentTime);
-        SetOrderItems(orderItems);
+        SetOrderItems(orderItems, ref totalOrderRank);
 
         var order = Instantiate(orderPrefab);
         order.transform.position = transform.position;
@@ -56,6 +68,9 @@ public class OrderMaker : MonoBehaviour {
         orders.Add(orderNumber++, orderComponent);
 
         OnOrderMade.Invoke(orderComponent);
+
+        DetermineTimeUntilNextOrder();
+        Invoke("MakeOrder", timeTilNextOrder);
     }
 
     private void RemoveOrder(int orderNumber) {
@@ -72,9 +87,9 @@ public class OrderMaker : MonoBehaviour {
         currentTime = totalTime;
     }
 
-    private void SetOrderItems(Dictionary<MealItem, int> orderMealItems) {
+    private void SetOrderItems(Dictionary<MealItem, int> orderMealItems, ref int totalOrderRank) {
 
-        int[] mealRanks = GetMealRanks();
+        int[] mealRanks = GetMealRanks(ref totalOrderRank);
 
         foreach (var mealRank in mealRanks) {
             int numberOfMealItemsWithMealRank = rankedFoodItems[mealRank].Count;
@@ -86,30 +101,28 @@ public class OrderMaker : MonoBehaviour {
         }
     }
 
-    private int[] GetMealRanks() {
+    private int[] GetMealRanks(ref int totalOrderRank) {
 
         int numberOfMealItems = DetermineNumberOfMealItems();
 
         int[] mealRanks = new int[numberOfMealItems];
 
         for (int i = 0; i < numberOfMealItems; i++) {
-            int mealRank = Random.Range(1, 7);
+            int mealRank = Random.Range(minMealRank, maxMealRank);
 
             if (IncreaseRank()) {
                 if (mealRank <= 6) {
                     mealRank += rankIncreaseAmount;
                 }
             }
-
+            totalOrderRank += mealRank;
             mealRanks[i] = mealRank;
         }
-
         return mealRanks;
     }
 
     private int DetermineNumberOfMealItems() {
         // TODO: Have the number of items in the order take into account restaurant rating
-        // as well as meal rank
         int numberOfMealItems = Random.Range(1, 5);
         return numberOfMealItems;
     }
@@ -133,6 +146,12 @@ public class OrderMaker : MonoBehaviour {
         else {
             increaseRankProbability = 0.0f;
         }
+    }
+
+    private void DetermineTimeUntilNextOrder() {
+        // TODO: Have this take into account the tentacular likes and 
+        // total meals already out
+        timeTilNextOrder = Random.Range(30, 90);
     }
 
     private void SetRankedItems() {
