@@ -47,6 +47,8 @@ public class Order : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         currentTime -= Time.deltaTime;
+
+        CheckTime();
     }
     #endregion
 

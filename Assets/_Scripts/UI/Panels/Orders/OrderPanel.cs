@@ -3,27 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Globalization;
+using UnityEngine.Events;
 
-public class OrderPanel : MonoBehaviour
-{
-    private Order order;
+public class OrderPanel : MonoBehaviour {
+    [HideInInspector]
+    public UnityEvent OnDescriptionButtonPressed;
+    [HideInInspector]
+    public Order order;
+
+
     [SerializeField]
     private Text timerText;
     [SerializeField]
     private OrderDescriptionPanel descriptionPanelPrefab;
     [SerializeField]
-    private RectTransform parent;
+    private RectTransform orderPanelImageTransform;
 
-    public Order Order {
-        get {
-            return order;
-        }
-        set {
-            order = value;
-        }
-    }
+    private RectTransform canvas;
+    private OrderDescriptionPanel orderDescriptionPanel;
+
 
     private void Awake() {
+        OnDescriptionButtonPressed = new UnityEvent();
+        canvas = GameObject.Find("Primary Canvas").GetComponent<RectTransform>();
+    }
+
+    private void Start() {
         if (order != null) {
             CreateOrderDescriptionPanel();
         }
@@ -39,7 +44,27 @@ public class OrderPanel : MonoBehaviour
     }
 
     private void CreateOrderDescriptionPanel() {
-        OrderDescriptionPanel orderDescription = GameObject.Instantiate(descriptionPanelPrefab, parent);
-        orderDescription.Order = order;
+        orderDescriptionPanel = GameObject.Instantiate(descriptionPanelPrefab, canvas);
+        orderDescriptionPanel.order = order;
+        orderDescriptionPanel.gameObject.SetActive(false);
+        orderDescriptionPanel.transform.position = orderPanelImageTransform.transform.position;
+        //orderDescriptionPanel.transform.position = new Vector3(
+        //    this.transform.position.x,
+        //    this.transform.position.y - 20f,
+        //    this.transform.position.z
+        //    );
     }
+
+    public void ToggleViewDescriptionPanel() {
+        if (orderDescriptionPanel != null) {
+            if (orderDescriptionPanel.gameObject.activeInHierarchy) {
+                orderDescriptionPanel.gameObject.SetActive(false);
+            }
+            else {
+                orderDescriptionPanel.gameObject.SetActive(true);
+            }
+        }
+    }
+
+
 }

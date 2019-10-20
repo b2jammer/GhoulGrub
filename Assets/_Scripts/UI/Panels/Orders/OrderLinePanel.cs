@@ -35,7 +35,7 @@ public class OrderLinePanel : MonoBehaviour {
     public void AddOrder(Order order) {
 
         OrderPanel newOrderPanel = GameObject.Instantiate(orderPanelPrefab, panelContainer);
-        newOrderPanel.Order = order;
+        newOrderPanel.order = order;
         orderPanels.Add(order, newOrderPanel);
 
     }
@@ -43,8 +43,10 @@ public class OrderLinePanel : MonoBehaviour {
     public void RemoveOrder(Order order) {
         if (orderPanels.ContainsKey(order)) {
             GameObject removed = order.gameObject;
+            GameObject orderPanel = orderPanels[order].gameObject;
             orderPanels.Remove(order);
             Destroy(removed);
+            Destroy(orderPanel);
         }
     }
 }

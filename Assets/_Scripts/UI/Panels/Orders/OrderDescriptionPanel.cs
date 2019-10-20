@@ -2,36 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class OrderDescriptionPanel : MonoBehaviour
+public class OrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField]
-    private Text description;
-    [SerializeField]
-    private Closeable closeable;
-    private Order order;
+    [HideInInspector]
+    public Order order;
+
+    [HideInInspector]
+    public Text description;
+
+
     private string orderItemDescription;
 
-    public Order Order {
-        get {
-            return order;
-        }
-        set {
-            order = value;
-        }
-    }
-
-    private void Awake() {
+    private void Start() {
         if (order != null) {
             order.OnPrepItemAdded.AddListener(UpdateOrderDescription);
             order.OnPrepItemRemoved.AddListener(UpdateOrderDescription);
 
             SetOrderItemDescription();
-        }
-    }
-
-    private void Start() {
-        if (order != null) {
             UpdateOrderDescription();
         }
     }
@@ -62,8 +51,14 @@ public class OrderDescriptionPanel : MonoBehaviour
         description.text = orderItemDescription + preppedItemDescription;
     }
 
-    private void OnMouseDown() {
-        closeable.ClosePanel();
+    public void OnPointerDown(PointerEventData eventData) {
+        if (eventData.button == PointerEventData.InputButton.Right) {
+            if (this.gameObject.activeInHierarchy) {
+                this.gameObject.SetActive(false);
+            }
+            else {
+                this.gameObject.SetActive(true);
+            }
+        }
     }
-
 }
