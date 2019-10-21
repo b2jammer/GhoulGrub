@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OrderLinePanel : MonoBehaviour {
-    public OrderMaker orderMaker;
 
+    public OrderMaker orderMaker;
+    [HideInInspector]
+    public Dictionary<OrderPanel, OrderDescriptionPanel> descriptionPanels;
     #region Private Variables
 
     [SerializeField]
@@ -21,6 +24,7 @@ public class OrderLinePanel : MonoBehaviour {
     #region MonoBehaviour Methods
     private void Awake() {
         orderPanels = new Dictionary<Order, OrderPanel>();
+        descriptionPanels = new Dictionary<OrderPanel, OrderDescriptionPanel>();
     }
 
     private void Start() {
@@ -36,17 +40,27 @@ public class OrderLinePanel : MonoBehaviour {
 
         OrderPanel newOrderPanel = GameObject.Instantiate(orderPanelPrefab, panelContainer);
         newOrderPanel.order = order;
+        newOrderPanel.orderLinePanel = this;
         orderPanels.Add(order, newOrderPanel);
 
     }
 
     public void RemoveOrder(Order order) {
         if (orderPanels.ContainsKey(order)) {
-            GameObject removed = order.gameObject;
-            GameObject orderPanel = orderPanels[order].gameObject;
+            GameObject removedOrderObject = order.gameObject;
+
+            OrderPanel relatedOrderPanel = orderPanels[order];
+            GameObject relatedOrderPanelObject = relatedOrderPanel.gameObject;
+
+
+            GameObject relatedDescriptionPanelObject = descriptionPanels[relatedOrderPanel].gameObject;
+
             orderPanels.Remove(order);
-            Destroy(removed);
-            Destroy(orderPanel);
+            descriptionPanels.Remove(relatedOrderPanel);
+
+            Destroy(removedOrderObject);
+            Destroy(relatedOrderPanelObject);
+            Destroy(relatedDescriptionPanelObject);
         }
     }
 }

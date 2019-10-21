@@ -9,6 +9,8 @@ public class OrderPanel : MonoBehaviour {
     [HideInInspector]
     public UnityEvent OnDescriptionButtonPressed;
     [HideInInspector]
+    public OrderLinePanel orderLinePanel;
+    [HideInInspector]
     public Order order;
 
 
@@ -28,14 +30,19 @@ public class OrderPanel : MonoBehaviour {
         canvas = GameObject.Find("Primary Canvas").GetComponent<RectTransform>();
     }
 
-    private void Start() {
+    private IEnumerator Start() {
+
+
         if (order != null) {
-            CreateOrderDescriptionPanel();
+            yield return WaitToCreateOrderDescription();
         }
+
+        yield return null;
     }
 
     private void Update() {
         UpdateTimer();
+        CheckPositionChanged();
     }
 
     private void UpdateTimer() {
@@ -47,12 +54,34 @@ public class OrderPanel : MonoBehaviour {
         orderDescriptionPanel = GameObject.Instantiate(descriptionPanelPrefab, canvas);
         orderDescriptionPanel.order = order;
         orderDescriptionPanel.gameObject.SetActive(false);
-        orderDescriptionPanel.transform.position = orderPanelImageTransform.transform.position;
-        //orderDescriptionPanel.transform.position = new Vector3(
-        //    this.transform.position.x,
-        //    this.transform.position.y - 20f,
-        //    this.transform.position.z
-        //    );
+        orderDescriptionPanel.transform.position = orderPanelImageTransform.position;
+
+        orderLinePanel.descriptionPanels.Add(this, orderDescriptionPanel);
+    }
+
+    private void UpdateDescriptionPanelPosition() {
+        orderDescriptionPanel.transform.position = orderPanelImageTransform.position;
+    }
+
+    IEnumerator WaitToCreateOrderDescription() {
+        yield return new WaitForEndOfFrame();
+
+        CreateOrderDescriptionPanel();
+
+        yield return null;
+    }
+
+    IEnumerator WaitToUpdateDescriptionPanelPosition() {
+        yield return new WaitForEndOfFrame();
+        UpdateDescriptionPanelPosition();
+        yield return null;
+    }
+
+    private void CheckPositionChanged() {
+        if (transform.hasChanged) {
+            StartCoroutine(WaitToUpdateDescriptionPanelPosition());
+            transform.hasChanged = false;
+        }
     }
 
     public void ToggleViewDescriptionPanel() {

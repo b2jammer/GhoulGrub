@@ -93,7 +93,7 @@ public class OrderMaker : MonoBehaviour {
 
         foreach (var mealRank in mealRanks) {
             int numberOfMealItemsWithMealRank = rankedFoodItems[mealRank].Count;
-            int randomMealWithMealRank = Random.Range(0, numberOfMealItemsWithMealRank - 1);
+            int randomMealWithMealRank = Random.Range(0, numberOfMealItemsWithMealRank);
 
             var mealItem = rankedFoodItems[mealRank][randomMealWithMealRank];
 
@@ -108,10 +108,10 @@ public class OrderMaker : MonoBehaviour {
         int[] mealRanks = new int[numberOfMealItems];
 
         for (int i = 0; i < numberOfMealItems; i++) {
-            int mealRank = Random.Range(minMealRank, maxMealRank);
+            int mealRank = Random.Range(minMealRank, maxMealRank + 1);
 
             if (IncreaseRank()) {
-                if (mealRank <= 6) {
+                if (mealRank <= maxMealRank - 1) {
                     mealRank += rankIncreaseAmount;
                 }
             }
@@ -123,7 +123,7 @@ public class OrderMaker : MonoBehaviour {
 
     private int DetermineNumberOfMealItems() {
         // TODO: Have the number of items in the order take into account restaurant rating
-        int numberOfMealItems = Random.Range(1, 5);
+        int numberOfMealItems = Random.Range(1, 6);
         return numberOfMealItems;
     }
 
@@ -151,7 +151,7 @@ public class OrderMaker : MonoBehaviour {
     private void DetermineTimeUntilNextOrder() {
         // TODO: Have this take into account the tentacular likes and 
         // total meals already out
-        timeTilNextOrder = Random.Range(30, 90);
+        timeTilNextOrder = Random.Range(15, 25);
     }
 
     private void SetRankedItems() {
