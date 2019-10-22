@@ -7,10 +7,12 @@ using System.Globalization;
 public class TentacularLikes : MonoBehaviour
 {
     [Range(1, 5)]
-    public static float likes = 1f;
+    public static float likes = 0f;
 
-    public static float totalLikes = 1f;
-    public static float totalCustomers = 1f;
+
+
+    public static float totalLikes = 0f;
+    public static float totalCustomers = 0f;
 
     private Text likesText;
 
@@ -22,7 +24,7 @@ public class TentacularLikes : MonoBehaviour
         likesText.text = likes.ToString("F2", CultureInfo.InvariantCulture);
     }
 
-    private void CalculateLikeValue() {
+    public static void CalculateLikeValue() {
         likes = totalLikes / totalCustomers;
     }
 }

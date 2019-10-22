@@ -61,4 +61,9 @@ public class OrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
             }
         }
     }
+
+    private void OnDestroy() {
+        order.OnPrepItemAdded.RemoveListener(UpdateOrderDescription);
+        order.OnPrepItemRemoved.RemoveListener(UpdateOrderDescription);
+    }
 }

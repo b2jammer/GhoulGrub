@@ -30,6 +30,8 @@ public class Order : MonoBehaviour {
     public Dictionary<MealItem, int> preppedFoodItems;
     #endregion
 
+    private const float MAX_RATING = 5.0f;
+
     private void Awake() {
         preppedFoodItems = new Dictionary<MealItem, int>();
         OnPrepItemAdded = new UnityEvent();
@@ -75,8 +77,53 @@ public class Order : MonoBehaviour {
 
     private void CheckTime() {
         if (currentTime <= 0) {
+            UpdateTentacularLikes(1.0f);
             OnOrderTimedOut.Invoke(orderNumber);
         }
+    }
+
+    private void ComparePreppedItemsToOrder() {
+
+    }
+
+    private void UpdateTentacularLikes(float rating) {
+        TentacularLikes.totalLikes += rating;
+        TentacularLikes.totalCustomers++;
+
+        TentacularLikes.CalculateLikeValue();
+    }
+
+    private float GetPiecewiseCustomerRating() {
+        if (currentTime > totalTime * 0.8f) {
+            return MAX_RATING;
+        }
+        else if (currentTime > totalTime * 0.6f) {
+            return 4.0f;
+        }
+        else if (currentTime > totalTime * 0.4f) {
+            return 3.0f;
+        }
+        else if (currentTime > totalTime * 0.2f) {
+            return 2.0f;
+        }
+        else {
+            return 1.0f;
+        }
+    }
+
+    private float GetLinearCustomerRating() {
+        float maxStarTimeCutoff = MaxRatingTimeCutoff();
+        if (currentTime > maxStarTimeCutoff) {
+            return MAX_RATING;
+        }
+        else {
+            var rating = MAX_RATING * (currentTime / maxStarTimeCutoff);
+            return (rating > 1.0f) ? rating : 1.0f;
+        }
+    }
+
+    private float MaxRatingTimeCutoff() {
+        return totalTime * 0.8f;
     }
     #endregion
 }
