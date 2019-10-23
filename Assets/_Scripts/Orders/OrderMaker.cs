@@ -7,11 +7,19 @@ using UnityEngine.Events;
 public class OrderMaker : MonoBehaviour {
     public class OrderMakerEvent : UnityEvent<Order> { }
 
+    #region Public variables
     [HideInInspector]
+    // dictionary that maps order numbers to their respective orders
     public Dictionary<int, Order> orders;
+
+    [Tooltip("Array of all meal items that can be cooked")]
     public MealItem[] availableMeals;
+    [Tooltip("Prefab for an order")]
     public GameObject orderPrefab;
+    [Tooltip("Time until the first order spawns")]
     public float timeTilFirstOrder = 10f;
+
+    [Tooltip("The current maximum rank a meal can have")]
     [Range(1, 7)]
     public int maxMealRank = 7;
 
@@ -19,16 +27,29 @@ public class OrderMaker : MonoBehaviour {
     public OrderMakerEvent OnOrderMade;
     [HideInInspector]
     public OrderMakerEvent OnOrderRemoved;
+    #endregion
 
-    private int totalMealRank;
+    #region Private variables
+    // probability that the rank of a meal will be randomly increased
     private float increaseRankProbability;
+
+    // number of ranks that are added when a meal rank is increased
     private int rankIncreaseAmount;
+
+    // dictionary mapping ranks to meal items
     private Dictionary<int, List<MealItem>> rankedFoodItems;
+
+    // the order number
     private int orderNumber;
+
+    // the amount of time until the next order spawns
     private float timeTilNextOrder;
-    private int minMealRank = 1;
 
+    // The current minimum rank a meal can have
+    private const int minMealRank = 1;
+    #endregion
 
+    #region Monobehavior methods
     private void Awake() {
         increaseRankProbability = 0.0f;
         rankIncreaseAmount = 1;
@@ -47,7 +68,12 @@ public class OrderMaker : MonoBehaviour {
     private void Update() {
         UpdateIncreaseRankProbability();
     }
+    #endregion
 
+    #region Script specific methods
+    /// <summary>
+    /// Spawns a new order
+    /// </summary>
     private void MakeOrder() {
         Dictionary<MealItem, int> orderItems = new Dictionary<MealItem, int>();
         int totalOrderRank = 0;
@@ -73,6 +99,10 @@ public class OrderMaker : MonoBehaviour {
         Invoke("MakeOrder", timeTilNextOrder);
     }
 
+    /// <summary>
+    /// Removes an order and invokes OnOrderRemoved
+    /// </summary>
+    /// <param name="orderNumber">the order number of the order</param>
     private void RemoveOrder(int orderNumber) {
         if (orders.ContainsKey(orderNumber)) {
             OnOrderRemoved.Invoke(orders[orderNumber]);
@@ -80,6 +110,11 @@ public class OrderMaker : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Determines how much time there will be to complete this order
+    /// </summary>
+    /// <param name="totalTime"></param>
+    /// <param name="currentTime"></param>
     private void SetTime(out float totalTime, out float currentTime) {
         // TODO: Have the time take into account restaurant rating, number of meal items 
         // and the rank of meal items
@@ -87,6 +122,11 @@ public class OrderMaker : MonoBehaviour {
         currentTime = totalTime;
     }
 
+    /// <summary>
+    /// Determines what meal items an order will contain
+    /// </summary>
+    /// <param name="orderMealItems"></param>
+    /// <param name="totalOrderRank"></param>
     private void SetOrderItems(Dictionary<MealItem, int> orderMealItems, ref int totalOrderRank) {
 
         int[] mealRanks = GetMealRanks(ref totalOrderRank);
@@ -101,6 +141,11 @@ public class OrderMaker : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Randomly picks the ranks for the order
+    /// </summary>
+    /// <param name="totalOrderRank"></param>
+    /// <returns>An array containing the ranks of the meals that will be in the order</returns>
     private int[] GetMealRanks(ref int totalOrderRank) {
 
         int numberOfMealItems = DetermineNumberOfMealItems();
@@ -121,18 +166,30 @@ public class OrderMaker : MonoBehaviour {
         return mealRanks;
     }
 
+    /// <summary>
+    /// Determines the number of meal items in an order
+    /// </summary>
+    /// <returns></returns>
     private int DetermineNumberOfMealItems() {
         // TODO: Have the number of items in the order take into account restaurant rating
         int numberOfMealItems = Random.Range(1, 6);
         return numberOfMealItems;
     }
 
+    /// <summary>
+    /// Increases the rank of a meal item based on the increase rank probability
+    /// </summary>
+    /// <returns></returns>
     private bool IncreaseRank() {
         float chance = Random.value;
 
         return chance < increaseRankProbability;
     }
 
+    /// <summary>
+    /// Updates the increase rank probability based on the restaurants rating; The 
+    /// lower the rating, the lower the increase rank probability
+    /// </summary>
     private void UpdateIncreaseRankProbability() {
         if (TentacularLikes.likes >= 4f) {
             increaseRankProbability = 0.8f;
@@ -148,12 +205,18 @@ public class OrderMaker : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Determines how much time there is until the next order spawns
+    /// </summary>
     private void DetermineTimeUntilNextOrder() {
         // TODO: Have this take into account the tentacular likes and 
         // total meals already out
         timeTilNextOrder = Random.Range(15, 25);
     }
 
+    /// <summary>
+    /// Initializes the rankedFoodItems dictionary
+    /// </summary>
     private void SetRankedItems() {
         foreach (var foodItem in availableMeals) {
             if (rankedFoodItems.ContainsKey(foodItem.rank)) {
@@ -165,6 +228,11 @@ public class OrderMaker : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Adds a meal item to the order
+    /// </summary>
+    /// <param name="orderItems"></param>
+    /// <param name="mealItem"></param>
     private void AddMealItemToOrder(Dictionary<MealItem, int> orderItems, MealItem mealItem) {
         if (orderItems.ContainsKey(mealItem)) {
             orderItems[mealItem]++;
@@ -173,4 +241,5 @@ public class OrderMaker : MonoBehaviour {
             orderItems.Add(mealItem, 1);
         }
     }
+    #endregion
 }
