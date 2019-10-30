@@ -31,6 +31,18 @@ public class Closeable : MonoBehaviour
         }
     }
 
+    public void TogglePanel()
+    {
+        if (IsOpened())
+        {
+            ClosePanel();
+        }
+        else
+        {
+            OpenPanel();
+        }
+    }
+
     public bool IsOpened() => gameObject.activeSelf;
     #endregion
 }

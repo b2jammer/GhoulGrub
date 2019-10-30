@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d7017823297e240aa3ef8d6c8cf13d, type: 3}
   m_Name: SearedOuvrier
   m_EditorClassIdentifier: 
-  itemName: SearedOuvrier
+  itemName: Seared Ouvrier
   sprite: {fileID: 21300000, guid: 3be4603db56eef741a61ebaacf5ce74e, type: 3}
   type: 6
   isCore: 0

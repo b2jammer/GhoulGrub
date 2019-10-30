@@ -8,8 +8,14 @@ public class CombineMessage : MonoBehaviour
     public Text textField;
 
 
-    public void SetObtainText(RecipeList.Recipe recipe)
+    public void SetObtainText(RecipeList.Recipe recipe, int numBatches)
     {
-        textField.text = "Obtained " + recipe.target.itemName + (recipe.targetQuantity != 1 ? " x" + recipe.targetQuantity : "") + "!";
+        int totalMade = recipe.targetQuantity * numBatches;
+        textField.text = "Obtained " + recipe.target.itemName + (totalMade != 1 ? " x" + totalMade : "") + "!";
+    }
+
+    public void SetFailText()
+    {
+        textField.text = "Oops!";
     }
 }

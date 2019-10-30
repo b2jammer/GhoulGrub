@@ -7,10 +7,16 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Closeable))]
 public class StationPanel : MonoBehaviour
 {
+    //int is # of batches, NOT total items produced
+    [System.Serializable]
+    public class CombineEvent : UnityEvent<RecipeList.Recipe, int> { }
+
     #region Public Variables
+    public FoodItem mistakeItem;
+
     public static StationPanel Instance;
     public UnityEvent OnCombineAttempt;
-    public RecipeList.RecipeEvent OnCombineSucceed;
+    public CombineEvent OnCombineSucceed;
     public UnityEvent OnCombineFail;
     #endregion
 
@@ -22,6 +28,8 @@ public class StationPanel : MonoBehaviour
     private Text label;
     [SerializeField]
     private Image icon;
+    [SerializeField]
+    private Text actionLabel;
 
     private Station currentStation;
     private Closeable closeable;
@@ -51,8 +59,9 @@ public class StationPanel : MonoBehaviour
     {
         currentStation = station;
         itemPanel.InventoryData = station.StationInventory;
-        label.text = station.stationTitle;
-        icon.sprite = station.recipeList.listIcon;
+        label.text = station.stationInfo.title;
+        icon.sprite = station.stationInfo.icon;
+        actionLabel.text = station.stationInfo.action;
         closeable.OpenPanel();
     }
 
@@ -66,17 +75,18 @@ public class StationPanel : MonoBehaviour
 
     public void Combine()
     {
-        RecipeList recipes = currentStation.recipeList;
-        RecipeList.Recipe foundRecipe = RecipeList.FindMatchingRecipe(itemPanel.InventoryData.items, recipes);
+        RecipeList recipes = currentStation.stationInfo.recipeList;
+        RecipeList.Recipe foundRecipe = RecipeList.FindMatchingRecipe(itemPanel.InventoryData.items, recipes, out int batches);
         OnCombineAttempt.Invoke();
         if (foundRecipe != null)
         {
-            for (int i=0; i<foundRecipe.targetQuantity; i++)
+            for (int i=0; i<foundRecipe.targetQuantity*batches; i++)
                 playerInventory.AddInventoryItem(foundRecipe.target);
-            OnCombineSucceed.Invoke(foundRecipe);
+            OnCombineSucceed.Invoke(foundRecipe, batches);
         }
         else
         {
+            playerInventory.AddInventoryItem(mistakeItem);
             OnCombineFail.Invoke();
         }
         itemPanel.InventoryData.ClearInventory();

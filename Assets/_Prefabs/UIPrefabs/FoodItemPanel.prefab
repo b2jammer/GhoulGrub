@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 728124168263541220}
   - component: {fileID: 728124168263541221}
   - component: {fileID: 728124168263541218}
+  - component: {fileID: 6363671166631807948}
   m_Layer: 5
   m_Name: FoodItemPanel
   m_TagString: Untagged
@@ -239,9 +240,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e9cee40debdce4bb41d495b555691b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventoryPanel: {fileID: 0}
   label: {fileID: 728124167256124987}
   icon: {fileID: 728124168446348827}
+--- !u!114 &6363671166631807948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728124168263541240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f05092272c6cd45993ab79490717b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 728124168263541218}
+  dragPrefab: {fileID: 3345488026563701341, guid: 2113fce7694926145adb95d093c4cdb1,
+    type: 3}
 --- !u!1 &728124168446348829
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,10 +270,8 @@ GameObject:
   - component: {fileID: 728124168446348824}
   - component: {fileID: 728124168446348827}
   - component: {fileID: 728124168446348825}
-  - component: {fileID: 1604859967}
-  - component: {fileID: 1604859968}
   m_Layer: 5
-  m_Name: Draggable
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,31 +354,3 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &1604859967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728124168446348829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates: []
---- !u!114 &1604859968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728124168446348829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95f05092272c6cd45993ab79490717b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 728124168263541218}
-  dragPrefab: {fileID: 3345488026563701341, guid: 2113fce7694926145adb95d093c4cdb1,
-    type: 3}
