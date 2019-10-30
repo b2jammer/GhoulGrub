@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Order : MonoBehaviour {
 
     public class OrderEvent : UnityEvent<int> { }
+    //public class OrderMealEvent : UnityEvent<MealItem> { }
     
     #region Public Variables
     [HideInInspector]
@@ -16,6 +17,11 @@ public class Order : MonoBehaviour {
     public UnityEvent OnPrepItemAdded;
     [HideInInspector]
     public UnityEvent OnPrepItemRemoved;
+
+    //[HideInInspector]
+    //public OrderMealEvent OnPrepItemAdded;
+    //[HideInInspector]
+    //public OrderMealEvent OnPrepItemRemoved;
 
     [HideInInspector]
     // Timer starting time
