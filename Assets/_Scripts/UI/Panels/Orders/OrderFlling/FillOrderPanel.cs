@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class FillOrderPanel : MonoBehaviour
-{
+public class FillOrderPanel : MonoBehaviour {
     #region Public Variables
     public static FillOrderPanel instance;
 
@@ -14,11 +13,9 @@ public class FillOrderPanel : MonoBehaviour
 
     #region Private Variables
     [SerializeField]
-    private FillOrderFoodPanel orderFoodData;
+    private InventoryPanel orderInventory;
     [SerializeField]
     private Text label;
-    [SerializeField]
-    private Image icon;
 
     private Order currentOrder;
     #endregion
@@ -37,7 +34,7 @@ public class FillOrderPanel : MonoBehaviour
     #region Script-Specific Methods
     public void SetOrder(Order order) {
         currentOrder = order;
-        orderFoodData.CurrentOrder = order;
+        orderInventory.InventoryData = order.preppedFoodItems;
         label.text = order.name;
 
         OnOrderSet.Invoke();

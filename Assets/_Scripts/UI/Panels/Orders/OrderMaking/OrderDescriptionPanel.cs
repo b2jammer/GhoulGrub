@@ -77,7 +77,7 @@ public class OrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
     private string SetPreppedItemDescription() {
         string preppedItemDescription = "Prepped Items \n";
 
-        foreach (var item in order.preppedFoodItems) {
+        foreach (var item in order.preppedFoodItems.items) {
             preppedItemDescription += string.Format("{0} {1} \n", item.Value, item.Key.name);
         }
 

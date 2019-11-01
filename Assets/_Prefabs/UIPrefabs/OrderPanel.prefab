@@ -170,11 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00a28a51c34e6a48947b10ecc65eabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDescriptionButtonPressed:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  orderLinePanel: {fileID: 0}
   order: {fileID: 0}
   timerText: {fileID: 5487041889015397407}
   descriptionPanelPrefab: {fileID: -6307436651307850361, guid: 91993017d0d2dbb49bfdac5557befbe9,
@@ -453,6 +449,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4571490928194987065}
         m_MethodName: ToggleViewDescriptionPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4571490928194987065}
+        m_MethodName: UpdateOrderCompletionPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

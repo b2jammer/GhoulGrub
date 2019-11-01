@@ -122,5 +122,12 @@ public class OrderPanel : MonoBehaviour {
         string time = order.currentTime.ToString("F0", CultureInfo.InvariantCulture);
         timerText.text = string.Format("Time: {0}", time);
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void UpdateOrderCompletionPanel() {
+        FillOrderPanel.instance.SetOrder(order);
+    }
     #endregion
 }
