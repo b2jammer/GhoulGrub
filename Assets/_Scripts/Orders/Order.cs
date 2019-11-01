@@ -101,6 +101,7 @@ public class Order : MonoBehaviour {
     private void ComparePreppedItemsToOrder() {
         if (PreppedItemsEqualOrderItems()) {
             isCompleted = true;
+            UpdateRating();
             OnOrderCompleted.Invoke(orderNumber);
         }
     }

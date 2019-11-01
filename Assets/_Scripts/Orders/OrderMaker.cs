@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class OrderMaker : MonoBehaviour {
+    [System.Serializable]
     public class OrderMakerEvent : UnityEvent<Order> { }
 
     #region Public variables
@@ -28,7 +29,7 @@ public class OrderMaker : MonoBehaviour {
     [HideInInspector]
     public OrderMakerEvent OnOrderRemoved;
 
-    public CombineMessage message;;
+    public OrderMakerEvent OnOrderOut;
     #endregion
 
     #region Private variables
@@ -115,7 +116,7 @@ public class OrderMaker : MonoBehaviour {
     }
 
     private void OrderOut(int orderNumber) {
-        message.SetOrderText(orders[orderNumber]);
+        OnOrderOut.Invoke(orders[orderNumber]);
         StartCoroutine(RemoveAfterSeconds(0.5f, orderNumber));
 
     }
@@ -123,6 +124,7 @@ public class OrderMaker : MonoBehaviour {
     private IEnumerator RemoveAfterSeconds(float seconds, int orderNumber) {
         yield return new WaitForSeconds(seconds);
         RemoveOrder(orderNumber);
+        yield return null;
     }
 
     /// <summary>

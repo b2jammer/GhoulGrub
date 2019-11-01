@@ -3532,6 +3532,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
         type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
       propertyPath: timeTilFirstOrder
       value: 5
       objectReference: {fileID: 0}
@@ -3545,6 +3550,81 @@ PrefabInstance:
       propertyPath: maxMealRank
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 131082927}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 131082927}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 131082925}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetOrderText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Interrupt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: OnOrderOut.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 131082920}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a, type: 3}
 --- !u!114 &822880516 stripped

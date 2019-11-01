@@ -12,4 +12,8 @@ public class CombineMessage : MonoBehaviour
     {
         textField.text = "Obtained " + recipe.target.itemName + (recipe.targetQuantity != 1 ? " x" + recipe.targetQuantity : "") + "!";
     }
+
+    public void SetOrderText(Order order) {
+        textField.text = order.name + " out!";
+    }
 }
