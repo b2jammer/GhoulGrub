@@ -8,7 +8,6 @@ public class KeyboardInterfaceController : MonoBehaviour
     private Vector3 direction;
     private bool isInteracting;
     private bool isOpeningStation;
-    private RotationDirection rotation;
     #endregion
 
     #region Properties
@@ -38,12 +37,6 @@ public class KeyboardInterfaceController : MonoBehaviour
             return isOpeningStation;
         }
     }
-
-    public RotationDirection Rotation {
-        get {
-            return rotation;
-        }
-    }
     #endregion
 
     #region MonoBehavior Methods
@@ -65,7 +58,6 @@ public class KeyboardInterfaceController : MonoBehaviour
         CheckMovement();
         CheckInteract();
         CheckOpenStationInventory();
-        CheckCameraRotation();
     }
     #endregion
 
@@ -107,24 +99,6 @@ public class KeyboardInterfaceController : MonoBehaviour
     /// </summary>
     private void CheckOpenStationInventory() {
         isOpeningStation = Input.GetButtonDown("OpenStationInventory");
-    }
-
-    private void CheckCameraRotation() {
-        if (Input.GetButtonDown("RotateCameraRight")) {
-            rotation = RotationDirection.Right;
-        }
-        else if (Input.GetButtonDown("RotateCameraLeft")) {
-            rotation = RotationDirection.Left;
-        }
-        else {
-            rotation = RotationDirection.None;
-        }
-    }
-
-    public enum RotationDirection {
-        None,
-        Left,
-        Right
     }
     #endregion
 }

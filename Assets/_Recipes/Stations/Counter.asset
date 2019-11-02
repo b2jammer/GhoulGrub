@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d7017823297e240aa3ef8d6c8cf13d, type: 3}
-  m_Name: BoiledNoodles
+  m_Script: {fileID: 11500000, guid: 0bc5aec4950bf384ea256c53500eaa56, type: 3}
+  m_Name: Counter
   m_EditorClassIdentifier: 
-  itemName: Boiled Noodles
-  sprite: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
-  type: 2
-  isCore: 0
+  title: Counter
+  action: Combine!
+  icon: {fileID: 21300000, guid: 020c462fa9fa4c64d8a5a083e63554fe, type: 3}
+  recipeList: {fileID: 11400000, guid: 5ae552d6e66fa4f4cb6b150f6e226e6b, type: 2}

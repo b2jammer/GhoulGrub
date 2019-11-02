@@ -13,51 +13,99 @@ public class RecipeList : ScriptableObject
         public struct IngredientEntry
         {
             public Ingredient type;
+            [Tooltip("Minimum amount of this ingredient per batch.\nIf 0, ingredient is optional.")]
             public int quantity;
+            [Tooltip("Maximum amount of this ingredient per batch.")]
+            public int quantityMax;
         }
         public FoodItem target;
         public int targetQuantity;
         public IngredientEntry[] ingredients;
+        public bool Contains(Ingredient ingredient)
+        {
+            foreach (IngredientEntry entry in ingredients)
+            {
+                if (entry.type == ingredient)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
     public string listTitle;
-    public Sprite listIcon;
-    [System.Serializable]
-    public class RecipeEvent : UnityEvent<RecipeList.Recipe> { }
 
     public Recipe[] recipes;
 
-    public static Recipe FindMatchingRecipe(Dictionary<FoodItem, int> itemList, RecipeList recipeList)
+    public static Recipe FindMatchingRecipe(Dictionary<FoodItem, int> itemList, RecipeList recipeList, out int numBatches)
     {
         foreach (Recipe testRecipe in recipeList.recipes)
         {
-            if (CompareItemsToRecipe(itemList, testRecipe))
+            if (CompareItemsToRecipe(itemList, testRecipe, out int copies))
             {
+                numBatches = copies;
                 return testRecipe;
             }
         }
+        numBatches = 0;
         return null;
     }
 
-    private static bool CompareItemsToRecipe(Dictionary<FoodItem, int> itemList, Recipe testRecipe)
+    private static bool CompareItemsToRecipe(Dictionary<FoodItem, int> itemList, Recipe testRecipe, out int mostBatches)
     {
         Dictionary<FoodItem, int> recipeIngredients = compileRecipeIngredients(testRecipe);
-        //If lengths do not match, throw out (takes care of excess types in inventory)
-        if (recipeIngredients.Count != itemList.Count)
+        //Check for would-be optional ingredients that DON'T belong.
+        foreach (FoodItem item in itemList.Keys)
         {
-            return false;
+            if (!recipeIngredients.ContainsKey(item)) {
+                mostBatches = 0;
+                return false;
+            }
         }
-        foreach (KeyValuePair<FoodItem, int> entry in recipeIngredients)
+
+        //Iterate to find the most batches one can make with the given REQUIRED ingredients.
+        //Assume we use the least number of ingredients possible.
+        mostBatches = int.MaxValue;
+        foreach (Recipe.IngredientEntry ingredient in testRecipe.ingredients)
         {
-            //If inventory is missing ingredient or if the counts differ, not a match.
-            if (!itemList.ContainsKey(entry.Key) || itemList[entry.Key] != entry.Value)
+            if (ingredient.quantity > 0) {
+                //Count ingredients
+                int ingredientCount = 0;
+                if (itemList.ContainsKey(ingredient.type))
+                {
+                    ingredientCount = itemList[ingredient.type];
+                }
+
+                int batches = ingredientCount / ingredient.quantity;
+                if (batches == 0)//Cannot make ANY batches with the given required ingredients, back out immediately.
+                {
+                    return false;
+                }
+                mostBatches = Mathf.Min(mostBatches, batches);
+            }
+        }
+        //Iterate again, to make sure we don't have too many extras (this is where we count optional ingredients).
+        foreach (Recipe.IngredientEntry ingredient in testRecipe.ingredients)
+        {
+            //Count ingredients
+            int ingredientCount = 0;
+            if (itemList.ContainsKey(ingredient.type))
+            {
+                ingredientCount = itemList[ingredient.type];
+            }
+
+            //Now assume we use as many ingredients as possible.
+            int leastExtras = ingredientCount - (ingredient.quantityMax * mostBatches);
+            if (leastExtras > 0)
             {
                 return false;
             }
         }
+
         return true;
     }
 
-    private static Dictionary<FoodItem, int> compileRecipeIngredients(Recipe testRecipe)
+    public static Dictionary<FoodItem, int> compileRecipeIngredients(Recipe testRecipe)
     {
         Dictionary<FoodItem, int> ingredientList = new Dictionary<FoodItem, int>();
         foreach (Recipe.IngredientEntry entry in testRecipe.ingredients)
