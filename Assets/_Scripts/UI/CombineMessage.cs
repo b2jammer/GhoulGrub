@@ -18,4 +18,8 @@ public class CombineMessage : MonoBehaviour
     {
         textField.text = "Oops!";
     }
+
+    public void SetOrderText(Order order) {
+        textField.text = order.name + " out!";
+    }
 }

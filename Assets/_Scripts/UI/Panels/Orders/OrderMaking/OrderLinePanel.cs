@@ -8,10 +8,6 @@ public class OrderLinePanel : MonoBehaviour {
     #region Public variables
     [Tooltip("The scene's order maker")]
     public OrderMaker orderMaker;
-
-    [HideInInspector]
-    // Dictionary to keep track of the order panels and their respective description panels
-    public Dictionary<OrderPanel, OrderDescriptionPanel> descriptionPanels;
     #endregion
     
     #region Private Variables
@@ -28,7 +24,6 @@ public class OrderLinePanel : MonoBehaviour {
     #region MonoBehaviour Methods
     private void Awake() {
         orderPanels = new Dictionary<Order, OrderPanel>();
-        descriptionPanels = new Dictionary<OrderPanel, OrderDescriptionPanel>();
     }
 
     private void Start() {
@@ -65,15 +60,10 @@ public class OrderLinePanel : MonoBehaviour {
             OrderPanel relatedOrderPanel = orderPanels[order];
             GameObject relatedOrderPanelObject = relatedOrderPanel.gameObject;
 
-
-            GameObject relatedDescriptionPanelObject = descriptionPanels[relatedOrderPanel].gameObject;
-
             orderPanels.Remove(order);
-            descriptionPanels.Remove(relatedOrderPanel);
 
             Destroy(removedOrderObject);
             Destroy(relatedOrderPanelObject);
-            Destroy(relatedDescriptionPanelObject);
         }
     }
     #endregion
