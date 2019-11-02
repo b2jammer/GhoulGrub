@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -31,34 +32,45 @@ public class Order : MonoBehaviour {
     // items in the order
     public Dictionary<MealItem, int> orderFoodItems;
 
-    [HideInInspector]
     // items that have been prepared for the order
-    public Dictionary<MealItem, int> preppedFoodItems;
+    public Inventory preppedFoodItems;
     #endregion
 
     #region Private variables
     private const float MAX_RATING = 5.0f;
+    private bool isCompleted;
     #endregion
 
     #region Monobehavior Methods
     private void Awake() {
-        preppedFoodItems = new Dictionary<MealItem, int>();
         OnPrepItemAdded = new UnityEvent();
         OnPrepItemRemoved = new UnityEvent();
         OnOrderTimedOut = new OrderEvent();
         OnOrderCompleted = new OrderEvent();
+        isCompleted = false;
     }
 
     // Start is called before the first frame update
     void Start() {
-
+        OnPrepItemAdded.AddListener(ComparePreppedItemsToOrder);
+        preppedFoodItems.OnAddItem.AddListener(AddPreppedItem);
+        preppedFoodItems.OnRemoveItem.AddListener(RemovePreppedItem);
     }
 
     // Update is called once per frame
     void Update() {
-        currentTime -= Time.deltaTime;
+        if (!isCompleted) {
+            currentTime -= Time.deltaTime;
+            CheckTime();
+        }
+        
+    }
 
-        CheckTime();
+    private void OnDestroy() {
+        OnPrepItemAdded.RemoveAllListeners();
+        OnOrderTimedOut.RemoveAllListeners();
+        OnPrepItemRemoved.RemoveAllListeners();
+        OnOrderCompleted.RemoveAllListeners();
     }
     #endregion
 
@@ -67,13 +79,7 @@ public class Order : MonoBehaviour {
     /// Adds a meal item to the prepared items and invokes OnPrepItemAdded
     /// </summary>
     /// <param name="preppedItem">A meal item</param>
-    public void AddPreppedItem(MealItem preppedItem) {
-        if (preppedFoodItems.ContainsKey(preppedItem)) {
-            preppedFoodItems[preppedItem]++;
-        }
-        else {
-            preppedFoodItems.Add(preppedItem, 1);
-        }
+    public void AddPreppedItem(FoodItem preppedItem) {
         OnPrepItemAdded.Invoke();
     }
 
@@ -81,13 +87,7 @@ public class Order : MonoBehaviour {
     /// Removes a meal item from the prepared items and invokes OnPrepItemRemoved
     /// </summary>
     /// <param name="preppedItem"></param>
-    public void RemovePreppedItem(MealItem preppedItem) {
-        if (preppedFoodItems.ContainsKey(preppedItem) && preppedFoodItems[preppedItem] > 1) {
-            preppedFoodItems[preppedItem]--;
-        }
-        else {
-            preppedFoodItems.Remove(preppedItem);
-        }
+    public void RemovePreppedItem(FoodItem preppedItem) {
         OnPrepItemRemoved.Invoke();
     }
 
@@ -97,7 +97,7 @@ public class Order : MonoBehaviour {
     /// </summary>
     private void CheckTime() {
         if (currentTime <= 0) {
-            UpdateTentacularLikes(1.0f);
+            UpdateRating();
             OnOrderTimedOut.Invoke(orderNumber);
         }
     }
@@ -106,7 +106,48 @@ public class Order : MonoBehaviour {
     /// 
     /// </summary>
     private void ComparePreppedItemsToOrder() {
-        //TODO: implement function to compare prepped items to order items
+        if (PreppedItemsEqualOrderItems()) {
+            isCompleted = true;
+            UpdateRating();
+            OnOrderCompleted.Invoke(orderNumber);
+        }
+    }
+
+    private bool PreppedItemsEqualOrderItems() {
+        if (orderFoodItems.Count != preppedFoodItems.items.Count) {
+            return false;
+        }
+
+        HashSet<MealItem> preppedKeys = new HashSet<MealItem>();
+        foreach (var food in preppedFoodItems.GetFoodTypes()) {
+            MealItem mealItem = food as MealItem;
+
+            if (mealItem == null) {
+                return false;
+            }
+
+            preppedKeys.Add(mealItem);
+        }
+
+        foreach (MealItem meal in preppedKeys) {
+            if (orderFoodItems.TryGetValue(meal, out int mealCount)) {
+                if (mealCount != preppedFoodItems.Count(meal)) {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void UpdateRating() {
+        UpdateTentacularLikes(GetLinearCustomerRating());
     }
 
     /// <summary>

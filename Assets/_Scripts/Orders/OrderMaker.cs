@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class OrderMaker : MonoBehaviour {
+    [System.Serializable]
     public class OrderMakerEvent : UnityEvent<Order> { }
 
     #region Public variables
@@ -27,6 +28,8 @@ public class OrderMaker : MonoBehaviour {
     public OrderMakerEvent OnOrderMade;
     [HideInInspector]
     public OrderMakerEvent OnOrderRemoved;
+
+    public OrderMakerEvent OnOrderOut;
     #endregion
 
     #region Private variables
@@ -89,7 +92,13 @@ public class OrderMaker : MonoBehaviour {
         orderComponent.currentTime = currentTime;
         orderComponent.orderFoodItems = orderItems;
         orderComponent.orderNumber = orderNumber;
+
         orderComponent.OnOrderTimedOut.AddListener(RemoveOrder);
+        orderComponent.OnOrderCompleted.AddListener(OrderOut);
+        orderComponent.OnOrderCompleted.AddListener(UpdateInteractablePanels);
+        orderComponent.OnOrderCompleted.AddListener(UpdateInteractablePanels);
+
+        order.name = "Order " + orderNumber;
 
         orders.Add(orderNumber++, orderComponent);
 
@@ -110,6 +119,26 @@ public class OrderMaker : MonoBehaviour {
         }
     }
 
+    private void OrderOut(int orderNumber) {
+        OnOrderOut.Invoke(orders[orderNumber]);
+        StartCoroutine(RemoveAfterSeconds(0.5f, orderNumber));
+
+    }
+
+    private IEnumerator RemoveAfterSeconds(float seconds, int orderNumber) {
+        yield return new WaitForSeconds(seconds);
+        RemoveOrder(orderNumber);
+        yield return null;
+    }
+
+    private void UpdateInteractablePanels(int orderNumber) {
+        Order order = orders[orderNumber];
+
+        SingletonOrderDescriptionPanel.instance.CloseDescriptionPanel(order);
+        FillOrderPanel.instance.HasOrder = false;
+        FillOrderPanel.instance.CloseFillOrderPanel(order);
+    }
+
     /// <summary>
     /// Determines how much time there will be to complete this order
     /// </summary>
@@ -118,7 +147,7 @@ public class OrderMaker : MonoBehaviour {
     private void SetTime(out float totalTime, out float currentTime) {
         // TODO: Have the time take into account restaurant rating, number of meal items 
         // and the rank of meal items
-        totalTime = Random.Range(30, 60);
+        totalTime = Random.Range(90, 120);
         currentTime = totalTime;
     }
 
@@ -172,7 +201,7 @@ public class OrderMaker : MonoBehaviour {
     /// <returns></returns>
     private int DetermineNumberOfMealItems() {
         // TODO: Have the number of items in the order take into account restaurant rating
-        int numberOfMealItems = Random.Range(1, 6);
+        int numberOfMealItems = 1; //Random.Range(1, 6);
         return numberOfMealItems;
     }
 

@@ -91,5 +91,9 @@ public class StationPanel : MonoBehaviour
         }
         itemPanel.InventoryData.ClearInventory();
     }
+
+    public bool IsOpen() {
+        return closeable.IsOpened();
+    }
     #endregion
 }
