@@ -92,8 +92,12 @@ public class OrderMaker : MonoBehaviour {
         orderComponent.currentTime = currentTime;
         orderComponent.orderFoodItems = orderItems;
         orderComponent.orderNumber = orderNumber;
+
         orderComponent.OnOrderTimedOut.AddListener(RemoveOrder);
         orderComponent.OnOrderCompleted.AddListener(OrderOut);
+        orderComponent.OnOrderCompleted.AddListener(UpdateInteractablePanels);
+        orderComponent.OnOrderCompleted.AddListener(UpdateInteractablePanels);
+
         order.name = "Order " + orderNumber;
 
         orders.Add(orderNumber++, orderComponent);
@@ -125,6 +129,14 @@ public class OrderMaker : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
         RemoveOrder(orderNumber);
         yield return null;
+    }
+
+    private void UpdateInteractablePanels(int orderNumber) {
+        Order order = orders[orderNumber];
+
+        SingletonOrderDescriptionPanel.instance.CloseDescriptionPanel(order);
+        FillOrderPanel.instance.HasOrder = false;
+        FillOrderPanel.instance.CloseFillOrderPanel(order);
     }
 
     /// <summary>

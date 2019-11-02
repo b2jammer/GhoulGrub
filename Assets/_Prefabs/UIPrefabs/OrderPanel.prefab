@@ -173,8 +173,6 @@ MonoBehaviour:
   orderLinePanel: {fileID: 0}
   order: {fileID: 0}
   timerText: {fileID: 5487041889015397407}
-  descriptionPanelPrefab: {fileID: -6307436651307850361, guid: 91993017d0d2dbb49bfdac5557befbe9,
-    type: 3}
   orderPanelImageTransform: {fileID: 459264049882374785}
 --- !u!1 &459264049882374784
 GameObject:
@@ -448,7 +446,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4571490928194987065}
-        m_MethodName: ToggleViewDescriptionPanel
+        m_MethodName: UpdateDescriptionPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

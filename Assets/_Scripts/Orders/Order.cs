@@ -65,6 +65,13 @@ public class Order : MonoBehaviour {
         }
         
     }
+
+    private void OnDestroy() {
+        OnPrepItemAdded.RemoveAllListeners();
+        OnOrderTimedOut.RemoveAllListeners();
+        OnPrepItemRemoved.RemoveAllListeners();
+        OnOrderCompleted.RemoveAllListeners();
+    }
     #endregion
 
     #region Script Specific Methods

@@ -9,6 +9,15 @@ public class FillOrderPanel : MonoBehaviour {
     public static FillOrderPanel instance;
 
     public UnityEvent OnOrderSet;
+
+    public bool HasOrder {
+        get {
+            return hasOrder;
+        }
+        set {
+            hasOrder = value;
+        }
+    }
     #endregion
 
     #region Private Variables
@@ -18,6 +27,8 @@ public class FillOrderPanel : MonoBehaviour {
     private Text label;
 
     private Order currentOrder;
+    private Closeable closeable;
+    private bool hasOrder;
     #endregion
 
     #region MonoBehaviour Methods
@@ -28,16 +39,42 @@ public class FillOrderPanel : MonoBehaviour {
         else {
             instance = this;
         }
+        closeable = GetComponent<Closeable>();
+        closeable.ClosePanel();
     }
     #endregion
 
     #region Script-Specific Methods
     public void SetOrder(Order order) {
-        currentOrder = order;
-        orderInventory.InventoryData = order.preppedFoodItems;
-        label.text = order.name;
+        if (currentOrder != order) {
+            hasOrder = true;
+            currentOrder = order;
+            orderInventory.InventoryData = order.preppedFoodItems;
+            label.text = order.name;
+            closeable.OpenPanel();
 
-        OnOrderSet.Invoke();
+            OnOrderSet.Invoke();
+        }
+        
     }
+
+    public void OpenFillOrderPanel() {
+        closeable.OpenPanel();
+    }
+
+    public void CloseFillOrderPanel(Order order) {
+        if (order == currentOrder) {
+            closeable.ClosePanel();
+        }
+    }
+
+    public void CloseFillOrderPanel() {
+        closeable.ClosePanel();
+    }
+
+    public bool IsOpen() {
+        return closeable.IsOpened();
+    }
+
     #endregion
 }
