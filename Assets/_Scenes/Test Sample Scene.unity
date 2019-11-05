@@ -481,6 +481,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 52102387}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &118826525 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1906699908403057868, guid: 28c8a875ca46a33448f57ce382784e5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1602507544}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &213629867
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +658,12 @@ PrefabInstance:
       propertyPath: stationTitle
       value: Counter
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: stationInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fd5e6608d89e9b4c9d40584c04555f8,
+        type: 2}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2256,6 +2274,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c37896fc2be292c4180848c2be96d820,
         type: 2}
+    - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: stationInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 58ab330881a402240ab2e3d1ed1ae5f5,
+        type: 2}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2473,6 +2497,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 15d1455d0db4e054782429985383e2a6,
         type: 2}
+    - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: stationInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e355f8cb4374ac4e8821a008decce32,
+        type: 2}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2640,6 +2670,12 @@ PrefabInstance:
       propertyPath: stationTitle
       value: Grill
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: stationInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a90f5d7109247b40b27b3ab37bcb98d,
+        type: 2}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3471,6 +3507,11 @@ PrefabInstance:
       propertyPath: OnCombineSucceed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 213629868}
+    - target: {fileID: 1906699908054682982, guid: 28c8a875ca46a33448f57ce382784e5a,
+        type: 3}
+      propertyPath: actionLabel
+      value: 
+      objectReference: {fileID: 118826525}
     - target: {fileID: 1906699906914212225, guid: 28c8a875ca46a33448f57ce382784e5a,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -4052,6 +4093,12 @@ PrefabInstance:
       propertyPath: recipeList
       value: 
       objectReference: {fileID: 11400000, guid: f440ff3ecd324f644b75eaaa0b28b770,
+        type: 2}
+    - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: stationInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a59471ea3b52d940886138de3d4585e,
         type: 2}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
