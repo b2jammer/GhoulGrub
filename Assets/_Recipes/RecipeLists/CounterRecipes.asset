@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: CounterRecipes
   m_EditorClassIdentifier: 
   listTitle: Counter
-  listIcon: {fileID: 21300000, guid: 020c462fa9fa4c64d8a5a083e63554fe, type: 3}
   recipes:
   - target: {fileID: 11400000, guid: cddcdcf877ed020499fa1683b83e87bc, type: 2}
     targetQuantity: 1
@@ -65,13 +64,13 @@ MonoBehaviour:
     ingredients:
     - type: {fileID: 11400000, guid: 7e6692fd65ac2ce4eb353ca8652605cc, type: 2}
       quantity: 1
-      quantityMax: 1
+      quantityMax: 3
     - type: {fileID: 11400000, guid: 967541894fcc45041a0b7bcaea5e10ef, type: 2}
-      quantity: 1
-      quantityMax: 1
+      quantity: 0
+      quantityMax: 2
     - type: {fileID: 11400000, guid: 7c7978722eabfc34bb15a01647e23ac1, type: 2}
-      quantity: 1
-      quantityMax: 1
+      quantity: 0
+      quantityMax: 2
   - target: {fileID: 11400000, guid: 808569a08f928cb4ebdcde289da23474, type: 2}
     targetQuantity: 1
     ingredients:
