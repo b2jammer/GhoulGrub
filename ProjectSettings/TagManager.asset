@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StationPanel
   - Player Inventory
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Floor
   - 
   - 
   - 

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyboardInterfaceController : MonoBehaviour
-{
+public class KeyboardInterfaceController : MonoBehaviour {
     #region Private Variables
     private Vector3 direction;
+    private Vector3 clickPoint;
     private bool isInteracting;
     private bool isOpeningStation;
+    private LayerMask layerMask;
     #endregion
 
     #region Properties
@@ -17,6 +18,12 @@ public class KeyboardInterfaceController : MonoBehaviour
     public Vector3 Direction {
         get {
             return direction;
+        }
+    }
+
+    public Vector3 ClickPoint {
+        get {
+            return clickPoint;
         }
     }
 
@@ -47,15 +54,15 @@ public class KeyboardInterfaceController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        layerMask = LayerMask.GetMask("Floor", "Default");
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        CheckMovement();
+    void Update() {
+        //CheckMovement();
+        //CheckMovementWithMouse();
+        AgentCheckMovementWithMouse();
         CheckInteract();
         CheckOpenStationInventory();
     }
@@ -83,6 +90,31 @@ public class KeyboardInterfaceController : MonoBehaviour
 
         direction.Normalize();
 
+    }
+
+    private void CheckMovementWithMouse() {
+        if (Input.GetMouseButtonDown(0)) {
+            Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            Physics.Raycast(mouseClick, out hit, layerMask);
+
+            if (hit.collider.gameObject.tag == "Floor") {
+                clickPoint = hit.point;
+            }
+        }
+    }
+
+    private void AgentCheckMovementWithMouse() {
+        if (Input.GetMouseButtonDown(0)) {
+            Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            Physics.Raycast(mouseClick, out hit, layerMask);
+
+            clickPoint = hit.point;
+
+        }
     }
 
     /// <summary>
