@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeyboardInterfaceController : MonoBehaviour {
     #region Private Variables
@@ -63,6 +65,22 @@ public class KeyboardInterfaceController : MonoBehaviour {
         CheckMovementWithMouse();
         CheckInteract();
         CheckOpenStationInventory();
+
+        //temp stuff until we have a UI
+        CheckRestart();
+        CheckExit();
+    }
+
+    private void CheckExit() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+    }
+
+    private void CheckRestart() {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            SceneManager.LoadScene("Test Sample Scene");
+        }
     }
     #endregion
 
