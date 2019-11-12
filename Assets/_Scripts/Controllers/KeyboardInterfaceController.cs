@@ -60,9 +60,7 @@ public class KeyboardInterfaceController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //CheckMovement();
         CheckMovementWithMouse();
-        //AgentCheckMovementWithMouse();
         CheckInteract();
         CheckOpenStationInventory();
     }
@@ -105,18 +103,6 @@ public class KeyboardInterfaceController : MonoBehaviour {
                 }
             }
             
-        }
-    }
-
-    private void AgentCheckMovementWithMouse() {
-        if (Input.GetMouseButtonDown(0)) {
-            Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            Physics.Raycast(mouseClick, out hit, layerMask);
-
-            clickPoint = hit.point;
-
         }
     }
 

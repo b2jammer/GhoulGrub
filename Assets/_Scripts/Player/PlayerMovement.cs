@@ -65,8 +65,6 @@ public class PlayerMovement : MonoBehaviour {
 
         float deltaMovement = (transform.position - oldPosition).magnitude;
 
-        Debug.Log(deltaMovement);
-
         if (!frozen) {
             displacement = direction * speed * Time.deltaTime;
 
