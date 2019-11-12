@@ -61,8 +61,8 @@ public class KeyboardInterfaceController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //CheckMovement();
-        //CheckMovementWithMouse();
-        AgentCheckMovementWithMouse();
+        CheckMovementWithMouse();
+        //AgentCheckMovementWithMouse();
         CheckInteract();
         CheckOpenStationInventory();
     }
@@ -99,9 +99,12 @@ public class KeyboardInterfaceController : MonoBehaviour {
 
             Physics.Raycast(mouseClick, out hit, layerMask);
 
-            if (hit.collider.gameObject.tag == "Floor") {
-                clickPoint = hit.point;
+            if (hit.collider != null) {
+                if (hit.collider.gameObject.tag != "Station") {
+                    clickPoint = hit.point;
+                }
             }
+            
         }
     }
 

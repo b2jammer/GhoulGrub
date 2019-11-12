@@ -20,23 +20,24 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 5f;
 
     public bool frozen;
-
-    [SerializeField]
-    private NavMeshAgent agent;
     #endregion
 
     #region Private Variables
     private Vector3 direction;
     private Rigidbody body;
     private bool wasMoving;
+    private Vector3 oldPosition;
+    
 
     private const float MINIMUM_TARGET_DISTANCE = 0.1f;
+    private const float EPSILON = 0.01f;
     #endregion
 
     #region MonoBehavior Methods
     private void Awake() {
         direction = Vector3.zero;
         body = GetComponent<Rigidbody>();
+        oldPosition = transform.position;
     }
 
     // Start is called before the first frame update
@@ -44,21 +45,12 @@ public class PlayerMovement : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    //void Update() {
-    //    // get the direction from the keyboard controller
-    //    direction = keyboardInput.Direction;
-
-    //    Move();
-    //}
-
-    private void Update() {
+    private void FixedUpdate() {
         //direction = keyboardInput.Direction;
         direction = GetDirectionToTarget(keyboardInput.ClickPoint);
 
         //Move();
-        //ClickMove(keyboardInput.ClickPoint);
-        ClickMoveAgent(keyboardInput.ClickPoint);
+        ClickMove(keyboardInput.ClickPoint);
     }
     #endregion
 
@@ -67,13 +59,13 @@ public class PlayerMovement : MonoBehaviour {
         return dir.normalized;
     }
 
-    private void ClickMoveAgent(Vector3 targetPoint) {
-        agent.destination = targetPoint;
-    }
-
     private void ClickMove(Vector3 targetPoint) {
         Vector3 displacement = Vector3.zero;
         float distance = Vector3.Distance(transform.position, targetPoint);
+
+        float deltaMovement = (transform.position - oldPosition).magnitude;
+
+        Debug.Log(deltaMovement);
 
         if (!frozen) {
             displacement = direction * speed * Time.deltaTime;
@@ -81,20 +73,21 @@ public class PlayerMovement : MonoBehaviour {
             if (displacement.magnitude >= Mathf.Epsilon && distance >= MINIMUM_TARGET_DISTANCE) {
                 body.MovePosition(transform.position + displacement);
             }
-            else {
-                body.velocity = Vector3.zero;
-            }
         }
 
+        //Debug.Log(body.velocity.magnitude);
+
         //Set animations and flip status
-        if (wasMoving && distance < MINIMUM_TARGET_DISTANCE) {//Stopped moving
+        if (wasMoving && (distance < MINIMUM_TARGET_DISTANCE || deltaMovement < EPSILON)) {//Stopped moving
             anim.Play("PlayerWalkEnd");
         }
-        if (!wasMoving && distance >= MINIMUM_TARGET_DISTANCE) {//Started moving
+        if (!wasMoving && distance >= MINIMUM_TARGET_DISTANCE && deltaMovement >= EPSILON) {//Started moving
             anim.Play("PlayerWalkStart");
         }
-        wasMoving = (distance > MINIMUM_TARGET_DISTANCE);
+        wasMoving = (deltaMovement >= EPSILON);
         sprite.flipX = (Mathf.Abs(displacement.x) > 0) ? (displacement.x < 0) : sprite.flipX;
+
+        oldPosition = transform.position;
     }
 
     #region Script Specific Methods
