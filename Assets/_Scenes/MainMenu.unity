@@ -271,10 +271,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.09
       objectReference: {fileID: 0}
-    - target: {fileID: 1702324395386382750, guid: 4eea14882e5ed5f42a92bbea2e3821a5,
+    - target: {fileID: 1702324395939931802, guid: 4eea14882e5ed5f42a92bbea2e3821a5,
         type: 3}
-      propertyPath: m_Color.a
-      value: 0.39215687
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 796233077}
+    - target: {fileID: 1702324395939931802, guid: 4eea14882e5ed5f42a92bbea2e3821a5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ControlsMenuOFF
       objectReference: {fileID: 0}
     - target: {fileID: 1702324395274950056, guid: 4eea14882e5ed5f42a92bbea2e3821a5,
         type: 3}
@@ -291,15 +296,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5.385256
       objectReference: {fileID: 0}
-    - target: {fileID: 1702324395939931802, guid: 4eea14882e5ed5f42a92bbea2e3821a5,
+    - target: {fileID: 1702324395386382750, guid: 4eea14882e5ed5f42a92bbea2e3821a5,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 796233077}
-    - target: {fileID: 1702324395939931802, guid: 4eea14882e5ed5f42a92bbea2e3821a5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ControlsMenuOFF
+      propertyPath: m_Color.a
+      value: 0.39215687
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4eea14882e5ed5f42a92bbea2e3821a5, type: 3}
@@ -1681,7 +1681,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: d4239ca9c8e66b2489b4d6a5e8881e37, type: 3}
+      objectReference: {fileID: 8300000, guid: ff903d0ca75461143bcf1cd69b29494a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c59d6df7019ad0242aaf09098e52d4a5, type: 3}
 --- !u!224 &1616957247 stripped
@@ -2145,6 +2145,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4064376747537267224, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 796233078}
+    - target: {fileID: 4064376747537267224, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetResolution
+      objectReference: {fileID: 0}
     - target: {fileID: 4064376747701601396, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2265,26 +2275,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10.19499
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.39215687
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4064376748475233348, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2400,16 +2390,6 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetQuality
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376747537267224, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 796233078}
-    - target: {fileID: 4064376747537267224, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetResolution
-      objectReference: {fileID: 0}
     - target: {fileID: 4064376747617355541, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2439,6 +2419,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SettingsMenuOFF
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dadc676e7e9d654b8188b32201285c2, type: 3}

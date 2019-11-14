@@ -45,3 +45,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 42524615
+    locked: 0
+  - name: Background
+    uniqueID: 97145439
+    locked: 0
+  - name: Midground
+    uniqueID: 842089055
+    locked: 0
+  - name: Foreground
+    uniqueID: 1959813795
+    locked: 0
+  - name: Stations
+    uniqueID: 4052770287
+    locked: 0
+  - name: Player
+    uniqueID: 3745746009
+    locked: 0
