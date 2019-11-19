@@ -40,6 +40,7 @@ public class FillOrderPanel : MonoBehaviour {
             instance = this;
         }
         closeable = GetComponent<Closeable>();
+        label.text = "No Order";
         closeable.ClosePanel();
     }
     #endregion
@@ -51,14 +52,16 @@ public class FillOrderPanel : MonoBehaviour {
             currentOrder = order;
             orderInventory.InventoryData = order.preppedFoodItems;
             label.text = order.name;
-            closeable.OpenPanel();
+            //closeable.OpenPanel();
 
             OnOrderSet.Invoke();
+            InventoryInteractablesManager.Instance.IsHidden = false;
         }
         
     }
 
     public void OpenFillOrderPanel() {
+        InventoryInteractablesManager.Instance.IsHidden = false;
         closeable.OpenPanel();
     }
 

@@ -144,6 +144,7 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
     /// </summary>
     public void UpdateOrderCompletionPanel() {
         FillOrderPanel.instance.SetOrder(order);
+        InventoryInteractablesManager.Instance.SwitchPanel((int)InteractablePanels.Fill);
     }
 
     /// <summary>

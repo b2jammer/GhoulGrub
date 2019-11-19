@@ -62,7 +62,8 @@ public class KeyboardInterfaceController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        CheckMovementWithMouse();
+        CheckMovement();
+        //CheckMovementWithMouse();
         CheckInteract();
         CheckOpenStationInventory();
 

@@ -34,6 +34,7 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
             instance = this;
         }
         closeable = GetComponent<Closeable>();
+        description.text = "No Order";
         closeable.ClosePanel();
     }
 
@@ -64,8 +65,13 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
         closeable.ClosePanel();
     }
 
+    public void OpenDescriptionPanel() {
+        closeable.OpenPanel();
+        //InventoryInteractablesManager.Instance.IsHidden = false;
+    }
+
     public void SetDescriptionPanel(Order order) {
-        Debug.Log("Hello");
+        //Debug.Log("Hello");
         if (order != this.order) {
             this.order = order;
 
@@ -75,6 +81,7 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
             UpdateOrderDescription();
 
             closeable.OpenPanel();
+            //InventoryInteractablesManager.Instance.IsHidden = false;
         }
     }
 
@@ -82,14 +89,20 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
     /// Sets and formats a string using the contents of the order's ordered items
     /// </summary>
     private string SetOrderItemDescription() {
-        string orderItemDescription = string.Format("Order Number {0} \n", order.orderNumber);
+        if (order != null) {
+            string orderItemDescription = string.Format("Order Number {0} \n", order.orderNumber);
 
-        foreach (var orderItem in order.orderFoodItems) {
-            orderItemDescription += string.Format("{0} {1} \n", orderItem.Value, orderItem.Key.name);
+            foreach (var orderItem in order.orderFoodItems) {
+                orderItemDescription += string.Format("{0} {1} \n", orderItem.Value, orderItem.Key.name);
+            }
+
+            orderItemDescription += "\n";
+            return orderItemDescription;
         }
-
-        orderItemDescription += "\n";
-        return orderItemDescription;
+        else {
+            return "No order selected \n";
+        }
+        
     }
 
     /// <summary>
@@ -97,13 +110,18 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
     /// </summary>
     /// <returns>A formatted string of prepared items</returns>
     private string SetPreppedItemDescription() {
-        string preppedItemDescription = "Prepped Items \n";
+        if (order != null) {
+            string preppedItemDescription = "Prepped Items \n";
 
-        foreach (var item in order.preppedFoodItems.items) {
-            preppedItemDescription += string.Format("{0} {1} \n", item.Value, item.Key.name);
+            foreach (var item in order.preppedFoodItems.items) {
+                preppedItemDescription += string.Format("{0} {1} \n", item.Value, item.Key.name);
+            }
+
+            return preppedItemDescription;
         }
 
-        return preppedItemDescription;
+        return "";
+
     }
 
     /// <summary>

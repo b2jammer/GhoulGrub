@@ -47,7 +47,8 @@ public class Station : MonoBehaviour
     public void OpenStationPanel()
     {
         StationPanel stationPanel = StationPanel.Instance;
-        stationPanel.OpenStation(this);
+        stationPanel.SetStation(this);
+        InventoryInteractablesManager.Instance.SwitchPanel((int)InteractablePanels.Station);
     }
 
     public void CloseStationPanel()

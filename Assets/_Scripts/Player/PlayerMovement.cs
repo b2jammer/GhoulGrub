@@ -46,11 +46,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        //direction = keyboardInput.Direction;
-        direction = GetDirectionToTarget(keyboardInput.ClickPoint);
+        direction = keyboardInput.Direction;
+        //direction = GetDirectionToTarget(keyboardInput.ClickPoint);
 
-        //Move();
-        ClickMove(keyboardInput.ClickPoint);
+        Move();
+        //ClickMove(keyboardInput.ClickPoint);
     }
     #endregion
 
