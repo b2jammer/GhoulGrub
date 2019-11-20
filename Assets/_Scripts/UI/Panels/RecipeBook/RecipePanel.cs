@@ -175,6 +175,14 @@ public class RecipePanel : MonoBehaviour
         FindUses(currentRecipes[currentRecipeIndex].target);
     }
 
+    public void ClosePanel() {
+        gameObject.SetActive(false);
+    }
+
+    public void OpenPanel() {
+        gameObject.SetActive(true);
+    }
+
     public void InitialRecipeList() => DisplayRecipeList(null, true);
     #endregion
 }

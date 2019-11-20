@@ -76,7 +76,11 @@ public class Inventory : MonoBehaviour
 
     public IEnumerable GetFoodTypes()
     {
-        return items.Keys;
+        if (items != null) {
+            return items.Keys;
+        }
+
+        return new List<FoodItem>();
     }
 
     public void AddInventoryItem(FoodItem item) {
