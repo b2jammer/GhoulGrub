@@ -20,13 +20,16 @@ MonoBehaviour:
     ingredients:
     - type: {fileID: 11400000, guid: c61e14354c6056f499f279f450f5cbb2, type: 2}
       quantity: 1
+      quantityMax: 1
   - target: {fileID: 11400000, guid: 2bf99576f2659084baa06e0ac8dfeb0a, type: 2}
     targetQuantity: 1
     ingredients:
     - type: {fileID: 11400000, guid: fbf9d59807a721f4fa53606772185e1b, type: 2}
       quantity: 1
+      quantityMax: 1
   - target: {fileID: 11400000, guid: 1172d95808a66de498e425543e97fe71, type: 2}
     targetQuantity: 1
     ingredients:
     - type: {fileID: 11400000, guid: 40a4193fc86212948a234c809adee5cd, type: 2}
       quantity: 1
+      quantityMax: 1

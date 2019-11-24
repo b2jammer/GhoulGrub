@@ -1,14 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class KeyboardInterfaceController : MonoBehaviour
-{
+public class KeyboardInterfaceController : MonoBehaviour {
     #region Private Variables
     private Vector3 direction;
+    private Vector3 clickPoint;
     private bool isInteracting;
     private bool isOpeningStation;
-    private RotationDirection rotation;
+    private LayerMask layerMask;
     #endregion
 
     #region Properties
@@ -18,6 +20,12 @@ public class KeyboardInterfaceController : MonoBehaviour
     public Vector3 Direction {
         get {
             return direction;
+        }
+    }
+
+    public Vector3 ClickPoint {
+        get {
+            return clickPoint;
         }
     }
 
@@ -38,12 +46,6 @@ public class KeyboardInterfaceController : MonoBehaviour
             return isOpeningStation;
         }
     }
-
-    public RotationDirection Rotation {
-        get {
-            return rotation;
-        }
-    }
     #endregion
 
     #region MonoBehavior Methods
@@ -54,18 +56,32 @@ public class KeyboardInterfaceController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        layerMask = LayerMask.GetMask("Floor", "Default");
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         CheckMovement();
+        //CheckMovementWithMouse();
         CheckInteract();
         CheckOpenStationInventory();
-        CheckCameraRotation();
+
+        //temp stuff until we have a UI
+        CheckRestart();
+        CheckExit();
+    }
+
+    private void CheckExit() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+    }
+
+    private void CheckRestart() {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            SceneManager.LoadScene("Test Sample Scene");
+        }
     }
     #endregion
 
@@ -93,6 +109,22 @@ public class KeyboardInterfaceController : MonoBehaviour
 
     }
 
+    private void CheckMovementWithMouse() {
+        if (Input.GetMouseButtonDown(0)) {
+            Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            Physics.Raycast(mouseClick, out hit, layerMask);
+
+            if (hit.collider != null) {
+                if (hit.collider.gameObject.tag != "Station") {
+                    clickPoint = hit.point;
+                }
+            }
+            
+        }
+    }
+
     /// <summary>
     /// Checks whether the key bound to player interaction was pressed down
     /// and sets a boolean.
@@ -107,24 +139,6 @@ public class KeyboardInterfaceController : MonoBehaviour
     /// </summary>
     private void CheckOpenStationInventory() {
         isOpeningStation = Input.GetButtonDown("OpenStationInventory");
-    }
-
-    private void CheckCameraRotation() {
-        if (Input.GetButtonDown("RotateCameraRight")) {
-            rotation = RotationDirection.Right;
-        }
-        else if (Input.GetButtonDown("RotateCameraLeft")) {
-            rotation = RotationDirection.Left;
-        }
-        else {
-            rotation = RotationDirection.None;
-        }
-    }
-
-    public enum RotationDirection {
-        None,
-        Left,
-        Right
     }
     #endregion
 }

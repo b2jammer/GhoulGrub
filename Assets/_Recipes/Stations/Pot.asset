@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc5aec4950bf384ea256c53500eaa56, type: 3}
+  m_Name: Pot
+  m_EditorClassIdentifier: 
+  title: Pot
+  action: Boil!
+  icon: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
+  recipeList: {fileID: 11400000, guid: 15d1455d0db4e054782429985383e2a6, type: 2}

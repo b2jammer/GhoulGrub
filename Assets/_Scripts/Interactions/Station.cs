@@ -9,8 +9,7 @@ using UnityEngine.UI;
 public class Station : MonoBehaviour
 {
     #region Public Variables
-    public string stationTitle;
-    public RecipeList recipeList;
+    public StationInfo stationInfo;
 
     public Image iconRenderer;
     public Inventory StationInventory
@@ -37,13 +36,9 @@ public class Station : MonoBehaviour
 
     private void Update()
     {
-        if (recipeList != null)
+        if (iconRenderer != null)
         {
-            stationTitle = recipeList.listTitle;
-            if (iconRenderer != null)
-            {
-                iconRenderer.sprite = recipeList.listIcon;
-            }
+            iconRenderer.sprite = stationInfo.icon;
         }
     }
     #endregion
@@ -52,7 +47,8 @@ public class Station : MonoBehaviour
     public void OpenStationPanel()
     {
         StationPanel stationPanel = StationPanel.Instance;
-        stationPanel.OpenStation(this);
+        stationPanel.SetStation(this);
+        InventoryInteractablesManager.Instance.SwitchPanel((int)InteractablePanels.Station);
     }
 
     public void CloseStationPanel()

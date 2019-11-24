@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc5aec4950bf384ea256c53500eaa56, type: 3}
+  m_Name: Counter
+  m_EditorClassIdentifier: 
+  title: Counter
+  action: Combine!
+  icon: {fileID: 21300000, guid: 020c462fa9fa4c64d8a5a083e63554fe, type: 3}
+  recipeList: {fileID: 11400000, guid: 5ae552d6e66fa4f4cb6b150f6e226e6b, type: 2}
