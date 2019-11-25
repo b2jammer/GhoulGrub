@@ -156,10 +156,10 @@ public class Order : MonoBehaviour {
     /// </summary>
     /// <param name="rating"></param>
     private void UpdateTentacularLikes(float rating) {
-        TentacularLikes.totalLikes += rating;
-        TentacularLikes.totalCustomers++;
+        TentacularLikes.Instance.totalLikes += rating;
+        TentacularLikes.Instance.totalCustomers++;
 
-        TentacularLikes.CalculateLikeValue();
+        TentacularLikes.Instance.CalculateLikeValue();
     }
 
     /// <summary>

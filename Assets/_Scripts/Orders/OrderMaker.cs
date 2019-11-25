@@ -220,13 +220,13 @@ public class OrderMaker : MonoBehaviour {
     /// lower the rating, the lower the increase rank probability
     /// </summary>
     private void UpdateIncreaseRankProbability() {
-        if (TentacularLikes.likes >= 4f) {
+        if (TentacularLikes.Instance.likes >= 4f) {
             increaseRankProbability = 0.8f;
         }
-        else if (TentacularLikes.likes >= 3f) {
+        else if (TentacularLikes.Instance.likes >= 3f) {
             increaseRankProbability = 0.4f;
         }
-        else if (TentacularLikes.likes >= 2f) {
+        else if (TentacularLikes.Instance.likes >= 2f) {
             increaseRankProbability = 0.1f;
         }
         else {
