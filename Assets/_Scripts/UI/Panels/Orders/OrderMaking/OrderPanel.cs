@@ -16,36 +16,24 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
     [HideInInspector]
     // the related order
     public Order order;
+
+    [HideInInspector]
+    public InventoryDropTarget dropTarget;
     #endregion
 
     #region Private Variables
     [SerializeField]
     // UI text that displays a timer for the order
     private Text timerText;
-
-    //[SerializeField]
-    //private OrderDescriptionPanel descriptionPanelPrefab;
+    
     [SerializeField]
     private RectTransform orderPanelImageTransform;
 
-    //private RectTransform canvas;
     private SingletonOrderDescriptionPanel descriptionPanel;
     private FillOrderPanel fillOrderPanel;
-    //private OrderDescriptionPanel orderDescriptionPanel;
     #endregion
 
     #region Monobehavior functions
-    private void Awake() {
-        //canvas = GameObject.Find("Primary Canvas").GetComponent<RectTransform>();
-    }
-
-    //private IEnumerator Start() {
-    //    if (order != null) {
-    //        yield return WaitToCreateOrderDescription();
-    //    }
-
-    //    yield return null;
-    //}
 
     private void Start() {
         descriptionPanel = SingletonOrderDescriptionPanel.instance;
@@ -54,7 +42,6 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
 
     private void Update() {
         UpdateTimer();
-        //CheckPositionChanged();
     }
 
     public void OnPointerDown(PointerEventData eventData) {
@@ -67,69 +54,6 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
     #endregion
 
     #region Script specific functions
-    ///// <summary>
-    ///// Activates or deactivates the order description panel related to this order panel
-    ///// </summary>
-    //public void ToggleViewDescriptionPanel() {
-    //    if (orderDescriptionPanel != null) {
-    //        if (orderDescriptionPanel.gameObject.activeInHierarchy) {
-    //            orderDescriptionPanel.gameObject.SetActive(false);
-    //        }
-    //        else {
-    //            orderDescriptionPanel.gameObject.SetActive(true);
-    //        }
-    //    }
-    //}
-
-    ///// <summary>
-    ///// Creates an order description panel at the end of the current frame
-    ///// </summary>
-    ///// <returns></returns>
-    //IEnumerator WaitToCreateOrderDescription() {
-    //    yield return new WaitForEndOfFrame();
-    //    CreateOrderDescriptionPanel();
-    //    yield return null;
-    //}
-
-    ///// <summary>
-    ///// Creates an order description panel
-    ///// </summary>
-    //private void CreateOrderDescriptionPanel() {
-    //    orderDescriptionPanel = GameObject.Instantiate(descriptionPanelPrefab, canvas);
-    //    orderDescriptionPanel.order = order;
-    //    orderDescriptionPanel.gameObject.SetActive(false);
-    //    orderDescriptionPanel.transform.position = orderPanelImageTransform.position;
-
-    //    orderLinePanel.descriptionPanels.Add(this, orderDescriptionPanel);
-    //}
-
-    /// <summary>
-    /// Updates the description panels position at the end of the current frame
-    /// </summary>
-    /// <returns></returns>
-    //IEnumerator WaitToUpdateDescriptionPanelPosition() {
-    //    yield return new WaitForEndOfFrame();
-    //    UpdateDescriptionPanelPosition();
-    //    yield return null;
-    //}
-
-    ///// <summary>
-    ///// Updates the description panels position
-    ///// </summary>
-    //private void UpdateDescriptionPanelPosition() {
-    //    orderDescriptionPanel.transform.position = orderPanelImageTransform.position;
-    //}
-
-    /// <summary>
-    /// Checks if this panels position has changed and if it has it also
-    /// updates the related description panels position
-    /// </summary>
-    //private void CheckPositionChanged() {
-    //    if (transform.hasChanged) {
-    //        //StartCoroutine(WaitToUpdateDescriptionPanelPosition());
-    //        transform.hasChanged = false;
-    //    }
-    //}
 
     /// <summary>
     /// Updates the panels timer

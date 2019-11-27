@@ -79,8 +79,17 @@ public class FoodItemDraggable : MonoBehaviour, IDragHandler, IEndDragHandler
         //If over valid inventory, add to it.
         if (currentDropTarget != null)
         {
-            currentDropTarget.panelOwner.InventoryData.AddInventoryItem(type);
-            LeaveTarget(currentDropTarget);
+            if (currentDropTarget.dropType == InventoryDropTarget.DropTargetType.InventoryPanel) {
+                currentDropTarget.panelOwner.InventoryData.AddInventoryItem(type);
+                LeaveTarget(currentDropTarget);
+            }
+            else if (currentDropTarget.dropType == InventoryDropTarget.DropTargetType.OrderPanel) {
+                Debug.Log("dropped over order panel");
+                currentDropTarget.orderPanel.order.preppedFoodItems.AddInventoryItem(type);
+                Debug.Log(type.name);
+                LeaveTarget(currentDropTarget);
+            }
+            
         }
         else
         {
