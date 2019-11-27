@@ -24,6 +24,7 @@ public class Station : MonoBehaviour
     #region Private Variables
     private Interactable interactable;
     private Inventory _stationInventory;
+    private GrubTooltipManager tooltipManager;
     
     #endregion
 
@@ -34,12 +35,24 @@ public class Station : MonoBehaviour
         _stationInventory = GetComponent<Inventory>();
     }
 
+    private void Start() {
+        tooltipManager = GrubTooltipManager.Instance;
+    }
+
     private void Update()
     {
         if (iconRenderer != null)
         {
             iconRenderer.sprite = stationInfo.icon;
         }
+    }
+
+    private void OnMouseEnter() {
+        tooltipManager.ShowTooltip(stationInfo.title);
+    }
+
+    private void OnMouseExit() {
+        tooltipManager.HideTooltip();
     }
     #endregion
 

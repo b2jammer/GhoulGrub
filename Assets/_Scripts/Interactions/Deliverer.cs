@@ -12,9 +12,12 @@ public class Deliverer : MonoBehaviour
     public Text deliveryText;
 
     private Inventory fridgeInventory;
+    private Animator deliveryAnimator;
 
     private void Start() {
-        deliveryText.color = Color.green;
+        //deliveryText.color = Color.green;
+        deliveryAnimator = deliveryText.GetComponent<Animator>();
+
         fridgeInventory = GetComponent<Inventory>();
         MakeDelivery();
     }
@@ -30,6 +33,7 @@ public class Deliverer : MonoBehaviour
             }
         }
         SetDeliveryText(delivery);
+        deliveryAnimator.SetTrigger("Delivered");
 
         Invoke("MakeDelivery", timeBetweenDeliveries);
     }
