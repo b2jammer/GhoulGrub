@@ -12,6 +12,10 @@ public class Station : MonoBehaviour
     public StationInfo stationInfo;
 
     public Image iconRenderer;
+
+    [HideInInspector]
+    public InventoryDropTarget dropTarget;
+
     public Inventory StationInventory
     {
         get

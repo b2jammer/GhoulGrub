@@ -1923,6 +1923,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783098, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: recipeList
@@ -2034,12 +2039,12 @@ PrefabInstance:
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_TagString
-      value: Station
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390519583487, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -2081,6 +2086,34 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &451623817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+    type: 3}
+  m_PrefabInstance: {fileID: 451623810}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451623812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afa5aa7601177b4f9037b6aba71a5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &451623820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451623812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd016f84b8b6b1418c52ec60b020948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelOwner: {fileID: 0}
+  orderPanel: {fileID: 0}
+  station: {fileID: 451623817}
+  dropType: 2
 --- !u!1 &466525305
 GameObject:
   m_ObjectHideFlags: 0
@@ -4036,6 +4069,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783098, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: stationTitle
@@ -4148,12 +4186,12 @@ PrefabInstance:
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_TagString
-      value: Station
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390519583487, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -4195,6 +4233,34 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &883039863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+    type: 3}
+  m_PrefabInstance: {fileID: 883039856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883039858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afa5aa7601177b4f9037b6aba71a5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &883039866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883039858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd016f84b8b6b1418c52ec60b020948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelOwner: {fileID: 0}
+  orderPanel: {fileID: 0}
+  station: {fileID: 883039863}
+  dropType: 2
 --- !u!1001 &963629415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4216,6 +4282,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783098, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_TagString
+      value: Station
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -4329,12 +4400,12 @@ PrefabInstance:
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_TagString
-      value: Station
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390519583487, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -4376,6 +4447,34 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &963629422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+    type: 3}
+  m_PrefabInstance: {fileID: 963629415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963629417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afa5aa7601177b4f9037b6aba71a5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &963629425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963629417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd016f84b8b6b1418c52ec60b020948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelOwner: {fileID: 0}
+  orderPanel: {fileID: 0}
+  station: {fileID: 963629422}
+  dropType: 2
 --- !u!1 &963634133
 GameObject:
   m_ObjectHideFlags: 0
@@ -6799,6 +6898,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783098, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: recipeList
@@ -6911,12 +7015,12 @@ PrefabInstance:
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_TagString
-      value: Station
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390519583487, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -6958,6 +7062,34 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1712544960 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+    type: 3}
+  m_PrefabInstance: {fileID: 1712544953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712544955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afa5aa7601177b4f9037b6aba71a5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1712544963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712544955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd016f84b8b6b1418c52ec60b020948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelOwner: {fileID: 0}
+  orderPanel: {fileID: 0}
+  station: {fileID: 1712544960}
+  dropType: 2
 --- !u!1 &1719361879
 GameObject:
   m_ObjectHideFlags: 0
@@ -7659,6 +7791,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390797783098, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     - target: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: stationTitle
@@ -7771,12 +7908,12 @@ PrefabInstance:
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390102824754, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_TagString
-      value: Station
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390519583487, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -7818,6 +7955,34 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1807670096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6266113390797783103, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+    type: 3}
+  m_PrefabInstance: {fileID: 1807670089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807670091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afa5aa7601177b4f9037b6aba71a5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1807670099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807670091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd016f84b8b6b1418c52ec60b020948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelOwner: {fileID: 0}
+  orderPanel: {fileID: 0}
+  station: {fileID: 1807670096}
+  dropType: 2
 --- !u!1 &1823931999
 GameObject:
   m_ObjectHideFlags: 0
@@ -8801,6 +8966,7 @@ GameObject:
   - component: {fileID: 6870508129136665970}
   - component: {fileID: 6870508129136665969}
   - component: {fileID: 6870508129136665968}
+  - component: {fileID: 6870508129136665971}
   m_Layer: 0
   m_Name: Refridgerator
   m_TagString: Untagged
@@ -8848,6 +9014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stationInfo: {fileID: 11400000, guid: 68c4462a6323b48418bc0c5f39e63d3e, type: 2}
   iconRenderer: {fileID: 6870508129402021800}
+  dropTarget: {fileID: 0}
 --- !u!114 &6870508129136665970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8875,6 +9042,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Inventory+ItemEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &6870508129136665971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6870508129136665967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd016f84b8b6b1418c52ec60b020948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelOwner: {fileID: 0}
+  orderPanel: {fileID: 0}
+  station: {fileID: 6870508129136665969}
+  dropType: 2
 --- !u!114 &6870508129402021800
 MonoBehaviour:
   m_ObjectHideFlags: 0

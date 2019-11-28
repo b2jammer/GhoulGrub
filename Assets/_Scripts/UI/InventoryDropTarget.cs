@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class InventoryDropTarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public InventoryPanel panelOwner;
-    public DropTargetType dropType = DropTargetType.InventoryPanel;
     public OrderPanel orderPanel;
+    public Station station;
+
+    public DropTargetType dropType = DropTargetType.InventoryPanel;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -36,6 +38,9 @@ public class InventoryDropTarget : MonoBehaviour, IPointerEnterHandler, IPointer
         }
         else if (dropType == DropTargetType.OrderPanel) {
             orderPanel.dropTarget = this;
+        }
+        else if (dropType == DropTargetType.Station) {
+            station.dropTarget = this;
         }
     }
 

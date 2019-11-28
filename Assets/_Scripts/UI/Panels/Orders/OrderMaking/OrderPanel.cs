@@ -46,7 +46,7 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
 
     public void OnPointerDown(PointerEventData eventData) {
         if (eventData.button == PointerEventData.InputButton.Left) {
-            Debug.Log("Order panel left clicked");
+            //Debug.Log("Order panel left clicked");
             UpdateOrderCompletionPanel();
             UpdateDescriptionPanel();
         }
