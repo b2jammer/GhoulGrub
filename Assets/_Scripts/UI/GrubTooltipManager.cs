@@ -13,6 +13,7 @@ public class GrubTooltipManager : MonoBehaviour
     private RectTransform tooltipRect;
     private Vector3 mouseOffset;
     private static GrubTooltipManager _instance;
+    private float standardHeight;
 
     public static GrubTooltipManager Instance {
         get {
@@ -33,12 +34,12 @@ public class GrubTooltipManager : MonoBehaviour
     }
 
     private void Awake() {
-        
+        standardHeight = 1080;   
     }
 
     private void Start() {
         tooltipText = tooltipObject.GetComponentInChildren<Text>();
-        tooltipRect = tooltipText.GetComponent<RectTransform>();
+        tooltipRect = tooltipObject.GetComponent<Image>().rectTransform;
 
         cam = Camera.main;
 
@@ -48,9 +49,10 @@ public class GrubTooltipManager : MonoBehaviour
     }
 
     private void Update() {
+        float heightScaler = Screen.height/standardHeight;
         //Vector2 tooltipPos = RectTransformUtility.WorldToScreenPoint(cam, Input.mousePosition);
+        mouseOffset = new Vector3(0, (tooltipRect.rect.height / 2 + 10) * heightScaler, 0);
         tooltipObject.transform.position = Input.mousePosition + mouseOffset;
-        //Debug.Log(tooltipPos);
     }
 
     public void ShowTooltip(string tooltip) {
