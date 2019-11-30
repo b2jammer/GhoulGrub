@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler {
+public class SingletonOrderDescriptionPanel : MonoBehaviour /*, IPointerDownHandler*/ {
 
     #region Public Variables
     public static SingletonOrderDescriptionPanel instance;
@@ -38,20 +38,20 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
         closeable.ClosePanel();
     }
 
-    /// <summary>
-    /// Activates or deactivates the description panel if it is right clicked
-    /// </summary>
-    /// <param name="eventData">PointerEventData data</param>
-    public void OnPointerDown(PointerEventData eventData) {
-        if (eventData.button == PointerEventData.InputButton.Right) {
-            if (this.gameObject.activeInHierarchy) {
-                this.gameObject.SetActive(false);
-            }
-            //else {
-            //    this.gameObject.SetActive(true);
-            //}
-        }
-    }
+    ///// <summary>
+    ///// Activates or deactivates the description panel if it is right clicked
+    ///// </summary>
+    ///// <param name="eventData">PointerEventData data</param>
+    //public void OnPointerDown(PointerEventData eventData) {
+    //    if (eventData.button == PointerEventData.InputButton.Right) {
+    //        if (this.gameObject.activeInHierarchy) {
+    //            this.gameObject.SetActive(false);
+    //        }
+    //        //else {
+    //        //    this.gameObject.SetActive(true);
+    //        //}
+    //    }
+    //}
     #endregion
 
     #region Script Specific Functions
@@ -93,7 +93,7 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
             string orderItemDescription = string.Format("Order Number {0} \n", order.orderNumber);
 
             foreach (var orderItem in order.orderFoodItems) {
-                orderItemDescription += string.Format("{0} {1} \n", orderItem.Value, orderItem.Key.name);
+                orderItemDescription += string.Format("{0} {1} \n", orderItem.Value, orderItem.Key.itemName);
             }
 
             orderItemDescription += "\n";
@@ -102,7 +102,23 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
         else {
             return "No order selected \n";
         }
-        
+
+    }
+
+    private string SetOrderRecipes() {
+        if (order != null) {
+            string recipes = string.Format("Recipes \n");
+
+            foreach (var meal in order.orderFoodItems.Keys) {
+                recipes += string.Format("\u2022 {0}: \n{1} \n", meal.itemName, meal.recipe);
+            }
+
+            recipes += "\n";
+            return recipes;
+        }
+
+        return "";
+
     }
 
     /// <summary>
@@ -114,7 +130,7 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
             string preppedItemDescription = "Prepped Items \n";
 
             foreach (var item in order.preppedFoodItems.items) {
-                preppedItemDescription += string.Format("{0} {1} \n", item.Value, item.Key.name);
+                preppedItemDescription += string.Format("{0} {1} \n", item.Value, item.Key.itemName);
             }
 
             return preppedItemDescription;
@@ -129,9 +145,10 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour, IPointerDownHandler
     /// </summary>
     private void UpdateOrderDescription() {
         string orderItemDescription = SetOrderItemDescription();
+        string recipes = SetOrderRecipes();
         string preppedItemDescription = SetPreppedItemDescription();
 
-        description.text = orderItemDescription + preppedItemDescription;
+        description.text = orderItemDescription + recipes + preppedItemDescription;
     }
     #endregion
 }

@@ -1647,6 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: Show/Hide Panels
+  maxTooltipTime: 2
 --- !u!1 &318653218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,6 +3483,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2515587510422818881, guid: 28c8a875ca46a33448f57ce382784e5a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8694022609597746397, guid: 28c8a875ca46a33448f57ce382784e5a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28c8a875ca46a33448f57ce382784e5a, type: 3}
@@ -3567,6 +3573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: Show Station
+  maxTooltipTime: 2
 --- !u!1 &695775625
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,6 +4788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: Show Order
+  maxTooltipTime: 2
 --- !u!1001 &1153324243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5331,7 +5339,7 @@ PrefabInstance:
     - target: {fileID: 8053508665344495659, guid: b439e0195f19ce84eaf1e2ce598b67f7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 8053508665826369220, guid: b439e0195f19ce84eaf1e2ce598b67f7,
         type: 3}
@@ -9013,6 +9021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationInfo: {fileID: 11400000, guid: 68c4462a6323b48418bc0c5f39e63d3e, type: 2}
+  maxTooltipTime: 2
   iconRenderer: {fileID: 6870508129402021800}
   dropTarget: {fileID: 0}
 --- !u!114 &6870508129136665970

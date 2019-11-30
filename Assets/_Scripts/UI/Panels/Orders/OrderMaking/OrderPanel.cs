@@ -25,10 +25,18 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
     [SerializeField]
     // UI text that displays a timer for the order
     private Text timerText;
+
+    [SerializeField]
+    private Text titleText;
     
     [SerializeField]
     private RectTransform orderPanelImageTransform;
 
+    [SerializeField]
+    private Image background;
+
+    private Color originalBackgroundColor;
+    private Color selectedColor;
     private SingletonOrderDescriptionPanel descriptionPanel;
     private FillOrderPanel fillOrderPanel;
     #endregion
@@ -38,6 +46,9 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
     private void Start() {
         descriptionPanel = SingletonOrderDescriptionPanel.instance;
         fillOrderPanel = FillOrderPanel.instance;
+        titleText.text = "Look at order " + order.orderNumber;
+        originalBackgroundColor = background.color;
+        selectedColor = new Color(255f/255f, 200f/255f, 0f/255f, 200f/255f);
     }
 
     private void Update() {
@@ -49,11 +60,21 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
             //Debug.Log("Order panel left clicked");
             UpdateOrderCompletionPanel();
             UpdateDescriptionPanel();
+            ChangeBackgroundColor();
+            orderLinePanel.UpdateSelectedOrderPanel(this);
         }
     }
     #endregion
 
     #region Script specific functions
+
+    public void ChangeBackgroundColor() {
+        background.color = selectedColor;
+    }
+
+    public void ResetBackgroundColor() {
+        background.color = originalBackgroundColor;
+    }
 
     /// <summary>
     /// Updates the panels timer

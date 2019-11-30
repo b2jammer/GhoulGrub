@@ -8,6 +8,9 @@ public class OrderLinePanel : MonoBehaviour {
     #region Public variables
     [Tooltip("The scene's order maker")]
     public OrderMaker orderMaker;
+
+    [HideInInspector]
+    public OrderPanel selectedPanel;
     #endregion
     
     #region Private Variables
@@ -64,6 +67,18 @@ public class OrderLinePanel : MonoBehaviour {
 
             Destroy(removedOrderObject);
             Destroy(relatedOrderPanelObject);
+        }
+    }
+
+    public void UpdateSelectedOrderPanel(OrderPanel selectedPanel) {
+        if (this.selectedPanel != selectedPanel) {
+            if (this.selectedPanel != null) {
+                this.selectedPanel.ResetBackgroundColor();
+                this.selectedPanel = selectedPanel;
+            }
+            else {
+                this.selectedPanel = selectedPanel;
+            }
         }
     }
     #endregion
