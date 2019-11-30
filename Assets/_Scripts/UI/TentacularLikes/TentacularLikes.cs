@@ -9,19 +9,26 @@ public class TentacularLikes : MonoBehaviour {
     #region Public Variables
     //The restaurant's average rating
     [Range(1, 5)]
-    public static float likes = 0f;
+    public float likes = 0f;
 
     //The sum of all ratings given to the restaurant
-    public static float totalLikes = 0f;
+    public float totalLikes = 0f;
    
     //The total number of customers
-    public static float totalCustomers = 0f;
+    public float totalCustomers = 0f;
+
+    [HideInInspector]
+    public static TentacularLikes Instance;
     #endregion
 
     #region Private Variables
     // UI text for the rating
     private Text likesText;
     #endregion
+
+    private void Awake() {
+        Instance = this;
+    }
 
     #region Monobehavior Functions
     private void Start() {
@@ -37,7 +44,7 @@ public class TentacularLikes : MonoBehaviour {
     /// <summary>
     /// Calculates the average rating
     /// </summary>
-    public static void CalculateLikeValue() {
+    public void CalculateLikeValue() {
         likes = totalLikes / totalCustomers;
     }
     #endregion

@@ -10,8 +10,12 @@ public class Station : MonoBehaviour
 {
     #region Public Variables
     public StationInfo stationInfo;
-
+    public float maxTooltipTime = 2f;
     public Image iconRenderer;
+
+    [HideInInspector]
+    public InventoryDropTarget dropTarget;
+
     public Inventory StationInventory
     {
         get
@@ -24,7 +28,9 @@ public class Station : MonoBehaviour
     #region Private Variables
     private Interactable interactable;
     private Inventory _stationInventory;
-    
+    private GrubTooltipManager tooltipManager;
+    private float currentTooltipTime;
+
     #endregion
 
     #region MonoBehaviour Methods
@@ -32,6 +38,11 @@ public class Station : MonoBehaviour
     {
         interactable = GetComponent<Interactable>();
         _stationInventory = GetComponent<Inventory>();
+        currentTooltipTime = 0f;
+    }
+
+    private void Start() {
+        tooltipManager = GrubTooltipManager.Instance;
     }
 
     private void Update()
@@ -40,6 +51,22 @@ public class Station : MonoBehaviour
         {
             iconRenderer.sprite = stationInfo.icon;
         }
+    }
+
+    private void OnMouseEnter() {
+        tooltipManager.ShowTooltip(stationInfo.title);
+    }
+
+    private void OnMouseOver() {
+        currentTooltipTime += Time.deltaTime;
+        if (currentTooltipTime > maxTooltipTime) {
+            tooltipManager.HideTooltip();
+        }
+    }
+
+    private void OnMouseExit() {
+        currentTooltipTime = 0f;
+        tooltipManager.HideTooltip();
     }
     #endregion
 

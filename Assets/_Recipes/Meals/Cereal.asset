@@ -16,3 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 5b8a8262c7bff044e8984f8c5e8573e1, type: 3}
   type: 4
   rank: 2
+  recipe: "Place dough in mixing bowl and mix it.\nPlace mixed dough and milk in counter
+    \nand combine them."

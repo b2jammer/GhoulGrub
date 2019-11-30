@@ -90,19 +90,29 @@ public class StationPanel : MonoBehaviour {
 
     public void Combine() {
         if (currentStation != null) {
-            RecipeList recipes = currentStation.stationInfo.recipeList;
-            RecipeList.Recipe foundRecipe = RecipeList.FindMatchingRecipe(itemPanel.InventoryData.items, recipes, out int batches);
-            OnCombineAttempt.Invoke();
-            if (foundRecipe != null) {
-                for (int i = 0; i < foundRecipe.targetQuantity * batches; i++)
-                    playerInventory.AddInventoryItem(foundRecipe.target);
-                OnCombineSucceed.Invoke(foundRecipe, batches);
+            if (currentStation.stationInfo.title != "Refrigerator") {
+                RecipeList recipes = currentStation.stationInfo.recipeList;
+                RecipeList.Recipe foundRecipe = RecipeList.FindMatchingRecipe(itemPanel.InventoryData.items, recipes, out int batches);
+                OnCombineAttempt.Invoke();
+                if (foundRecipe != null) {
+                    for (int i = 0; i < foundRecipe.targetQuantity * batches; i++)
+                        playerInventory.AddInventoryItem(foundRecipe.target);
+                    OnCombineSucceed.Invoke(foundRecipe, batches);
+                }
+                else {
+                    playerInventory.AddInventoryItem(mistakeItem);
+                    OnCombineFail.Invoke();
+                }
+                itemPanel.InventoryData.ClearInventory();  
             }
             else {
-                playerInventory.AddInventoryItem(mistakeItem);
-                OnCombineFail.Invoke();
+                foreach (var item in itemPanel.InventoryData.items) {
+                    for (int i = 0; i < item.Value; i++) {
+                        playerInventory.AddInventoryItem(item.Key);
+                    }
+                }
+                itemPanel.InventoryData.ClearInventory();
             }
-            itemPanel.InventoryData.ClearInventory(); 
         }
     }
 

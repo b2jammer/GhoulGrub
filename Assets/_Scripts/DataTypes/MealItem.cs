@@ -17,4 +17,7 @@ public class MealItem : FoodItem
     public MealType type;
     [Range(1,5)]
     public int rank = 1;
+
+    [TextArea]
+    public string recipe;
 }
