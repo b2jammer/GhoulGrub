@@ -10,6 +10,8 @@ public class KeyboardInterfaceController : MonoBehaviour {
     private Vector3 clickPoint;
     private bool isInteracting;
     private bool isOpeningStation;
+    private bool toggledOrder;
+    private bool toggledInventory;
     private LayerMask layerMask;
     #endregion
 
@@ -23,9 +25,15 @@ public class KeyboardInterfaceController : MonoBehaviour {
         }
     }
 
-    public Vector3 ClickPoint {
+    public bool ToggledOrder {
         get {
-            return clickPoint;
+            return toggledOrder;
+        }
+    }
+
+    public bool ToggledInventory {
+        get {
+            return toggledInventory;
         }
     }
 
@@ -63,25 +71,11 @@ public class KeyboardInterfaceController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         CheckMovement();
-        //CheckMovementWithMouse();
         CheckInteract();
         CheckOpenStationInventory();
 
-        //temp stuff until we have a UI
-        CheckRestart();
-        CheckExit();
-    }
-
-    private void CheckExit() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            Application.Quit();
-        }
-    }
-
-    private void CheckRestart() {
-        if (Input.GetKeyDown(KeyCode.R)) {
-            SceneManager.LoadScene("Test Sample Scene");
-        }
+        CheckInventoryToggled();
+        CheckOrderToggled();
     }
     #endregion
 
@@ -109,22 +103,6 @@ public class KeyboardInterfaceController : MonoBehaviour {
 
     }
 
-    private void CheckMovementWithMouse() {
-        if (Input.GetMouseButtonDown(0)) {
-            Ray mouseClick = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            Physics.Raycast(mouseClick, out hit, layerMask);
-
-            if (hit.collider != null) {
-                if (hit.collider.gameObject.tag != "Station") {
-                    clickPoint = hit.point;
-                }
-            }
-            
-        }
-    }
-
     /// <summary>
     /// Checks whether the key bound to player interaction was pressed down
     /// and sets a boolean.
@@ -139,6 +117,14 @@ public class KeyboardInterfaceController : MonoBehaviour {
     /// </summary>
     private void CheckOpenStationInventory() {
         isOpeningStation = Input.GetButtonDown("OpenStationInventory");
+    }
+
+    private void CheckOrderToggled() {
+        toggledOrder = Input.GetButtonDown("Toggle Order Panel");
+    }
+
+    private void CheckInventoryToggled() {
+        toggledInventory = Input.GetButtonDown("Toggle Inventory Panel");
     }
     #endregion
 }

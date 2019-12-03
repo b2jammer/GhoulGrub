@@ -93,5 +93,16 @@ public class Station : MonoBehaviour
         StationPanel stationPanel = StationPanel.Instance;
         stationPanel.CloseStation(this);
     }
+
+    public void ToggleStationPanel() {
+        StationPanel stationPanel = StationPanel.Instance;
+
+        if (stationPanel.IsOpen()) {
+            CloseStationPanel();
+        }
+        else {
+            OpenStationPanel();
+        }
+    }
     #endregion
 }
