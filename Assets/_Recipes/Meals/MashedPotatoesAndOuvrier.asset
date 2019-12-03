@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MashedPotatoesAndOuvrier
   m_EditorClassIdentifier: 
   itemName: Mashed Potatoes and Ouvrier
-  sprite: {fileID: 21300000, guid: 5b8a8262c7bff044e8984f8c5e8573e1, type: 3}
+  sprite: {fileID: 21300000, guid: 2e7247dae19c839468b43bf3ae1dd508, type: 3}
   type: 0
   rank: 2
+  recipe: 

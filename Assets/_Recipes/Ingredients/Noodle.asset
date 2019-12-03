@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Noodle
   m_EditorClassIdentifier: 
   itemName: Noodle
-  sprite: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
+  sprite: {fileID: 21300000, guid: e2894564e8787494aa9a8003be25e034, type: 3}
   type: 2
   isCore: 0

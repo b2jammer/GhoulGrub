@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MixedMilk
   m_EditorClassIdentifier: 
   itemName: Mixed Milk
-  sprite: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
+  sprite: {fileID: 21300000, guid: 3d071c9b6e79c94489b5de9ca6632eb2, type: 3}
   type: 5
   isCore: 0

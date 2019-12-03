@@ -155,7 +155,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8053508665826369221}
   m_HandleRect: {fileID: 8053508665826369220}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -528,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderMaker: {fileID: 0}
+  selectedPanel: {fileID: 0}
   panelContainer: {fileID: 8053508665344495659}
   orderPanelPrefab: {fileID: 4571490928194987065, guid: b846664e7e047b045a01b323ebf98820,
     type: 3}

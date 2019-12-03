@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("realGame");
+        SceneManager.LoadScene("DeliveryTest");
     }
 
     public void SettingsMenuON()
