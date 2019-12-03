@@ -9,8 +9,22 @@ public class TentacularScore : MonoBehaviour
 {
     #region Public Variables
     private float remainingTimeScore;
+    private int completedMeals;
+    private int lostMeals;
 
     public static TentacularScore Instance;
+
+    public int CompletedMeals {
+        get {
+            return completedMeals;
+        }
+    }
+
+    public int LostMeals {
+        get {
+            return lostMeals;
+        }
+    }
     #endregion
 
     #region Private Variables
@@ -21,6 +35,8 @@ public class TentacularScore : MonoBehaviour
     private void Awake() {
         Instance = this;
         remainingTimeScore = 0f;
+        completedMeals = 0;
+        lostMeals = 0;
     }
 
     #region Monobehavior Functions
@@ -40,6 +56,14 @@ public class TentacularScore : MonoBehaviour
     public void UpdateText(float remainingTime) {
         remainingTimeScore += Mathf.Round(remainingTime * 100f);
         scoreText.text = remainingTimeScore.ToString();
+    }
+
+    public void UpdateCompletedMeals() {
+        completedMeals++;
+    }
+
+    public void UpdateLostMeals() {
+        lostMeals++;
     }
     #endregion
 }
