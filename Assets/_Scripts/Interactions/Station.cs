@@ -15,12 +15,19 @@ public class Station : MonoBehaviour
 
     [HideInInspector]
     public InventoryDropTarget dropTarget;
+    [HideInInspector]
 
     public Inventory StationInventory
     {
         get
         {
             return _stationInventory;
+        }
+    }
+
+    public Collider StationCollider {
+        get {
+            return stationCollider;
         }
     }
     #endregion
@@ -30,6 +37,7 @@ public class Station : MonoBehaviour
     private Inventory _stationInventory;
     private GrubTooltipManager tooltipManager;
     private float currentTooltipTime;
+    private Collider stationCollider;
 
     #endregion
 
@@ -38,6 +46,7 @@ public class Station : MonoBehaviour
     {
         interactable = GetComponent<Interactable>();
         _stationInventory = GetComponent<Inventory>();
+        stationCollider = GetComponent<Collider>();
         currentTooltipTime = 0f;
     }
 
@@ -75,7 +84,8 @@ public class Station : MonoBehaviour
     {
         StationPanel stationPanel = StationPanel.Instance;
         stationPanel.SetStation(this);
-        InventoryInteractablesManager.Instance.SwitchPanel((int)InteractablePanels.Station);
+        stationPanel.OpenStation();
+        //InventoryInteractablesManager.Instance.SwitchPanel((int)InteractablePanels.Station);
     }
 
     public void CloseStationPanel()

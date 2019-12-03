@@ -55,13 +55,13 @@ public class FillOrderPanel : MonoBehaviour {
             //closeable.OpenPanel();
 
             OnOrderSet.Invoke();
-            InventoryInteractablesManager.Instance.IsHidden = false;
+            //InventoryInteractablesManager.Instance.IsHidden = false;
         }
         
     }
 
     public void OpenFillOrderPanel() {
-        InventoryInteractablesManager.Instance.IsHidden = false;
+        //InventoryInteractablesManager.Instance.IsHidden = false;
         closeable.OpenPanel();
     }
 

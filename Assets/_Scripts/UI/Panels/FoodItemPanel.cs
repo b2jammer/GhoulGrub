@@ -18,15 +18,26 @@ public class FoodItemPanel : MonoBehaviour
     private Text label;
     [SerializeField]
     private Image icon;
+    [SerializeField]
+    private DisplayTooltip tooltip;
     #endregion
 
     #region MonoBehaviour Variables
     private void Awake()
     {
+        if (tooltip == null) {
+            tooltip = GetComponent<DisplayTooltip>();
+        }
+
         if (itemType != null)
         {
             UpdateLabel();
+            SetDisplayedTooltip();
+
         }
+
+
+        
     }
     #endregion
 
@@ -35,11 +46,20 @@ public class FoodItemPanel : MonoBehaviour
     {
         itemType = newType;
         UpdateLabel();
+        SetDisplayedTooltip();
     }
 
     public FoodItem GetFoodType()
     {
         return itemType;
+    }
+
+    public void SetDisplayedTooltip() {
+
+        if (itemType != null) {
+            //Debug.Log(tooltip);
+            tooltip.tooltip = itemType.itemName;
+        }
     }
 
     public void UpdateLabel()
