@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SideSalad
   m_EditorClassIdentifier: 
   itemName: Side Salad
-  sprite: {fileID: 21300000, guid: 5b8a8262c7bff044e8984f8c5e8573e1, type: 3}
+  sprite: {fileID: 21300000, guid: 8bfca2882a91bd9409331d686adb0a31, type: 3}
   type: 5
   rank: 2
+  recipe: 

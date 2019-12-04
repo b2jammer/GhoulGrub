@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Counter
   m_EditorClassIdentifier: 
   title: Counter
-  action: Combine!
+  action: Order Up!
   icon: {fileID: 21300000, guid: 020c462fa9fa4c64d8a5a083e63554fe, type: 3}
   recipeList: {fileID: 11400000, guid: 5ae552d6e66fa4f4cb6b150f6e226e6b, type: 2}

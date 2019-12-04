@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MixedDough
   m_EditorClassIdentifier: 
   itemName: Mixed Dough
-  sprite: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
+  sprite: {fileID: 21300000, guid: df7c1677dde002a479e5498c217bfc97, type: 3}
   type: 2
   isCore: 0

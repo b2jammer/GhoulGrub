@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     // Tracks whether the game is paused or not.
     public static bool GameIsPaused = false;
 
-    public GameObject pauseButton, pauseMenuUI, settingsMenuUI, controlsMenuUI;
+    public GameObject pauseButton, pauseMenuUI, settingsMenuUI, controlsMenuUI, recipeBookUI;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +29,13 @@ public class PauseMenu : MonoBehaviour
     public void Resume ()
     {
         pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); //Loads current scene
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
@@ -54,6 +61,16 @@ public class PauseMenu : MonoBehaviour
     public void SettingsMenuOFF()
     {
         settingsMenuUI.SetActive(false);
+    }
+
+    public void RecipeBookON()
+    {
+        recipeBookUI.SetActive(true);
+    }
+
+    public void RecipeBookOFF()
+    {
+        recipeBookUI.SetActive(false);
     }
 
     public void ControlsMenuON()

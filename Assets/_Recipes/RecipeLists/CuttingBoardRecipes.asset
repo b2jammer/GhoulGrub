@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: CuttingBoardRecipes
   m_EditorClassIdentifier: 
   listTitle: Cutting Board
-  listIcon: {fileID: 21300000, guid: 1d571d13bf92f04498522afc7598f281, type: 3}
   recipes:
   - target: {fileID: 11400000, guid: 967541894fcc45041a0b7bcaea5e10ef, type: 2}
     targetQuantity: 1
     ingredients:
     - type: {fileID: 11400000, guid: 40a4193fc86212948a234c809adee5cd, type: 2}
       quantity: 1
-      quantityMax: 1
+      quantityMax: 10
   - target: {fileID: 11400000, guid: 168d3ceb5ffb97b44aa72c205c84aa2b, type: 2}
     targetQuantity: 2
     ingredients:
@@ -28,8 +27,122 @@ MonoBehaviour:
       quantity: 1
       quantityMax: 1
   - target: {fileID: 11400000, guid: 2dc42ff891b51fa409e07f1435dd0fbc, type: 2}
-    targetQuantity: 1
+    targetQuantity: 4
     ingredients:
     - type: {fileID: 11400000, guid: fb13bc3e234259543b1674701808e924, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 38e5526ee2ee86243a376f975cc1f7b4, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: fbf9d59807a721f4fa53606772185e1b, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 7e6692fd65ac2ce4eb353ca8652605cc, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 17744aa41bd4087479108ae666ffd850, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: b356eab4dee73d04094678133600397b, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 4610657755882934a87cb104cfad71cd, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 014f782b660ec5e4692a7cc0d002b32d, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: e8e7251f1dea3fa4fa56098abf63410b, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: cddcdcf877ed020499fa1683b83e87bc, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: e8e7251f1dea3fa4fa56098abf63410b, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 4b022a5a75ad64848bbdc19d5bf13a14, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 4aeaec0316d5d0141ba80fa47c93c100, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: d5694d7877701df408d482c1acc4e1cb, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: f4a135682f5e0ca459f370eb20f1ccba, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 168d3ceb5ffb97b44aa72c205c84aa2b, type: 2}
+      quantity: 2
+      quantityMax: 2
+    - type: {fileID: 11400000, guid: 2dc42ff891b51fa409e07f1435dd0fbc, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 77d62ee7b01787144b250ebc627f8b26, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 948357a28dd3de643893f63031cfbfe1, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 2bf99576f2659084baa06e0ac8dfeb0a, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: fadc099d388de704d9e476f6a15da783, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 168d3ceb5ffb97b44aa72c205c84aa2b, type: 2}
+      quantity: 2
+      quantityMax: 2
+    - type: {fileID: 11400000, guid: 967541894fcc45041a0b7bcaea5e10ef, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 948357a28dd3de643893f63031cfbfe1, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 7e6692fd65ac2ce4eb353ca8652605cc, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 2dc42ff891b51fa409e07f1435dd0fbc, type: 2}
+      quantity: 0
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 0e80ec51120fa48408f33ae377c0dda7, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 36b1310979676da439ef2708e1a99186, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 59e18adac83a99240b187f69f1409aeb, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 168d3ceb5ffb97b44aa72c205c84aa2b, type: 2}
+      quantity: 0
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 15c2b900bdf24694d9efdfafb769d601, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 168d3ceb5ffb97b44aa72c205c84aa2b, type: 2}
+      quantity: 2
+      quantityMax: 2
+    - type: {fileID: 11400000, guid: 948357a28dd3de643893f63031cfbfe1, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 2dc42ff891b51fa409e07f1435dd0fbc, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 7e6692fd65ac2ce4eb353ca8652605cc, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 967541894fcc45041a0b7bcaea5e10ef, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: b356eab4dee73d04094678133600397b, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 71c8fd519d35ab74cb941129567af9d1, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 95fd73e1a2160524398ec45ece328668, type: 2}
       quantity: 1
       quantityMax: 1

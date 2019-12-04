@@ -21,8 +21,8 @@ public class OrderMaker : MonoBehaviour {
     public float timeTilFirstOrder = 10f;
 
     [Tooltip("The current maximum rank a meal can have")]
-    [Range(1, 7)]
-    public int maxMealRank = 7;
+    [Range(1, 10)]
+    public int maxMealRank = 10;
 
     [HideInInspector]
     public OrderMakerEvent OnOrderMade;
@@ -153,7 +153,7 @@ public class OrderMaker : MonoBehaviour {
     private void SetTime(int[] mealData, out float totalTime, out float currentTime) {
         // TODO: Have the time take into account restaurant rating, number of meal items 
         // and the rank of meal items
-        float defaultTime = 30f;
+        float defaultTime = 120f;
         float rankBasedTime = 0f;
         float mealSizeBasedTime = 0f;
         float ratingModifier = 0f;

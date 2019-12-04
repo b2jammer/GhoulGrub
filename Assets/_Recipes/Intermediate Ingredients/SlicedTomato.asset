@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SlicedTomato
   m_EditorClassIdentifier: 
   itemName: Sliced Tomato
-  sprite: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
+  sprite: {fileID: 21300000, guid: c678e6a4f3d34354f9d50f9b4a90c6c1, type: 3}
   type: 0
   isCore: 0

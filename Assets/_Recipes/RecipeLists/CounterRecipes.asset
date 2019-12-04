@@ -44,12 +44,6 @@ MonoBehaviour:
     - type: {fileID: 11400000, guid: d5694d7877701df408d482c1acc4e1cb, type: 2}
       quantity: 1
       quantityMax: 1
-  - target: {fileID: 11400000, guid: d742163e765efef42b117a217698c4a1, type: 2}
-    targetQuantity: 1
-    ingredients:
-    - type: {fileID: 11400000, guid: a6f31832435ed2d4ca18b91c7b88490c, type: 2}
-      quantity: 1
-      quantityMax: 1
   - target: {fileID: 11400000, guid: 77d62ee7b01787144b250ebc627f8b26, type: 2}
     targetQuantity: 1
     ingredients:
