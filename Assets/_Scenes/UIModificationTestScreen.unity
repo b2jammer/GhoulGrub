@@ -409,13 +409,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137928381}
-  m_LocalRotation: {x: 0.6033521, y: 0.012317069, z: -0.009320547, w: 0.7973253}
-  m_LocalPosition: {x: -15.55, y: 2.86, z: 0.12}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: 0.5854373, y: -0.0061385473, z: 0.0042908113, w: 0.8106831}
+  m_LocalPosition: {x: -15.16, y: 1.91, z: -0.44}
+  m_LocalScale: {x: 1.9, y: 1.75, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 74.231, y: 1.7700001, z: 0}
+  m_LocalEulerAnglesHint: {x: 71.67, y: -0.898, z: -0.042}
 --- !u!1 &142320141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,7 +1867,7 @@ GameObject:
   - component: {fileID: 1170466072}
   - component: {fileID: 1170466071}
   m_Layer: 0
-  m_Name: Sink_0 (1)
+  m_Name: Sink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2322,7 +2322,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1, z: 2}
+  m_Size: {x: 4, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: -1.5}
 --- !u!4 &1240877243
 Transform:
@@ -2332,7 +2332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240877234}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -14.51, y: 0, z: -0.71}
+  m_LocalPosition: {x: -17.06, y: 0.5, z: -3.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1689950090}
@@ -2566,7 +2566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306647256}
   m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
-  m_LocalPosition: {x: -0.44, y: 0.87, z: -8.11}
+  m_LocalPosition: {x: 3.98, y: 0.87, z: -7.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4803,6 +4803,11 @@ PrefabInstance:
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToggleStationPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113390102824753, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cef6b7cfd04dc4949a4cd580d2f5c234, type: 3}
 --- !u!1001 &1824843072
@@ -5287,7 +5292,7 @@ GameObject:
   - component: {fileID: 1903389512}
   - component: {fileID: 1903389511}
   m_Layer: 0
-  m_Name: Sink_0
+  m_Name: Dish Rack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5363,7 +5368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903389510}
   m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
-  m_LocalPosition: {x: 6.38, y: 0.87, z: -7.77}
+  m_LocalPosition: {x: -10.18, y: 0.87, z: -7.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5489,7 +5494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949514524}
   m_LocalRotation: {x: -0, y: -0.31531975, z: -0, w: 0.9489855}
-  m_LocalPosition: {x: 26.648117, y: 0, z: 7.706198}
+  m_LocalPosition: {x: 27.27, y: 0, z: 7.88}
   m_LocalScale: {x: 1, y: 5, z: 22}
   m_Children: []
   m_Father: {fileID: 1886056934}
@@ -5953,7 +5958,7 @@ PrefabInstance:
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.1
+      value: 7.52
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -5963,7 +5968,7 @@ PrefabInstance:
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.58
+      value: 6.19
       objectReference: {fileID: 0}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
