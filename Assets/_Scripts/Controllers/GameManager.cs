@@ -156,5 +156,20 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public string GetScoreText() {
+        string scoreString = "\n";
+        GetPlayerPrefs();
+
+        var orderedScores = scores.OrderByDescending(value => value).ToList();
+
+        for (int i = 0; i < orderedScores.Count; i++) {
+            scoreString += string.Format("{0}. {1} \n\n", i + 1, orderedScores[i]);
+        }
+
+        scoreString += "\n";
+
+        return scoreString;
+    }
+
 
 }
