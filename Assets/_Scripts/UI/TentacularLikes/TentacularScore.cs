@@ -8,11 +8,9 @@ using UnityEngine.Events;
 public class TentacularScore : MonoBehaviour
 {
     #region Public Variables
-    private float remainingTimeScore;
-    private int completedMeals;
-    private int lostMeals;
-
+    
     public static TentacularScore Instance;
+    public int maxLostMeals = 15;
 
     public int CompletedMeals {
         get {
@@ -30,6 +28,10 @@ public class TentacularScore : MonoBehaviour
     #region Private Variables
     // UI text for the rating
     private Text scoreText;
+    private float remainingTimeScore;
+    private int completedMeals;
+    private int lostMeals;
+
     #endregion
 
     private void Awake() {
@@ -39,13 +41,14 @@ public class TentacularScore : MonoBehaviour
         lostMeals = 0;
     }
 
+    private void Update() {
+        CheckLostMealsForLoss();
+    }
+
     #region Monobehavior Functions
     private void Start() {
         scoreText = this.GetComponent<Text>();
         scoreText.text = "0";
-    }
-
-    private void Update() {
     }
     #endregion
 
@@ -64,6 +67,12 @@ public class TentacularScore : MonoBehaviour
 
     public void UpdateLostMeals() {
         lostMeals++;
+    }
+
+    public void CheckLostMealsForLoss() {
+        if (lostMeals >= maxLostMeals) {
+            GameManager.Instance.EndGame();
+        }
     }
     #endregion
 }

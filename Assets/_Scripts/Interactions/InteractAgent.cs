@@ -16,6 +16,9 @@ public class InteractAgent : MonoBehaviour
     #region MonoBehaviour Methods
     private void OnTriggerEnter(Collider other)
     {
+        if (currentInteractable != null) {
+            currentInteractable.OnRetreat.Invoke();
+        }
         Interactable otherInteract;
         if ((otherInteract = other.GetComponentInChildren<Interactable>()) != null)
         {
