@@ -103,7 +103,7 @@ public class OrderMaker : MonoBehaviour {
 
         OnOrderMade.Invoke(orderComponent);
 
-        DetermineTimeUntilNextOrder();
+        DetermineTimeUntilNextOrder(totalTime);
         Invoke("MakeOrder", timeTilNextOrder);
     }
 
@@ -151,8 +151,6 @@ public class OrderMaker : MonoBehaviour {
     /// <param name="totalTime"></param>
     /// <param name="currentTime"></param>
     private void SetTime(int[] mealData, out float totalTime, out float currentTime) {
-        // TODO: Have the time take into account restaurant rating, number of meal items 
-        // and the rank of meal items
         float defaultTime = 120f;
         float rankBasedTime = 0f;
         float mealSizeBasedTime = 0f;
@@ -306,10 +304,8 @@ public class OrderMaker : MonoBehaviour {
     /// <summary>
     /// Determines how much time there is until the next order spawns
     /// </summary>
-    private void DetermineTimeUntilNextOrder() {
-        // TODO: Have this take into account the tentacular likes and 
-        // total meals already out
-        timeTilNextOrder = Random.Range(15, 25);
+    private void DetermineTimeUntilNextOrder(float totalTime) {
+        timeTilNextOrder = totalTime * (.75f - (TentacularLikes.Instance.likes * 3f)/100f);
     }
 
     /// <summary>

@@ -104,8 +104,10 @@ public class StationPanel : MonoBehaviour {
                     OnCombineSucceed.Invoke(foundRecipe, batches);
                 }
                 else {
-                    playerInventory.AddInventoryItem(mistakeItem);
-                    OnCombineFail.Invoke();
+                    if (itemPanel.InventoryData.items.Count > 0) {
+                        playerInventory.AddInventoryItem(mistakeItem);
+                        OnCombineFail.Invoke();
+                    }
                 }
                 itemPanel.InventoryData.ClearInventory();  
             }

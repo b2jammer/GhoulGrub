@@ -2093,7 +2093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_VerticalAxis: Forward
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -2135,26 +2135,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 796233076}
     m_Modifications:
-    - target: {fileID: 4064376747701601397, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_Name
-      value: SettingMenuPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747701601397, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747537267224, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 796233078}
-    - target: {fileID: 4064376747537267224, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetResolution
-      objectReference: {fileID: 0}
     - target: {fileID: 4064376747701601396, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2275,22 +2255,47 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10.19499
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376748475233348, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376747701601397, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 796233078}
-    - target: {fileID: 4064376748475233348, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: setMasterVolume
+      propertyPath: m_Name
+      value: SettingMenuPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376748533839277, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376747701601397, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376748218452866, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376748218452866, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376748533839277, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376748218452866, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2309,6 +2314,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747984591113, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 796233077}
+    - target: {fileID: 4064376747984591113, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ControlsMenuON
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376748707221507, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 796233077}
+    - target: {fileID: 4064376748707221507, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SettingsMenuOFF
       objectReference: {fileID: 0}
     - target: {fileID: 4064376748693785634, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
@@ -2320,30 +2345,25 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: setMusicVolume
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376747816694024, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376748533839277, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376747816694024, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376748533839277, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376748218452866, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376748475233348, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376748218452866, guid: 4dadc676e7e9d654b8188b32201285c2,
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 796233078}
+    - target: {fileID: 4064376748475233348, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376748218452866, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: setMasterVolume
       objectReference: {fileID: 0}
     - target: {fileID: 4064376747119910932, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
@@ -2355,27 +2375,22 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: setSFXVolume
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376747772177254, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376747816694024, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.8
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376747772177254, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376747816694024, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376747574608608, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747574608608, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376747772177254, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.8
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376747574608608, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376747772177254, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2400,45 +2415,30 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetFullscreen
       objectReference: {fileID: 0}
-    - target: {fileID: 4064376747984591113, guid: 4dadc676e7e9d654b8188b32201285c2,
+    - target: {fileID: 4064376747574608608, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_AnchorMin.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747574608608, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747574608608, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064376747537267224, guid: 4dadc676e7e9d654b8188b32201285c2,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 796233077}
-    - target: {fileID: 4064376747984591113, guid: 4dadc676e7e9d654b8188b32201285c2,
+      objectReference: {fileID: 796233078}
+    - target: {fileID: 4064376747537267224, guid: 4dadc676e7e9d654b8188b32201285c2,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ControlsMenuON
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376748707221507, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 796233077}
-    - target: {fileID: 4064376748707221507, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SettingsMenuOFF
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.39215687
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064376747701601399, guid: 4dadc676e7e9d654b8188b32201285c2,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetResolution
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dadc676e7e9d654b8188b32201285c2, type: 3}

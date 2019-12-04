@@ -23,6 +23,12 @@ public class TentacularScore : MonoBehaviour
             return lostMeals;
         }
     }
+
+    public float Score {
+        get {
+            return remainingTimeScore;
+        }
+    }
     #endregion
 
     #region Private Variables

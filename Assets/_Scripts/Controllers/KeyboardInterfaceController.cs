@@ -12,6 +12,7 @@ public class KeyboardInterfaceController : MonoBehaviour {
     private bool isOpeningStation;
     private bool toggledOrder;
     private bool toggledInventory;
+    private bool activatePauseMenu;
     private LayerMask layerMask;
     #endregion
 
@@ -46,6 +47,12 @@ public class KeyboardInterfaceController : MonoBehaviour {
         }
     }
 
+    public bool ActivatePauseMenu {
+        get {
+            return activatePauseMenu;
+        }
+    }
+
     /// <summary>
     /// Returns whether or not the player pressed the key bound to 'OpenStationInventory'
     /// </summary>
@@ -76,6 +83,7 @@ public class KeyboardInterfaceController : MonoBehaviour {
 
         CheckInventoryToggled();
         CheckOrderToggled();
+        CheckPauseMenu();
     }
     #endregion
 
@@ -125,6 +133,10 @@ public class KeyboardInterfaceController : MonoBehaviour {
 
     private void CheckInventoryToggled() {
         toggledInventory = Input.GetButtonDown("Toggle Inventory Panel");
+    }
+
+    private void CheckPauseMenu() {
+        activatePauseMenu = Input.GetButtonDown("Pause Menu");
     }
     #endregion
 }

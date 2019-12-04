@@ -10,17 +10,24 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseButton, pauseMenuUI, settingsMenuUI, controlsMenuUI, recipeBookUI;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused)
-            {
+    private KeyboardInterfaceController interfaceController;
+
+    private void Start() {
+        interfaceController = GameObject.FindObjectOfType<KeyboardInterfaceController>();
+    }
+
+    private void Update() {
+        if (!GameManager.Instance.GameEnded) {
+            CheckForPauseMenuHotkey();
+        }
+    }
+
+    private void CheckForPauseMenuHotkey() {
+        if (interfaceController.ActivatePauseMenu) {
+            if (GameIsPaused) {
                 Resume();
             }
-            else
-            {
+            else {
                 Pause();
             }
         }
