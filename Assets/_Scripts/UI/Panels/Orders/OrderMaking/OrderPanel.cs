@@ -28,7 +28,7 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
 
     [SerializeField]
     private Text titleText;
-    
+
     [SerializeField]
     private RectTransform orderPanelImageTransform;
 
@@ -48,7 +48,7 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
         fillOrderPanel = FillOrderPanel.instance;
         titleText.text = "Look at order " + order.orderNumber;
         originalBackgroundColor = background.color;
-        selectedColor = new Color(255f/255f, 200f/255f, 0f/255f, 200f/255f);
+        selectedColor = new Color(255f / 255f, 200f / 255f, 0f / 255f, 200f / 255f);
     }
 
     private void Update() {
@@ -58,15 +58,20 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
     public void OnPointerDown(PointerEventData eventData) {
         if (eventData.button == PointerEventData.InputButton.Left) {
             //Debug.Log("Order panel left clicked");
-            UpdateOrderCompletionPanel();
-            UpdateDescriptionPanel();
-            ChangeBackgroundColor();
-            orderLinePanel.UpdateSelectedOrderPanel(this);
+            PanelPressed();
         }
     }
     #endregion
 
     #region Script specific functions
+
+    public void PanelPressed() {
+        UpdateOrderCompletionPanel();
+        UpdateDescriptionPanel();
+        ChangeBackgroundColor();
+        orderLinePanel.UpdateSelectedOrderPanel(this);
+        OpenPanels();
+    }
 
     public void ChangeBackgroundColor() {
         background.color = selectedColor;
@@ -89,7 +94,7 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
     /// </summary>
     public void UpdateOrderCompletionPanel() {
         FillOrderPanel.instance.SetOrder(order);
-        InventoryInteractablesManager.Instance.SwitchPanel((int)InteractablePanels.Fill);
+        //InventoryInteractablesManager.Instance.SwitchPanel((int)InteractablePanels.Fill);
     }
 
     /// <summary>
@@ -97,6 +102,10 @@ public class OrderPanel : MonoBehaviour, IPointerDownHandler {
     /// </summary>
     public void UpdateDescriptionPanel() {
         SingletonOrderDescriptionPanel.instance.SetDescriptionPanel(order);
+    }
+
+    public void OpenPanels() {
+        OrderFillingPanelsManager.Instance.OpenPanels();
     }
     #endregion
 }

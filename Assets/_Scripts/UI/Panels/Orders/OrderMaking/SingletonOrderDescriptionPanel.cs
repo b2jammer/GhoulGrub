@@ -80,7 +80,7 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour /*, IPointerDownHand
 
             UpdateOrderDescription();
 
-            closeable.OpenPanel();
+            //closeable.OpenPanel();
             //InventoryInteractablesManager.Instance.IsHidden = false;
         }
     }
@@ -144,11 +144,13 @@ public class SingletonOrderDescriptionPanel : MonoBehaviour /*, IPointerDownHand
     /// Updates the description and passes it to the UI text
     /// </summary>
     private void UpdateOrderDescription() {
+        //Debug.Log("updating order description");
         string orderItemDescription = SetOrderItemDescription();
         string recipes = SetOrderRecipes();
         string preppedItemDescription = SetPreppedItemDescription();
 
         description.text = orderItemDescription + recipes + preppedItemDescription;
+        //Debug.Log(description.text);
     }
     #endregion
 }

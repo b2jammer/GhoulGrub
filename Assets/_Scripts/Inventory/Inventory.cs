@@ -84,6 +84,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void AddInventoryItem(FoodItem item) {
+        //Debug.Log(item);
         if (items.ContainsKey(item))
         {
             items[item] += 1;

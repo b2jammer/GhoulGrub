@@ -119,12 +119,15 @@ public class OrderMaker : MonoBehaviour {
     }
 
     private void OrderOut(int orderNumber) {
+        TentacularScore.Instance.UpdateText(orders[orderNumber].currentTime);
+        TentacularScore.Instance.UpdateCompletedMeals();
         OnOrderOut.Invoke(orders[orderNumber]);
         StartCoroutine(RemoveAfterSeconds(0.5f, orderNumber));
 
     }
 
     private void OrderTimedOut(int orderNumber) {
+        TentacularScore.Instance.UpdateLostMeals();
         StartCoroutine(RemoveAfterSeconds(0.5f, orderNumber));
     }
 

@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 728124168263541221}
   - component: {fileID: 728124168263541218}
   - component: {fileID: 6363671166631807948}
+  - component: {fileID: 7302043143230110829}
   m_Layer: 5
   m_Name: FoodItemPanel
   m_TagString: Untagged
@@ -243,6 +244,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 0}
   label: {fileID: 728124167256124987}
   icon: {fileID: 728124168446348827}
+  tooltip: {fileID: 7302043143230110829}
 --- !u!114 &6363671166631807948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +260,20 @@ MonoBehaviour:
   owner: {fileID: 728124168263541218}
   dragPrefab: {fileID: 3345488026563701341, guid: 2113fce7694926145adb95d093c4cdb1,
     type: 3}
+--- !u!114 &7302043143230110829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728124168263541240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115b4a453bb573b40bd64e77bb08d312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: 
+  maxTooltipTime: 2
 --- !u!1 &728124168446348829
 GameObject:
   m_ObjectHideFlags: 0

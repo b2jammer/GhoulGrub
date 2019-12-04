@@ -36,6 +36,7 @@ public class StationPanel : MonoBehaviour {
 
     private Inventory _nullInventory;
     private Inventory playerInventory;
+    private RectTransform panelRect;
     #endregion
 
     #region MonoBehaviour Methods
@@ -48,6 +49,7 @@ public class StationPanel : MonoBehaviour {
         }
         _nullInventory = GetComponent<Inventory>();
         closeable = GetComponent<Closeable>();
+        panelRect = GetComponent<RectTransform>();
         NullifyStation();
 
         closeable.ClosePanel();
@@ -73,14 +75,16 @@ public class StationPanel : MonoBehaviour {
     }
 
     public void OpenStation() {
-        InventoryInteractablesManager.Instance.IsHidden = false;
+        //InventoryInteractablesManager.Instance.IsHidden = false;
+        UpdatePanelPosition();
         closeable.OpenPanel();
     }
 
     public void CloseStation(Station station) {
         if (currentStation == station) {
+            CloseStation();
             NullifyStation();
-            InventoryInteractablesManager.Instance.TogglePanels();
+            //InventoryInteractablesManager.Instance.TogglePanels();
         }
     }
 
@@ -118,6 +122,39 @@ public class StationPanel : MonoBehaviour {
 
     public bool IsOpen() {
         return closeable.IsOpened();
+    }
+
+    public void UpdatePanelPosition() {
+        float screenHeight = Screen.height;
+        float screenWidth = Screen.width;
+
+        float resolutionHeight = Screen.currentResolution.height;
+        float resolutionWidth = Screen.currentResolution.width;
+
+        //Debug.Log(resolutionWidth + " " + resolutionHeight);
+
+        if (currentStation != null) {
+            float heightModifier = screenHeight/resolutionHeight;
+            float widthModifier = screenWidth/resolutionWidth;
+
+            Collider stationCollider = currentStation.StationCollider;
+            Vector3 max = stationCollider.bounds.max;
+            Vector3 min = stationCollider.bounds.min;
+
+            Vector3 viewportMax = Camera.main.WorldToViewportPoint(max);
+            Vector3 viewportMin = Camera.main.WorldToViewportPoint(min);
+
+            //Debug.Log(viewportMax + " " + viewportMin);
+
+            Vector2 updatedPosition = new Vector2((viewportMax.x * resolutionWidth + panelRect.rect.width/8 * widthModifier), (viewportMin.y * resolutionHeight - panelRect.rect.height/2.5f * heightModifier));
+            //Debug.Log(updatedPosition);
+            panelRect.anchoredPosition = updatedPosition;
+
+        }
+        else {
+            Vector2 updatedPosition = new Vector2(.5f * resolutionWidth, .5f * resolutionHeight);
+            panelRect.anchoredPosition = updatedPosition;
+        }
     }
     #endregion
 }
