@@ -16,4 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 0083ba75c4d821149900d9b0fdd9e5fc, type: 3}
   type: 5
   rank: 4
-  recipe: 
+  recipe: "Place shredded lettuce, sliced onion, and shredded cheese\r\ninto mixing
+    bowl and mix into prepped summer salad.\r\nPlace prepped summer salad onto counter
+    and combine\r\ninto Summer Salad.\r\nOrder up at ticket."

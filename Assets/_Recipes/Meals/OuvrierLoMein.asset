@@ -16,4 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: d58f42333b989a44dab398ee781bf7a3, type: 3}
   type: 3
   rank: 6
-  recipe: 
+  recipe: "Place boiled noodles, sliced ouvrier, and steamed\r\nveggies onto grill
+    and grill into prepped lo mein.\r\nPlace prepped lo mein onto counter and combine
+    into\r\nOuvrier Lo Mein.\r\nOrder up at ticket."

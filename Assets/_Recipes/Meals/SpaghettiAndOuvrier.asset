@@ -16,4 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 19bf3853988df084fbc39b75bbf1280f, type: 3}
   type: 4
   rank: 5
-  recipe: 
+  recipe: "Place boiled noodles, tomato sauce, and seared ouvrier\r\ninto mixing bowl
+    and mix into prepped ouvrier spaghetti.\r\nPlace prepped ouvrier spaghetti onto
+    counter and combine\r\ninto Ouvrier Spaghetti.\r\nOrder up at ticket."

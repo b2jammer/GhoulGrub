@@ -16,4 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: e4137212222d3b840889c8dff2753a5a, type: 3}
   type: 2
   rank: 5
-  recipe: 
+  recipe: "Place tortilla, sliced onion, tomato sauce, sliced\r\nouvrier, and shredded
+    cheese onto grill and grill it\r\ninto prepped burrito.\r\nPlace prepped burrito
+    onto counter and combine it into\r\nSpicy Ouvrier Burrito.\r\nOrder up at ticket."
