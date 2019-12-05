@@ -16,6 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 58297b7be56607445a9a836030e96a14, type: 3}
   type: 4
   rank: 6
-  recipe: "Place boiled noodles, sliced carrots, sliced onions,\r\nand sliced ouvrier
-    into pot, and boil into prepped\r\nouvrier noodles.\r\nPlace prepped ouvrier noodles
-    onto counter and combine\r\ninto Ouvrier Noodle Soup.\r\nOrder up at ticket."
+  recipe: "Place boiled noodles, sliced carrots,\r\nsliced onions, and sliced ouvrier\r\ninto
+    pot, and boil.\r\nPlace prepped ouvrier noodles onto\r\ncounter and combine.\r\nDrag
+    into order slip to complete."

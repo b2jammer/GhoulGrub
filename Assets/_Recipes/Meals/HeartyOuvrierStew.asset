@@ -16,6 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: d87aa4bbd2926d94aa6bc5119bab6e72, type: 3}
   type: 4
   rank: 4
-  recipe: "Place diced potatoes, sliced carrots, sliced onions,\r\nand sliced ouvrier
-    into the pot and boil it into\r\nprepped hearty ouvrier stew.\r\nPlace prepped
-    stew onto counter, and combine into \r\nHearty Ouvrier Stew.\r\nOrder up at ticket."
+  recipe: "Place diced potatoes, sliced carrots,\r\nsliced onions, and sliced ouvrier\r\ninto
+    the pot and boil.\r\nPlace prepped stew onto counter, and\r\ncombine.\r\nDrag
+    into order slip to complete."

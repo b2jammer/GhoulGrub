@@ -16,7 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 7fc9335fe8c1ceb48a84d9cb02ca98db, type: 3}
   type: 6
   rank: 7
-  recipe: "Place mixed dough, tomato sauce, shredded cheese, sliced\r\nonions, sliced
-    tomatoes, and sliced ouvrier into oven\r\nand bake into prepped supreme pizza.\r\nPlaced
-    prepped supreme pizza onto counter and combine\r\ninto Supreme Ouvrier Pizza.\r\nOrder
-    up at ticket."
+  recipe: "Place mixed dough, tomato sauce,\r\nshredded cheese, sliced onions,\r\nsliced
+    tomatoes, and sliced ouvrier\r\ninto oven and bake.\r\nPlaced prepped supreme
+    pizza onto\r\ncounter and combine.\r\nDrag into order slip to complete."

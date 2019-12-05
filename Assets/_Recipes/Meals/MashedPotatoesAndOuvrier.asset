@@ -16,6 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 2e7247dae19c839468b43bf3ae1dd508, type: 3}
   type: 0
   rank: 2
-  recipe: "Place potatoes into the pot and boil it into\r\nmashed potatoes.\r\nPlace
-    mashed potatoes and seared ouvrier onto the\r\ncounter, and combine into Mashed
-    Potatoes and Ouvrier.\r\nOrder up at ticket."
+  recipe: "Place potatoes into the pot and boil.\r\nPlace mashed potatoes and seared\r\nouvrier
+    onto the counter, and\r\ncombine.\r\nDrag into order slip to complete."

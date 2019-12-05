@@ -16,6 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: af2434332f102ab48911cdcc13e8bd16, type: 3}
   type: 4
   rank: 2
-  recipe: "Place boiled noodles and tomato sauce into mixing bowl\r\nand mix into
-    prepped spaghetti.\r\nPlace prepped spaghetti onto counter and combine into\r\nSpaghetti.\r\nOrder
-    up at ticket."
+  recipe: "Place boiled noodles and tomato\r\nsauce into mixing bowl and Mix.\r\nPlace
+    prepped spaghetti onto counter\r\nand combine.\r\nDrag into order slip to complete."

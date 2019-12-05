@@ -16,7 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: e6916be6b675b424ebed0eaa26fd2a80, type: 3}
   type: 3
   rank: 7
-  recipe: "Place boiled noodles, curry sauce, sliced ouvrier, \r\nshredded lettuce,
-    and steamed veggies onto grill and\r\ngrill it into prepped pad thai.\r\nPlace
-    prepped pad thai onto counter and combine it\r\ninto Ouvrier Pad Thai.\r\nOrder
-    up at ticket."
+  recipe: "Place boiled noodles, curry sauce,\r\nsliced ouvrier, shredded lettuce,\r\nand
+    steamed veggies onto grill and\r\ngrill.\r\nPlace prepped pad thai onto counter\r\nand
+    combine.\r\nDrag into order slip to complete."

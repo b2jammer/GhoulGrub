@@ -16,6 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 9cc9655cafa1864479363d7e95f5a8da, type: 3}
   type: 0
   rank: 4
-  recipe: "Place diced potatoes, sliced carrots, sliced onions,\r\nand ouvrier into
-    oven and bake it into prepped\r\nroast.\r\nPlace prepped roast onto counter and
-    combine it into\r\nRoast Ouvrier and Veggies.\r\nOrder up at ticket."
+  recipe: "Place diced potatoes, sliced carrots,\r\nsliced onions, and ouvrier into
+    oven\r\nand bake.\r\nPlace prepped roast onto counter and\r\ncombine.\r\nDrag
+    into order slip to complete."

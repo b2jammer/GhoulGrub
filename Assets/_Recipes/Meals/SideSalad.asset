@@ -16,6 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 8bfca2882a91bd9409331d686adb0a31, type: 3}
   type: 5
   rank: 2
-  recipe: "Place shredded lettuce, and shredded cheese into mixing\r\nbowl and mix
-    into prepped salad.\r\nPlace prepped salad onto counter and combine into\r\nSide
-    Salad.\r\nOrder up at ticket."
+  recipe: "Place shredded lettuce, and shredded\r\ncheese into mixing bowl and mix.\r\nPlace
+    prepped salad onto counter\r\nand combine.\r\nDrag into order slip to complete."

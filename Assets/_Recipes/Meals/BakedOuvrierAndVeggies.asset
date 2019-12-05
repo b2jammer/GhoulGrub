@@ -16,7 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: d6d5fc139b7072c4ea3009b8ed178fed, type: 3}
   type: 0
   rank: 10
-  recipe: "Place Steamed Veggies, Tomato Sauce, \nMilk, and Ouvrier in the oven and
-    bake it \ninto prepped Ouvrier and Veggies\r\nPlace prepped Ouvrier and Veggies
-    \nonto counter, and combine into Baked \nOuvrier and Veggies.\r Place into Order
-    menu."
+  recipe: "Place Steamed Veggies, Tomato Sauce, \r\nMilk, and Ouvrier in the oven
+    and\r\nbake.\r\nPlace prepped Ouvrier and Veggies \r\nonto counter, and combine.\r\nDrag
+    into order slip to complete."

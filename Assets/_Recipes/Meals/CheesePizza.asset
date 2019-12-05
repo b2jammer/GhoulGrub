@@ -16,6 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 7882b54d5fac4df45bdbcce5958ad2e1, type: 3}
   type: 6
   rank: 4
-  recipe: "Place Mixed Dough, Tomato Sauce, amd Shredded Cheese\r\nin the oven and
-    bake it into prepped Cheese Pizza.\r\nPlace prepped Cheese Pizza onto counter,
-    and \r\ncombine into Cheese Pizza.\r\nOrder up at ticket."
+  recipe: "Place Mixed Dough, Tomato Sauce, and\r\nShredded Cheese in the oven and
+    bake.\r\nPlace prepped Cheese Pizza onto\r\ncounter, and combine.\r\nDrag into
+    order slip to complete."

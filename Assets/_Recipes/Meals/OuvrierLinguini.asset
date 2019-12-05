@@ -16,6 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 8a7af3bdc52554741bd889e712eb6a74, type: 3}
   type: 4
   rank: 9
-  recipe: "Place boiled noodles, tomato sauce, milk, sliced onions,\r\nand seared
-    ouvrier into mixing bowl and mixi it into\r\nprepped linguini.\r\nPlace prepped
-    linguini onto counter and combine into\r\nOuvrier Linguini.\r\nOrder up at ticket."
+  recipe: "Place boiled noodles, tomato sauce,\r\nmilk, sliced onions, and seared\r\nouvrier
+    into mixing bowl and mix.\r\nPlace prepped linguini onto counter\r\nand combine.\r\nDrag
+    into order slip to complete."

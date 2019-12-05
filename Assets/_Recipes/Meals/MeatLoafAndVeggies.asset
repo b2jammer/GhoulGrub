@@ -16,6 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 56393767e28c018498de53b96c48cd5e, type: 3}
   type: 0
   rank: 6
-  recipe: "Place Ouvrier and tomato sauce into oven and bake\r\ninto Meat Loaf.\r\nPlace
-    meat loaf, steamed veggies, and sliced bread\r\nonto the counter and combine into
-    Meat Loaf and\r\nVeggies.\r\nOrder up at ticket."
+  recipe: "Place Ouvrier and tomato sauce into\r\noven and bake.\r\nPlace meat loaf,
+    steamed veggies, and\r\nsliced bread onto the counter and\r\ncombine.\r\nDrag
+    into order slip to complete."
