@@ -16,4 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: fb6102a32ec699248ae4f4680bd90f2b, type: 3}
   type: 4
   rank: 1
-  recipe: 
+  recipe: "Place boiled noodles into mixing bowl and mix it into\r\nprepped ramen.\r\nPlace
+    prepped ramen onto counter and combine into ramen.\r\nOrder up at ticket."

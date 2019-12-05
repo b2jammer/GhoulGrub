@@ -16,4 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 745b3f7a71ec8874491d7eda85bcd66a, type: 3}
   type: 2
   rank: 7
-  recipe: 
+  recipe: "Place tortilla, sliced onion, tomato sauce, sliced ouvrier\r\nshredded
+    lettuce, and shredded cheese onto grill and\r\ngrill into prepped taco.\r\nPlaced
+    prepped taco onto counter and combine into\r\nSupreme Taco.\r\nOrder up at ticket."

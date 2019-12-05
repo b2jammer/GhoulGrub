@@ -16,4 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: beb29e85063e14742a79b6f7689467e9, type: 3}
   type: 5
   rank: 10
-  recipe: 
+  recipe: "Place Shredded Lettuce, Sliced Carrot, Sliced Onion\r\nSliced Tomato, Seared
+    Ouvrier, and Shredded Cheese\r\nin the mixing bowl and mix it into prepped diced
+    \r\ntomato and ouvrier salad.\r\nPlace prepped salad onto counter, and \r\ncombine
+    into Dived Tomato and Ouvrier Salad.\r\nOrder up at ticket."

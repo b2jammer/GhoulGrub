@@ -16,4 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 3311f11dcf507b74f830445e689a75ff, type: 3}
   type: 3
   rank: 8
-  recipe: 
+  recipe: "Place sliced ouvrier, curry sauce, sliced onion, two\r\nshredded lettuce,
+    and cheese into the oven and bake\r\ninto prepped saag paneer.\r\nPlace prepped
+    saag paneer onto counter and combine\r\ninto Saag Paneer.\r\nOrder up at ticket."
