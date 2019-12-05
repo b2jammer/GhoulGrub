@@ -150,7 +150,7 @@ public class OrderMaker : MonoBehaviour {
     /// <param name="totalTime"></param>
     /// <param name="currentTime"></param>
     private void SetTime(int[] mealData, out float totalTime, out float currentTime) {
-        float defaultTime = 0f;
+        float defaultTime = 90f;
         float rankBasedTime = 0f;
         float mealSizeBasedTime = 0f;
         float ratingModifier = 0f;
