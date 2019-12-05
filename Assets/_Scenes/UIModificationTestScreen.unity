@@ -9049,6 +9049,7 @@ GameObject:
   - component: {fileID: 1955283682}
   - component: {fileID: 1955283681}
   - component: {fileID: 1955283680}
+  - component: {fileID: 1955283683}
   m_Layer: 5
   m_Name: InventoryButton
   m_TagString: Untagged
@@ -9169,6 +9170,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955283678}
   m_CullTransparentMesh: 0
+--- !u!114 &1955283683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955283678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115b4a453bb573b40bd64e77bb08d312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: Show/Hide Ingredients
+  maxTooltipTime: 2
 --- !u!1 &1955677003
 GameObject:
   m_ObjectHideFlags: 0
@@ -9323,7 +9338,7 @@ PrefabInstance:
         type: 3}
       propertyPath: stationInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 9a90f5d7109247b40b27b3ab37bcb98d,
+      objectReference: {fileID: 11400000, guid: 1716a15303f35f14b862772a82ccb0d1,
         type: 2}
     - target: {fileID: 6266113390797783097, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -9400,7 +9415,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: be2cd11bc793e804283ceff4323e8102,
+      objectReference: {fileID: 21300000, guid: b4787f11fd55c62438a649b1ee03e34e,
         type: 3}
     - target: {fileID: 1928827807231580150, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -9410,12 +9425,12 @@ PrefabInstance:
     - target: {fileID: 1928827807231580150, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1928827807231580150, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.8249526
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6266113389102727121, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
@@ -10381,7 +10396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115b4a453bb573b40bd64e77bb08d312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltip: Show/Hide Panels
+  tooltip: Show/Hide Order Panel
   maxTooltipTime: 2
 --- !u!1001 &5314231873323804104
 PrefabInstance:

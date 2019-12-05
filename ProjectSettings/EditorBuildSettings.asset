@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Test Sample Scene.unity
     guid: ed5aa1deee4c0664bbb14d4324e9b9b1
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/DeliveryTest.unity
     guid: b19e1674ff37cb147bed9356a4b6a7a5
+  - enabled: 1
+    path: Assets/_Scenes/UIModificationTestScreen.unity
+    guid: cfa87799b91627a4fb6d8e1dcf88acf1
   m_configObjects: {}

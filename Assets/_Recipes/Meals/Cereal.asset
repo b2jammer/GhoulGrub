@@ -16,5 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: acb4fa153166ef8489cb624397f37da5, type: 3}
   type: 4
   rank: 2
-  recipe: "Place Dough in mixing bowl and mix it into Mixed Dough\nPlace Mixed Dough
-    and Milk in the mixing bowl, and combine \ninto Cereal.\nOrder up at Counter"
+  recipe: "Place Dough in mixing bowl and mix \nit into Mixed Dough. Place Mixed \nDough
+    and Milk in the mixing bowl, \nand combine into Cereal.\nOrder up at Counter"

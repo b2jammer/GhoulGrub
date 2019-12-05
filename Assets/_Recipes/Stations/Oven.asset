@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Oven
   action: Bake!
-  icon: {fileID: 21300000, guid: f291279ec72127e44b66a99459b0c2c0, type: 3}
+  icon: {fileID: 21300000, guid: 6326623d5f3f04742becb696660be69e, type: 3}
   recipeList: {fileID: 11400000, guid: 83d6e97197f269143b1db0de5186b2ba, type: 2}
