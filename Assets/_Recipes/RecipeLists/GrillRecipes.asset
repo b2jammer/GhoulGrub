@@ -32,7 +32,7 @@ MonoBehaviour:
     - type: {fileID: 11400000, guid: 168d3ceb5ffb97b44aa72c205c84aa2b, type: 2}
       quantity: 2
       quantityMax: 2
-    - type: {fileID: 11400000, guid: fb13bc3e234259543b1674701808e924, type: 2}
+    - type: {fileID: 11400000, guid: 2dc42ff891b51fa409e07f1435dd0fbc, type: 2}
       quantity: 1
       quantityMax: 1
   - target: {fileID: 11400000, guid: da1fbb2813b432a488538429f90deaee, type: 2}
