@@ -123,7 +123,6 @@ public class OrderMaker : MonoBehaviour {
         TentacularScore.Instance.UpdateCompletedMeals();
         OnOrderOut.Invoke(orders[orderNumber]);
         StartCoroutine(RemoveAfterSeconds(0.5f, orderNumber));
-
     }
 
     private void OrderTimedOut(int orderNumber) {
@@ -151,7 +150,7 @@ public class OrderMaker : MonoBehaviour {
     /// <param name="totalTime"></param>
     /// <param name="currentTime"></param>
     private void SetTime(int[] mealData, out float totalTime, out float currentTime) {
-        float defaultTime = 120f;
+        float defaultTime = 0f;
         float rankBasedTime = 0f;
         float mealSizeBasedTime = 0f;
         float ratingModifier = 0f;
