@@ -39,6 +39,7 @@ public class Order : MonoBehaviour {
     #region Private variables
     private const float MAX_RATING = 5.0f;
     private bool isCompleted;
+    private bool isTimedOut;
     #endregion
 
     #region Monobehavior Methods
@@ -48,6 +49,7 @@ public class Order : MonoBehaviour {
         OnOrderTimedOut = new OrderEvent();
         OnOrderCompleted = new OrderEvent();
         isCompleted = false;
+        isTimedOut = false;
     }
 
     // Start is called before the first frame update
@@ -96,10 +98,14 @@ public class Order : MonoBehaviour {
     /// zero it invokes OnOrderTimedOut and updates the restaurants rating accordingly
     /// </summary>
     private void CheckTime() {
-        if (currentTime <= 0) {
-            UpdateRating();
-            OnOrderTimedOut.Invoke(orderNumber);
+        if (!isTimedOut) {
+            if (currentTime <= 0) {
+                isTimedOut = true;
+                UpdateRating();
+                OnOrderTimedOut.Invoke(orderNumber);
+            }
         }
+        
     }
 
     /// <summary>

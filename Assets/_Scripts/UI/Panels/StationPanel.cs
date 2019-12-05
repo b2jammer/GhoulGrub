@@ -50,7 +50,6 @@ public class StationPanel : MonoBehaviour {
         _nullInventory = GetComponent<Inventory>();
         closeable = GetComponent<Closeable>();
         panelRect = GetComponent<RectTransform>();
-        NullifyStation();
 
         closeable.ClosePanel();
         playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -66,24 +65,16 @@ public class StationPanel : MonoBehaviour {
         actionLabel.text = currentStation.stationInfo.action;
     }
 
-    public void NullifyStation() {
-        currentStation = null;
-        itemPanel.InventoryData = _nullInventory;
-        label.text = "NO STATION";
-        icon.sprite = defaultStationSprite;
-        actionLabel.text = "-";
-    }
-
     public void OpenStation() {
         //InventoryInteractablesManager.Instance.IsHidden = false;
         UpdatePanelPosition();
         closeable.OpenPanel();
+        itemPanel.ResetInventory();
     }
 
     public void CloseStation(Station station) {
         if (currentStation == station) {
             CloseStation();
-            NullifyStation();
             //InventoryInteractablesManager.Instance.TogglePanels();
         }
     }
@@ -99,8 +90,9 @@ public class StationPanel : MonoBehaviour {
                 RecipeList.Recipe foundRecipe = RecipeList.FindMatchingRecipe(itemPanel.InventoryData.items, recipes, out int batches);
                 OnCombineAttempt.Invoke();
                 if (foundRecipe != null) {
-                    for (int i = 0; i < foundRecipe.targetQuantity * batches; i++)
+                    for (int i = 0; i < foundRecipe.targetQuantity * batches; i++) {
                         playerInventory.AddInventoryItem(foundRecipe.target);
+                    }
                     OnCombineSucceed.Invoke(foundRecipe, batches);
                 }
                 else {

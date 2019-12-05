@@ -72,6 +72,7 @@ public class TentacularScore : MonoBehaviour
     }
 
     public void UpdateLostMeals() {
+        Debug.Log("update lost meals");
         lostMeals++;
     }
 
