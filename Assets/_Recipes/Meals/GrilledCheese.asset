@@ -16,7 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 1af20edc6cb93e941a6e88608728b693, type: 3}
   type: 1
   rank: 2
-  recipe: "Place Dough on cutting board and combine it into Sliced \nBread.\nPlace
-    Cheese on cutting board and combine it into Sliced \nCheese.\nPlace two Sliced
-    Bread and one Sliced Cheese onto grill \nand combine it into Grilled Cheese.\nOrder
-    up at Counter."
+  recipe: "Place Dough on cutting board combine.\r\nPlace Cheese on cutting board
+    and\r\ncombine.\r\nPlace two Sliced Bread and one \r\nSliced Cheese onto grill
+    and combine.\r\nDrag into order slip to complete."
