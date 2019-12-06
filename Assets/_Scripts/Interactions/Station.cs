@@ -6,21 +6,19 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Interactable))]
 [RequireComponent(typeof(Inventory))]
 [ExecuteInEditMode]
-public class Station : MonoBehaviour
-{
+public class Station : MonoBehaviour {
     #region Public Variables
     public StationInfo stationInfo;
     public float maxTooltipTime = 2f;
     public Image iconRenderer;
+    public WorldText worldText;
 
     [HideInInspector]
     public InventoryDropTarget dropTarget;
     [HideInInspector]
 
-    public Inventory StationInventory
-    {
-        get
-        {
+    public Inventory StationInventory {
+        get {
             return _stationInventory;
         }
     }
@@ -42,8 +40,7 @@ public class Station : MonoBehaviour
     #endregion
 
     #region MonoBehaviour Methods
-    private void Awake()
-    {
+    private void Awake() {
         interactable = GetComponent<Interactable>();
         _stationInventory = GetComponent<Inventory>();
         stationCollider = GetComponent<Collider>();
@@ -52,12 +49,12 @@ public class Station : MonoBehaviour
 
     private void Start() {
         tooltipManager = GrubTooltipManager.Instance;
+
+        worldText.Disappear();
     }
 
-    private void Update()
-    {
-        if (iconRenderer != null)
-        {
+    private void Update() {
+        if (iconRenderer != null) {
             iconRenderer.sprite = stationInfo.icon;
         }
     }
@@ -80,18 +77,37 @@ public class Station : MonoBehaviour
     #endregion
 
     #region Script Specific Scripts
-    public void OpenStationPanel()
-    {
+    public void OpenStationPanel() {
         StationPanel stationPanel = StationPanel.Instance;
         stationPanel.SetStation(this);
         stationPanel.OpenStation();
+
+        worldText.SetPosition(transform.position);
         //InventoryInteractablesManager.Instance.SwitchPanel((int)InteractablePanels.Station);
     }
 
-    public void CloseStationPanel()
-    {
+    public void CloseStationPanel() {
         StationPanel stationPanel = StationPanel.Instance;
         stationPanel.CloseStation(this);
+    }
+
+    public void ToggleInteractText() {
+        StationPanel stationPanel = StationPanel.Instance;
+        if (stationPanel.IsOpen()) {
+            HideInteractText();
+        }
+        else {
+            ShowInteractText();
+        }
+    }
+
+    public void ShowInteractText() {
+        worldText.SetPosition(transform.position);
+        worldText.Appear();
+    }
+
+    public void HideInteractText() {
+        worldText.Disappear();
     }
 
     public void ToggleStationPanel() {

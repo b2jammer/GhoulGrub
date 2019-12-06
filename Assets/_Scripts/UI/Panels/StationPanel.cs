@@ -34,7 +34,7 @@ public class StationPanel : MonoBehaviour {
     private Station currentStation;
     private Closeable closeable;
 
-    private Inventory _nullInventory;
+    //private Inventory _nullInventory;
     private Inventory playerInventory;
     private RectTransform panelRect;
     #endregion
@@ -47,29 +47,44 @@ public class StationPanel : MonoBehaviour {
         else {
             Instance = this;
         }
-        _nullInventory = GetComponent<Inventory>();
+        //_nullInventory = GetComponent<Inventory>();
         closeable = GetComponent<Closeable>();
         panelRect = GetComponent<RectTransform>();
 
-        closeable.ClosePanel();
         playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
+        //closeable.ClosePanel();
+        //StartCoroutine(CloseWithDelay(.2f));
+        StartCoroutine(CloseAtEndOfFrame());
     }
     #endregion
 
     #region Script Specific Methods
+    private IEnumerator CloseWithDelay(float delay) {
+        yield return new WaitForSeconds(delay);
+        closeable.ClosePanel();
+    }
+
+    private IEnumerator CloseAtEndOfFrame() {
+        yield return new WaitForEndOfFrame();
+        closeable.ClosePanel();
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+    }
+
     public void SetStation(Station station) {
         currentStation = station;
         itemPanel.InventoryData = currentStation.StationInventory;
         label.text = currentStation.stationInfo.title;
         icon.sprite = currentStation.stationInfo.icon;
         actionLabel.text = currentStation.stationInfo.action;
+        itemPanel.ResetInventory();
     }
 
     public void OpenStation() {
         //InventoryInteractablesManager.Instance.IsHidden = false;
         UpdatePanelPosition();
         closeable.OpenPanel();
-        itemPanel.ResetInventory();
     }
 
     public void CloseStation(Station station) {

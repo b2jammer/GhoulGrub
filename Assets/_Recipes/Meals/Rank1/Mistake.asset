@@ -16,3 +16,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 1b0da0e5d19c9a943b70f814c4a3b0b7, type: 3}
   type: 4
   rank: 1
+  recipe: 

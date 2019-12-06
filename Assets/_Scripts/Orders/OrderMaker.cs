@@ -150,7 +150,7 @@ public class OrderMaker : MonoBehaviour {
     /// <param name="totalTime"></param>
     /// <param name="currentTime"></param>
     private void SetTime(int[] mealData, out float totalTime, out float currentTime) {
-        float defaultTime = 90f;
+        float defaultTime = 75f;
         float rankBasedTime = 0f;
         float mealSizeBasedTime = 0f;
         float ratingModifier = 0f;
@@ -161,24 +161,34 @@ public class OrderMaker : MonoBehaviour {
                     rankBasedTime += 5;
                     break;
                 case 2:
-                    rankBasedTime += 8;
+                    rankBasedTime += 6;
                     break;
                 case 3:
-                    rankBasedTime += 11;
+                    rankBasedTime += 7;
                     break;
                 case 4:
-                    rankBasedTime += 14;
+                    rankBasedTime += 9;
                     break;
                 case 5:
-                    rankBasedTime += 17;
+                    rankBasedTime += 11;
                     break;
                 case 6:
-                    rankBasedTime += 20;
+                    rankBasedTime += 13;
                     break;
                 case 7:
-                    rankBasedTime += 23;
+                    rankBasedTime += 15;
+                    break;
+                case 8:
+                    rankBasedTime += 18;
+                    break;
+                case 9:
+                    rankBasedTime += 21;
+                    break;
+                case 10:
+                    rankBasedTime += 24;
                     break;
                 default:
+                    rankBasedTime += 25;
                     break;
             }
         }
@@ -200,6 +210,7 @@ public class OrderMaker : MonoBehaviour {
         int[] mealRanks = GetMealRanks();
 
         foreach (var mealRank in mealRanks) {
+            Debug.Log(mealRank);
             int numberOfMealItemsWithMealRank = rankedFoodItems[mealRank].Count;
             int randomMealWithMealRank = Random.Range(0, numberOfMealItemsWithMealRank);
 
@@ -223,7 +234,7 @@ public class OrderMaker : MonoBehaviour {
         int[] mealRanks = new int[numberOfMealItems];
 
         for (int i = 0; i < numberOfMealItems; i++) {
-            int mealRank = Random.Range(minMealRank, maxMealRank + 1);
+            int mealRank = GetRandomMealRank();
 
             if (IncreaseRank()) {
                 if (mealRank <= maxMealRank - 1) {
@@ -233,6 +244,41 @@ public class OrderMaker : MonoBehaviour {
             mealRanks[i] = mealRank;
         }
         return mealRanks;
+    }
+
+    private int GetRandomMealRank() {
+        float chance = Random.value;
+
+        if (chance >= .85f + (.1f * ((Mathf.Round(TentacularLikes.Instance.likes)-1f)/4f)) ) {
+            return 1;
+        }
+        else if (chance >= .7f + (.2f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+            return 2;
+        }
+        else if (chance >= .55f + (.25f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+            return 3;
+        }
+        else if (chance >= .45f + (.2f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+            return 4;
+        }
+        else if (chance >= .35f + (.15f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+            return 5;
+        }
+        else if (chance >= .20f + (.2f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+            return 6;
+        }
+        else if (chance >= .15f + (.15f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+            return 7;
+        }
+        else if (chance >= .1f + (.1f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+            return 8;
+        }
+        else if (chance >= .05 + (.05f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+            return 9;
+        }
+        else {
+            return 10;
+        }
     }
 
     /// <summary>
