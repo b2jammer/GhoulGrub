@@ -150,7 +150,7 @@ public class OrderMaker : MonoBehaviour {
     /// <param name="totalTime"></param>
     /// <param name="currentTime"></param>
     private void SetTime(int[] mealData, out float totalTime, out float currentTime) {
-        float defaultTime = 75f;
+        float defaultTime = 90f;
         float rankBasedTime = 0f;
         float mealSizeBasedTime = 0f;
         float ratingModifier = 0f;
@@ -161,34 +161,34 @@ public class OrderMaker : MonoBehaviour {
                     rankBasedTime += 5;
                     break;
                 case 2:
-                    rankBasedTime += 6;
+                    rankBasedTime += 8;
                     break;
                 case 3:
-                    rankBasedTime += 7;
-                    break;
-                case 4:
-                    rankBasedTime += 9;
-                    break;
-                case 5:
                     rankBasedTime += 11;
                     break;
+                case 4:
+                    rankBasedTime += 14;
+                    break;
+                case 5:
+                    rankBasedTime += 17;
+                    break;
                 case 6:
-                    rankBasedTime += 13;
+                    rankBasedTime += 20;
                     break;
                 case 7:
-                    rankBasedTime += 15;
+                    rankBasedTime += 23;
                     break;
                 case 8:
-                    rankBasedTime += 18;
+                    rankBasedTime += 26;
                     break;
                 case 9:
-                    rankBasedTime += 21;
+                    rankBasedTime += 29;
                     break;
                 case 10:
-                    rankBasedTime += 24;
+                    rankBasedTime += 30;
                     break;
                 default:
-                    rankBasedTime += 25;
+                    rankBasedTime += 35;
                     break;
             }
         }
@@ -210,7 +210,6 @@ public class OrderMaker : MonoBehaviour {
         int[] mealRanks = GetMealRanks();
 
         foreach (var mealRank in mealRanks) {
-            Debug.Log(mealRank);
             int numberOfMealItemsWithMealRank = rankedFoodItems[mealRank].Count;
             int randomMealWithMealRank = Random.Range(0, numberOfMealItemsWithMealRank);
 
