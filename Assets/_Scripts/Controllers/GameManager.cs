@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
 
         if (TentacularScore.Instance.Score > scores[minScoreIndex]) {
             scores[minScoreIndex] = Mathf.Round(TentacularScore.Instance.Score * TentacularLikes.Instance.likes);
-            ratings[minScoreIndex] = TentacularLikes.Instance.likes;
+            ratings[minScoreIndex] = Mathf.Round(TentacularLikes.Instance.likes * 100) / 100;
             meals[minScoreIndex] = TentacularScore.Instance.CompletedMeals;
 
             UpdatePref(minScoreIndex);

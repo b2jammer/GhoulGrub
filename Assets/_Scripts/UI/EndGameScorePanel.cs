@@ -30,7 +30,7 @@ public class EndGameScorePanel : MonoBehaviour
 
     private void SetValues() {
         finalScore.text = "Final Score: " + Mathf.Round(TentacularScore.Instance.Score * TentacularLikes.Instance.likes);
-        finalRating.text = "Final Rating: " + TentacularLikes.Instance.likes;
+        finalRating.text = "Final Rating: " + Mathf.Round(TentacularLikes.Instance.likes * 100) / 100;
         completedMeals.text = "Completed Meals: " + TentacularScore.Instance.CompletedMeals;
     }
 }
