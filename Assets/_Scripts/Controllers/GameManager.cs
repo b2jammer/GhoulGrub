@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         int minScoreIndex = minScoreIndices.First();
 
         if (TentacularScore.Instance.Score > scores[minScoreIndex]) {
-            scores[minScoreIndex] = TentacularScore.Instance.Score;
+            scores[minScoreIndex] = Mathf.Round(TentacularScore.Instance.Score * TentacularLikes.Instance.likes);
             ratings[minScoreIndex] = TentacularLikes.Instance.likes;
             meals[minScoreIndex] = TentacularScore.Instance.CompletedMeals;
 
@@ -157,8 +157,9 @@ public class GameManager : MonoBehaviour
     }
 
     public string GetScoreText() {
-        string scoreString = "\n";
         GetPlayerPrefs();
+
+        string scoreString = "\n";
 
         var orderedScores = scores.OrderByDescending(value => value).ToList();
 

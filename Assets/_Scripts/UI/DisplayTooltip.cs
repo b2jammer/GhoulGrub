@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class DisplayTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [TextArea]
     public string tooltip;
+
     public float maxTooltipTime = 2f;
 
     private GrubTooltipManager tooltipManager;

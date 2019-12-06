@@ -50,8 +50,19 @@ public class GrubTooltipManager : MonoBehaviour
 
     private void Update() {
         float heightScaler = Screen.height/standardHeight;
-        //Vector2 tooltipPos = RectTransformUtility.WorldToScreenPoint(cam, Input.mousePosition);
-        mouseOffset = new Vector3(0, (tooltipRect.rect.height / 2 + 10) * heightScaler, 0);
+        float widthOffset = 0f;
+
+        if (Input.mousePosition.x - tooltipRect.rect.width/2f < 0) {
+            widthOffset = tooltipRect.rect.width / 2f;
+        }
+        else if (Input.mousePosition.x + tooltipRect.rect.width / 2f > Screen.currentResolution.width) {
+            widthOffset = -tooltipRect.rect.width / 2f;
+        }
+        else {
+            widthOffset = 0f;
+        }
+
+        mouseOffset = new Vector3(widthOffset, (tooltipRect.rect.height / 2 + 10) * heightScaler, 0);
         tooltipObject.transform.position = Input.mousePosition + mouseOffset;
     }
 
