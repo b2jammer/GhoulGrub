@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d172bc1fe3babe4f98b459751880020, type: 3}
+  m_Name: GrilledCheese
+  m_EditorClassIdentifier: 
+  itemName: Grilled Cheese
+  sprite: {fileID: 21300000, guid: 1af20edc6cb93e941a6e88608728b693, type: 3}
+  type: 1
+  rank: 2
+  recipe: "Place Dough on cutting board combine.\r\nPlace Cheese on cutting board
+    and\r\ncombine.\r\nPlace two Sliced Bread and one \r\nSliced Cheese onto grill
+    and combine.\r\nDrag into order slip to complete."

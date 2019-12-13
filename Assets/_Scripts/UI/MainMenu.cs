@@ -15,7 +15,12 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("UIModificationTestScreen");
+        SceneManager.LoadScene("Game");
+    }
+
+    public void PlayTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void HighScoreON() {
