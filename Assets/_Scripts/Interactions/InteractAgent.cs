@@ -42,6 +42,14 @@ public class InteractAgent : MonoBehaviour
             otherInteract.OnRetreat.Invoke();
         }
     }
+
+    private void OnTriggerStay(Collider other) {
+        Interactable otherInteract;
+        if ((otherInteract = other.GetComponentInChildren<Interactable>()) != null && currentInteractable == null) {
+            currentInteractable = otherInteract;
+            currentInteractable.OnApproach.Invoke();
+        }
+    }
     #endregion
 
     #region Script Specific Methods
