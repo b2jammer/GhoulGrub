@@ -18,12 +18,14 @@ public class InteractAgent : MonoBehaviour
     {
         if (currentInteractable != null) {
             currentInteractable.OnRetreat.Invoke();
+            //currentInteractable = null;
         }
+
         Interactable otherInteract;
         if ((otherInteract = other.GetComponentInChildren<Interactable>()) != null)
         {
             currentInteractable = otherInteract;
-            otherInteract.OnApproach.Invoke();
+            currentInteractable.OnApproach.Invoke();
         }
     }
 

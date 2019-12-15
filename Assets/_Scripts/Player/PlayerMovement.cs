@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour {
     private bool wasMoving;
     private Vector3 oldPosition;
 
-
     private const float MINIMUM_TARGET_DISTANCE = 0.1f;
     private const float EPSILON = 0.01f;
     #endregion
@@ -37,7 +36,6 @@ public class PlayerMovement : MonoBehaviour {
     private void Awake() {
         direction = Vector3.zero;
         body = GetComponent<Rigidbody>();
-        oldPosition = transform.position;
     }
 
     // Start is called before the first frame update
@@ -73,38 +71,70 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-        //Set animations and flip status
-        //if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.z)) {
-        if (wasMoving && displacement.magnitude <= Mathf.Epsilon) {//Stopped moving
-            anim.Play("PlayerWalkEnd");
+        Direction spriteDirection = GetDirection();
+
+        switch (spriteDirection) {
+            case Direction.UP:
+                anim.SetTrigger("UP");
+                break;
+            case Direction.DOWN:
+                anim.SetTrigger("DOWN");
+                break;
+            case Direction.LEFT:
+                anim.SetTrigger("HORIZONTAL");
+                break;
+            case Direction.RIGHT:
+                anim.SetTrigger("HORIZONTAL");
+                break;
+            case Direction.NONE:
+                anim.SetTrigger("IDLE");
+                break;
+            default:
+                break;
         }
-        if (!wasMoving && displacement.magnitude > Mathf.Epsilon) {//Started moving
-            anim.Play("PlayerWalkStart");
-        }
+
+        //if (wasMoving && displacement.magnitude <= Mathf.Epsilon) {//Stopped moving
+        //    anim.Play("PlayerWalkEnd");
         //}
-        //else {
-        //    if (direction.z <= 0) {
-        //        if (wasMoving && displacement.magnitude <= Mathf.Epsilon) {//Stopped moving
-        //            anim.Play("PlayerWalkForwardEnd");
-        //        }
-        //        if (!wasMoving && displacement.magnitude > Mathf.Epsilon) {//Started moving
-        //            anim.Play("PlayerWalkForwardStart");
-        //        }
-        //    }
-        //    else {
-        //        if (wasMoving && displacement.magnitude <= Mathf.Epsilon) {//Stopped moving
-        //            anim.Play("PlayerWalkBackwardEnd");
-        //        }
-        //        if (!wasMoving && displacement.magnitude > Mathf.Epsilon) {//Started moving
-        //            anim.Play("PlayerWalkBackwardStart");
-        //        }
-        //    }
+        //if (!wasMoving && displacement.magnitude > Mathf.Epsilon) {//Started moving
+        //    anim.Play("PlayerWalkStart");
         //}
 
-
-
-        wasMoving = (displacement.magnitude > Mathf.Epsilon);
+        //wasMoving = (displacement.magnitude > Mathf.Epsilon);
         sprite.flipX = (Mathf.Abs(displacement.x) > 0) ? (displacement.x < 0) : sprite.flipX;
+    }
+
+    private Direction GetDirection() {
+
+        if (direction.sqrMagnitude > 0) {
+            if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.z)) {
+                if (direction.x >= 0) {
+                    return Direction.RIGHT;
+                }
+                else {
+                    return Direction.LEFT;
+                }
+            }
+            else {
+                if (direction.z > 0) {
+                    return Direction.UP;
+                }
+                else {
+                    return Direction.DOWN;
+                }
+            }
+        }
+        else {
+            return Direction.NONE;
+        }
+    }
+
+    private enum Direction {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT,
+        NONE
     }
     #endregion
 }
