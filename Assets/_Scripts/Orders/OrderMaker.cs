@@ -85,7 +85,7 @@ public class OrderMaker : MonoBehaviour {
     /// </summary>
     private void MakeOrder() {
         Dictionary<MealItem, int> orderItems = new Dictionary<MealItem, int>();
-        
+
         int[] mealData = SetOrderItems(orderItems);
         SetTime(mealData, out float totalTime, out float currentTime);
 
@@ -258,32 +258,33 @@ public class OrderMaker : MonoBehaviour {
 
     private int GetRandomMealRank() {
         float chance = Random.value;
+        float multiplier = (Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f;
 
-        if (chance >= .85f + (.1f * ((Mathf.Round(TentacularLikes.Instance.likes)-1f)/4f)) ) {
+        if (chance >= .85f + (.14f * multiplier)) {
             return 1;
         }
-        else if (chance >= .7f + (.2f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+        else if (chance >= .7f + (.25f * multiplier)) {
             return 2;
         }
-        else if (chance >= .55f + (.25f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+        else if (chance >= .55f + (.35f * multiplier)) {
             return 3;
         }
-        else if (chance >= .45f + (.2f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+        else if (chance >= .4f + (.45f * multiplier)) {
             return 4;
         }
-        else if (chance >= .35f + (.15f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+        else if (chance >= .25f + (.5f * multiplier)) {
             return 5;
         }
-        else if (chance >= .20f + (.2f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+        else if (chance >= .1f + (.5f * multiplier)) {
             return 6;
         }
-        else if (chance >= .15f + (.15f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+        else if (chance >= .07f + (.38f * multiplier)) {
             return 7;
         }
-        else if (chance >= .1f + (.1f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+        else if (chance >= .04f + (.26f * multiplier)) {
             return 8;
         }
-        else if (chance >= .05 + (.05f * ((Mathf.Round(TentacularLikes.Instance.likes) - 1f) / 4f))) {
+        else if (chance >= .01 + (.14f * multiplier)) {
             return 9;
         }
         else {
@@ -360,7 +361,7 @@ public class OrderMaker : MonoBehaviour {
     /// Determines how much time there is until the next order spawns
     /// </summary>
     private void DetermineTimeUntilNextOrder(float totalTime) {
-        timeTilNextOrder = isTutorial ? 90f : totalTime * (.75f - (TentacularLikes.Instance.likes * 3f)/100f);
+        timeTilNextOrder = isTutorial ? 90f : totalTime * (.75f - (TentacularLikes.Instance.likes * 3f) / 100f);
     }
 
     /// <summary>

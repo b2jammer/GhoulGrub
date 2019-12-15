@@ -4897,7 +4897,7 @@ PrefabInstance:
     - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
         type: 3}
       propertyPath: defaultOrderTime
-      value: 300
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
         type: 3}
