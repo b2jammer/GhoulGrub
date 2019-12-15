@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
                 objectToEnable.SetActive(true);
             }
 
-            UpdateHighScores();
+            //UpdateHighScores();
         }
     }
 
@@ -138,6 +138,10 @@ public class GameManager : MonoBehaviour
                 UpdatePref(minScoreIndex);
             } 
         }
+    }
+
+    public void CheckScore() {
+        UpdateHighScores();
     }
 
     //private void UpdatePrefs() {

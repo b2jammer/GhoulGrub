@@ -11,9 +11,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseButton, pauseMenuUI, settingsMenuUI, controlsMenuUI, recipeBookUI;
 
     private KeyboardInterfaceController interfaceController;
+    private bool isRunningTutorial;
 
     private void Start() {
         interfaceController = GameObject.FindObjectOfType<KeyboardInterfaceController>();
+        isRunningTutorial = false;
     }
 
     private void Update() {
@@ -22,8 +24,12 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void SetIsRunningTutorial(bool tutorialStatus) {
+        isRunningTutorial = tutorialStatus;
+    }
+
     private void CheckForPauseMenuHotkey() {
-        if (interfaceController.ActivatePauseMenu) {
+        if (interfaceController.ActivatePauseMenu && !isRunningTutorial) {
             if (GameIsPaused) {
                 Resume();
             }
@@ -42,6 +48,7 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
+        GameManager.Instance.CheckScore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); //Loads current scene
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -56,6 +63,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        GameManager.Instance.CheckScore();
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
@@ -92,6 +100,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        GameManager.Instance.CheckScore();
         Debug.Log("Quitting game...");
         Application.Quit();
     }

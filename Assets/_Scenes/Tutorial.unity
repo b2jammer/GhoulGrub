@@ -3379,7 +3379,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1753909450}
-        m_MethodName: TutorialFourOFF
+        m_MethodName: CurrentTutorialOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3390,7 +3390,29 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1753909450}
-        m_MethodName: TutorialFiveON
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1753909450}
+        m_MethodName: ResumeStandardControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 315842356}
+        m_MethodName: StartMakingOrders
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5642,7 +5664,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1753909450}
-        m_MethodName: TutorialFiveOFF
+        m_MethodName: CurrentTutorialOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5654,17 +5676,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1753909450}
         m_MethodName: Resume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 315842356}
-        m_MethodName: StartMakingOrders
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5976,18 +5987,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1753909450}
-        m_MethodName: TutorialThreeOFF
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1753909450}
-        m_MethodName: TutorialFourON
+        m_MethodName: SwitchToNextTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7393,11 +7393,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -8015,8 +8015,8 @@ MonoBehaviour:
     center of the screen.
 
 
-    Move over to the fridge and open it with F, and click the Take Food button to
-    gather all ingredients within the fridge.
+    Move over to the refrigerator (on the left side) and open it with F, and click
+    the Take Food button to gather all ingredients within the fridge.
 
 
     From here you can move around to the various stations and drag and drop the ingredients
@@ -8346,10 +8346,9 @@ MonoBehaviour:
     matter will provide you a greater tentacle rating, and more points than if you
     prepare the meal with little time to spare.\n\nHigh scores achieved outside of
     the tutorial level will be recorded and can be viewed under the high scores in
-    the main menu. Get yourself on there! \n\nFeel free to close this menu and continue
-    playing in the tutorial. The tutorial provides the player more time to prepare
-    the various meals, and has all meals available to help get the player used to
-    meals within the game."
+    the main menu. Get yourself on there! \n\nFeel free to continue playing in the
+    tutorial. The tutorial provides the player more time to prepare the various meals,
+    and has all meals available to help get the player used to meals within the game."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -8853,7 +8852,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1753909450}
-        m_MethodName: TutorialTwoOFF
+        m_MethodName: CurrentTutorialOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8865,6 +8864,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1753909450}
         m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1753909450}
+        m_MethodName: ResumeStandardControls
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10870,7 +10880,7 @@ MonoBehaviour:
     there is to make it, the more points the meal can provide.
 
 
-'
+    When you''re ready to continue, click T to move on to the next stage of the tutorial.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -12016,11 +12026,11 @@ MonoBehaviour:
     lineCount: 4
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -15545,7 +15555,7 @@ PrefabInstance:
     - target: {fileID: 8053508665344495659, guid: b439e0195f19ce84eaf1e2ce598b67f7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000030517578
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 8053508665344495659, guid: b439e0195f19ce84eaf1e2ce598b67f7,
         type: 3}
@@ -16177,7 +16187,7 @@ GameObject:
   - component: {fileID: 1690311269}
   - component: {fileID: 1690311268}
   m_Layer: 0
-  m_Name: Refridgerator
+  m_Name: Refrigerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17170,6 +17180,8 @@ MonoBehaviour:
   TutorialThree: {fileID: 1471099929}
   TutorialFour: {fileID: 659099074}
   TutorialFive: {fileID: 1619574394}
+  pauseMenu: {fileID: 1753909445}
+  menuButton: {fileID: 931805725}
 --- !u!224 &1774217407 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 158490133816124433, guid: c2a66d055af66ad49a1e231c8215ac88,
@@ -18216,18 +18228,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1753909450}
-        m_MethodName: TutorialOneOFF
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1753909450}
-        m_MethodName: TutorialTwoON
+        m_MethodName: SwitchToNextTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19590,7 +19591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2042855733
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,127 +1,163 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class TutorialScript : MonoBehaviour
-{ 
+public class TutorialScript : MonoBehaviour {
     // Tracks whether the game is paused or not.
-public static bool GameIsPaused = true;
+    public static bool GameIsPaused = true;
 
     public GameObject TutorialOne, TutorialTwo, TutorialThree, TutorialFour, TutorialFive;
+    public PauseMenu pauseMenu;
+    public Button menuButton;
 
     public static bool TutorialContinued = false;
+
     private int currentTutorial;
+    private bool tutorialOnScreen;
+    private bool tutorialFinished;
 
-    public void Start()
-    {
+    public void Start() {
+        Pause();
+        tutorialFinished = false;
+        ResumeTutorialControls();
+        TutorialOneON();
+    }
+
+    private void SetButtonInteractability(bool interactability) {
+        menuButton.interactable = interactability;
+    }
+
+    private void SetTutorialOnScreen(bool onScreen) {
+        tutorialOnScreen = onScreen;
+    }
+
+    public void Pause() {
         Time.timeScale = 0f;
+        GameIsPaused = true;
     }
 
-    public void Pause()
-    {
-    Time.timeScale = 0f;
-    GameIsPaused = true;
-    }
-
-    public void Resume()
-    {
+    public void Resume() {
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
-    public void TutorialOneON()
-    {
+    public void ResumeStandardControls() {
+        tutorialOnScreen = false;
+        SetButtonInteractability(true);
+        pauseMenu.SetIsRunningTutorial(false);
+    }
+
+    public void ResumeTutorialControls() {
+        tutorialOnScreen = true;
+        SetButtonInteractability(false);
+        pauseMenu.SetIsRunningTutorial(true);
+    }
+
+    public void CurrentTutorialOff() {
+        TutorialOff(currentTutorial);
+    }
+
+    private void TutorialOneON() {
         TutorialOne.SetActive(true);
         currentTutorial = 1;
     }
 
-    public void TutorialOneOFF()
-    {
+    private void TutorialOneOFF() {
         TutorialOne.SetActive(false);
     }
 
-    public void TutorialTwoON()
-    {
+    private void TutorialTwoON() {
         TutorialTwo.SetActive(true);
+        currentTutorial = 2;
     }
 
-    public void TutorialTwoOFF()
-    {
+    private void TutorialTwoOFF() {
         TutorialTwo.SetActive(false);
     }
 
-    void Update ()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TutorialThree.SetActive(true);
-            Time.timeScale = 0f;
-            GameIsPaused = true;
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.T) && !tutorialOnScreen && !tutorialFinished) {
+            SwitchToNextTutorial();
+            ResumeTutorialControls();
+            Pause();
         }
     }
 
-    public void TutorialOn(int tutorialID) {
+    private void TutorialOn(int tutorialID) {
         switch (tutorialID) {
             case 1:
                 TutorialOneON();
                 break;
             case 2:
+                TutorialTwoON();
                 break;
             case 3:
+                TutorialThreeON();
                 break;
             case 4:
+                TutorialFourON();
                 break;
             case 5:
+                TutorialFiveON();
                 break;
             default:
                 break;
         }
     }
 
-    public void TutorialOff(int tutorialID) {
+    private void TutorialOff(int tutorialID) {
         switch (tutorialID) {
             case 1:
+                TutorialOneOFF();
                 break;
             case 2:
+                TutorialTwoOFF();
                 break;
             case 3:
+                TutorialThreeOFF();
                 break;
             case 4:
+                TutorialFourOFF();
                 break;
             case 5:
+                TutorialFiveOFF();
                 break;
             default:
                 break;
         }
     }
 
-    public void TutorialThreeON()
-    {
+    public void SwitchToNextTutorial() {
+        TutorialOff(currentTutorial);
+        TutorialOn(currentTutorial + 1);
+    }
+
+    private void TutorialThreeON() {
+        currentTutorial = 3;
         TutorialThree.SetActive(true);
     }
 
-    public void TutorialThreeOFF()
-    {
+    private void TutorialThreeOFF() {
         TutorialThree.SetActive(false);
     }
 
-    public void TutorialFourON()
-    {
+    private void TutorialFourON() {
+        currentTutorial = 4;
         TutorialFour.SetActive(true);
     }
 
-    public void TutorialFourOFF()
-    {
+    private void TutorialFourOFF() {
         TutorialFour.SetActive(false);
     }
 
-    public void TutorialFiveON()
-    {
+    private void TutorialFiveON() {
+        currentTutorial = 5;
         TutorialFive.SetActive(true);
     }
 
-    public void TutorialFiveOFF()
-    {
+    private void TutorialFiveOFF() {
+        tutorialFinished = true;
         TutorialFive.SetActive(false);
     }
 }
