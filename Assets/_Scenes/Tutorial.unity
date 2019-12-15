@@ -8012,7 +8012,8 @@ MonoBehaviour:
 
     Entering the game, your inventory is empty; however, a delivery just arrived providing
     you with a fresh supply of ingredients, shown by the green text at the bottom
-    center of the screen.
+    center of the screen. You should also know that you can toggle the inventory panel
+    by pressing 3.
 
 
     Move over to the refrigerator (on the left side) and open it with F, and click
@@ -8021,10 +8022,6 @@ MonoBehaviour:
 
     From here you can move around to the various stations and drag and drop the ingredients
     in your inventory into the stations, performing its action to prep them for later.
-
-
-    If for any reason you want to toggle the inventory panel, you can do so by pressing
-    3.
 
 
     Go ahead and hit the arrow button to play. When you''re ready, click T to move
@@ -8349,7 +8346,9 @@ MonoBehaviour:
     the tutorial level will be recorded and can be viewed under the high scores in
     the main menu. Get yourself on there! \n\nFeel free to continue playing in the
     tutorial. The tutorial provides the player more time to prepare the various meals,
-    and has all meals available to help get the player used to meals within the game."
+    and has all meals available to help get the player used to meals within the game.\n\nIf
+    you forget the hotkeys or controls you can look at them by accessing the pause
+    menu, going into settings, and clicking on controls."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -10801,7 +10800,7 @@ PrefabInstance:
     - target: {fileID: 8788376363549002951, guid: b641c6822a6041340b0d5e41df54cdc9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b641c6822a6041340b0d5e41df54cdc9, type: 3}
