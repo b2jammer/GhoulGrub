@@ -4897,7 +4897,7 @@ PrefabInstance:
     - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
         type: 3}
       propertyPath: defaultOrderTime
-      value: 9999
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
         type: 3}
@@ -8027,7 +8027,8 @@ MonoBehaviour:
     3.
 
 
-    When you''re ready to continue, click T to move on to the next stage of the tutorial.'
+    Go ahead and hit the arrow button to play. When you''re ready, click T to move
+    on to the next stage of the tutorial.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -10880,7 +10881,8 @@ MonoBehaviour:
     there is to make it, the more points the meal can provide.
 
 
-    When you''re ready to continue, click T to move on to the next stage of the tutorial.'
+    Go ahead and hit the arrow button to play. When you''re ready, click T to move
+    on to the final stage of the tutorial.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -14274,30 +14276,30 @@ PrefabInstance:
       propertyPath: OnRetreat.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 6266113389102727120, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.46174863
-      objectReference: {fileID: 0}
-    - target: {fileID: 6266113389102727120, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8870109
-      objectReference: {fileID: 0}
-    - target: {fileID: 2038697144861860608, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.46174863
-      objectReference: {fileID: 0}
-    - target: {fileID: 2038697144861860608, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8870109
-      objectReference: {fileID: 0}
     - target: {fileID: 6266113390102824753, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_Size.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266113389102727120, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.46174863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266113389102727120, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8870109
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038697144861860608, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.46174863
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038697144861860608, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8870109
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cef6b7cfd04dc4949a4cd580d2f5c234, type: 3}
@@ -14854,21 +14856,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrderDescriptionPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 780019468763498165, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 780019468763498165, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
-        type: 3}
-      propertyPath: m_Text
-      value: text
-      objectReference: {fileID: 0}
-    - target: {fileID: 3110921341003104474, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
-        type: 3}
-      propertyPath: description
-      value: 
-      objectReference: {fileID: 248378529}
     - target: {fileID: 780019468796121696, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14983,6 +14970,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110921341003104474, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
+        type: 3}
+      propertyPath: description
+      value: 
+      objectReference: {fileID: 248378529}
+    - target: {fileID: 780019468763498165, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 780019468763498165, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
+        type: 3}
+      propertyPath: m_Text
+      value: text
       objectReference: {fileID: 0}
     - target: {fileID: 780019467807558672, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
         type: 3}
