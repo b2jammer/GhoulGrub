@@ -10,6 +10,7 @@ public static bool GameIsPaused = true;
     public GameObject TutorialOne, TutorialTwo, TutorialThree, TutorialFour, TutorialFive;
 
     public static bool TutorialContinued = false;
+    private int currentTutorial;
 
     public void Start()
     {
@@ -31,6 +32,7 @@ public static bool GameIsPaused = true;
     public void TutorialOneON()
     {
         TutorialOne.SetActive(true);
+        currentTutorial = 1;
     }
 
     public void TutorialOneOFF()
@@ -55,6 +57,41 @@ public static bool GameIsPaused = true;
             TutorialThree.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
+        }
+    }
+
+    public void TutorialOn(int tutorialID) {
+        switch (tutorialID) {
+            case 1:
+                TutorialOneON();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void TutorialOff(int tutorialID) {
+        switch (tutorialID) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            default:
+                break;
         }
     }
 

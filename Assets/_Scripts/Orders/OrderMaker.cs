@@ -30,6 +30,9 @@ public class OrderMaker : MonoBehaviour {
     public OrderMakerEvent OnOrderRemoved;
 
     public OrderMakerEvent OnOrderOut;
+
+    public float defaultOrderTime = 90f;
+    public bool isTutorial;
     #endregion
 
     #region Private variables
@@ -65,7 +68,6 @@ public class OrderMaker : MonoBehaviour {
 
     private void Start() {
         SetRankedItems();
-        Invoke("MakeOrder", timeTilFirstOrder);
     }
 
     private void Update() {
@@ -74,6 +76,10 @@ public class OrderMaker : MonoBehaviour {
     #endregion
 
     #region Script specific methods
+    public void StartMakingOrders() {
+        Invoke("MakeOrder", timeTilFirstOrder);
+    }
+
     /// <summary>
     /// Spawns a new order
     /// </summary>
@@ -150,7 +156,7 @@ public class OrderMaker : MonoBehaviour {
     /// <param name="totalTime"></param>
     /// <param name="currentTime"></param>
     private void SetTime(int[] mealData, out float totalTime, out float currentTime) {
-        float defaultTime = 90f;
+        float defaultTime = defaultOrderTime;
         float rankBasedTime = 0f;
         float mealSizeBasedTime = 0f;
         float ratingModifier = 0f;
@@ -196,7 +202,7 @@ public class OrderMaker : MonoBehaviour {
         mealSizeBasedTime += (mealData.Length * 10f);
         ratingModifier -= (Mathf.Round(TentacularLikes.Instance.likes) - 1) * 4f;
 
-        totalTime = defaultTime + rankBasedTime + mealSizeBasedTime + ratingModifier;
+        totalTime = isTutorial ? defaultTime : defaultTime + rankBasedTime + mealSizeBasedTime + ratingModifier;
         currentTime = totalTime;
     }
 
@@ -233,7 +239,7 @@ public class OrderMaker : MonoBehaviour {
         int[] mealRanks = new int[numberOfMealItems];
 
         for (int i = 0; i < numberOfMealItems; i++) {
-            int mealRank = GetRandomMealRank();
+            int mealRank = isTutorial ? TutorialMealRank() : GetRandomMealRank();
 
             if (IncreaseRank()) {
                 if (mealRank <= maxMealRank - 1) {
@@ -243,6 +249,11 @@ public class OrderMaker : MonoBehaviour {
             mealRanks[i] = mealRank;
         }
         return mealRanks;
+    }
+
+    private int TutorialMealRank() {
+        int mealRank = Random.Range(1, maxMealRank + 1);
+        return mealRank;
     }
 
     private int GetRandomMealRank() {
@@ -349,7 +360,7 @@ public class OrderMaker : MonoBehaviour {
     /// Determines how much time there is until the next order spawns
     /// </summary>
     private void DetermineTimeUntilNextOrder(float totalTime) {
-        timeTilNextOrder = totalTime * (.75f - (TentacularLikes.Instance.likes * 3f)/100f);
+        timeTilNextOrder = isTutorial ? 90f : totalTime * (.75f - (TentacularLikes.Instance.likes * 3f)/100f);
     }
 
     /// <summary>

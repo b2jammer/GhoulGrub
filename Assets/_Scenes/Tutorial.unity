@@ -4653,7 +4653,7 @@ PrefabInstance:
     - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
         type: 3}
       propertyPath: timeTilFirstOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
         type: 3}
@@ -4872,6 +4872,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f8a3fabea7b3d4d4dbd116795830d2f1,
         type: 2}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: defaultOrderTime
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332285763174489823, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
+        type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1533746579231629305, guid: 7ba6d86b0d3a5c749adb00fb5b8eba9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5644,6 +5654,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1753909450}
         m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 315842356}
+        m_MethodName: StartMakingOrders
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7984,8 +8005,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Movement in Ghoul Grub is based on the WASD keys, while the various stations
-    can be activated using the F key.
+  m_text: 'Movement in Ghoul Grub is based on the WASD keys or arrow keys, while the
+    various stations can be activated or deactivated by using the F key (or by pressing
+    2) when near.
 
 
     Entering the game, your inventory is empty; however, a delivery just arrived providing
@@ -7999,6 +8021,10 @@ MonoBehaviour:
 
     From here you can move around to the various stations and drag and drop the ingredients
     in your inventory into the stations, performing its action to prep them for later.
+
+
+    If for any reason you want to toggle the inventory panel, you can do so by pressing
+    3.
 
 
     When you''re ready to continue, click T to move on to the next stage of the tutorial.'
@@ -8077,11 +8103,11 @@ MonoBehaviour:
     lineCount: 15
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -8315,22 +8341,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'The goal of the game is to prepare the meals as fast as you can, gaining
-    a greater score and unlocking higher tier ingredients.
-
-
-    Preparing your meals in a timely matter will provide you a greater tentacle rating,
-    and more points than if you prepare the meal with little time to spare.
-
-
-    Put yourself on the leaderboards and see how many points you can get!
-
-
-
-
-    Feel free to close this menu and continue playing in the tutorial. The tutorial
-    provides the player more time to prepare the various meals, and has all meals
-    available to help get the player used to meals within the game.'
+  m_text: "The goal of the game is to prepare the meals as fast as you can, gaining
+    a greater score and a greater tentacle rating.\n\nPreparing your meals in a timely
+    matter will provide you a greater tentacle rating, and more points than if you
+    prepare the meal with little time to spare.\n\nHigh scores achieved outside of
+    the tutorial level will be recorded and can be viewed under the high scores in
+    the main menu. Get yourself on there! \n\nFeel free to close this menu and continue
+    playing in the tutorial. The tutorial provides the player more time to prepare
+    the various meals, and has all meals available to help get the player used to
+    meals within the game."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -10460,7 +10479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 59.494396, y: 0}
+  m_AnchoredPosition: {x: 59.5, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1015322204
@@ -10835,19 +10854,20 @@ MonoBehaviour:
   m_text: 'Throughout the game, you will receive order slips that ask for certain
     meal items to be prepped and sent off for delivery. These are shown by the order
     slip that hangs fron the line at the top of the screen. These slips can be clicked
-    on to show what the customer wants you to make, how many of the listed meals need
-    to be made, and basic description on how to complete the order slip.
+    on to open the order panel which shows you what meals the customer wants, how
+    many of the listed meals need to be made, and basic description on how to complete
+    the order slip. The order panel can be toggled by pressing 1.
 
 
     All meals are formed by bringing ingredients to the various stations and prepping
     them, often combining these prepped ingredients into the meals themselves, readying
-    them at the counter, and then sending them off by dragging the finished meal onto
-    the order slip.
+    them at the counter, and then sending them off by dragging the finished meal directly
+    onto the order slip or the order panel.
 
 
-    The higher the rating a meal has the more steps are requried to make the meal,
-    and thus the more time it will take to prep the meal; however, the greater the
-    rating the more points the meal can provide.
+    Some meals require more steps to make, and will therefore take more time to complete.
+    However, the more steps it takes to make, the harder it is to make, the more time
+    there is to make it, the more points the meal can provide.
 
 
 '
@@ -10926,11 +10946,11 @@ MonoBehaviour:
     lineCount: 15
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -13295,7 +13315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2771bb54e0220f042af9067a3b634d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLostMeals: 5
+  maxLostMeals: 999
 --- !u!114 &1351049629
 MonoBehaviour:
   m_ObjectHideFlags: 0

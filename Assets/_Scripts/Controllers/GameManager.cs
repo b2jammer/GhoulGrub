@@ -124,15 +124,19 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateHighScores() {
-        List<int> minScoreIndices = scores.Select((value, index) => new {value, index}).Where(target => target.value == scores.Min()).Select(target => target.index).ToList();
-        int minScoreIndex = minScoreIndices.First();
+        OrderMaker levelOrderMaker = GameObject.FindObjectOfType<OrderMaker>();
 
-        if (TentacularScore.Instance.Score > scores[minScoreIndex]) {
-            scores[minScoreIndex] = Mathf.Round(TentacularScore.Instance.Score * TentacularLikes.Instance.likes);
-            ratings[minScoreIndex] = Mathf.Round(TentacularLikes.Instance.likes * 100) / 100;
-            meals[minScoreIndex] = TentacularScore.Instance.CompletedMeals;
+        if (!levelOrderMaker.isTutorial) {
+            List<int> minScoreIndices = scores.Select((value, index) => new { value, index }).Where(target => target.value == scores.Min()).Select(target => target.index).ToList();
+            int minScoreIndex = minScoreIndices.First();
 
-            UpdatePref(minScoreIndex);
+            if (TentacularScore.Instance.Score > scores[minScoreIndex]) {
+                scores[minScoreIndex] = Mathf.Round(TentacularScore.Instance.Score * TentacularLikes.Instance.likes);
+                ratings[minScoreIndex] = Mathf.Round(TentacularLikes.Instance.likes * 100) / 100;
+                meals[minScoreIndex] = TentacularScore.Instance.CompletedMeals;
+
+                UpdatePref(minScoreIndex);
+            } 
         }
     }
 
