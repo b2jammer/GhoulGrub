@@ -5685,6 +5685,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1753909450}
+        m_MethodName: ResumeStandardControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &610573376
@@ -14275,30 +14286,30 @@ PrefabInstance:
       propertyPath: OnRetreat.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6266113389102727120, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.46174863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266113389102727120, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8870109
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038697144861860608, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.46174863
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038697144861860608, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8870109
+      objectReference: {fileID: 0}
     - target: {fileID: 6266113390102824753, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
         type: 3}
       propertyPath: m_Size.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6266113389102727120, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.46174863
-      objectReference: {fileID: 0}
-    - target: {fileID: 6266113389102727120, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8870109
-      objectReference: {fileID: 0}
-    - target: {fileID: 2038697144861860608, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.46174863
-      objectReference: {fileID: 0}
-    - target: {fileID: 2038697144861860608, guid: cef6b7cfd04dc4949a4cd580d2f5c234,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8870109
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cef6b7cfd04dc4949a4cd580d2f5c234, type: 3}
@@ -14855,6 +14866,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrderDescriptionPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 780019468763498165, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 780019468763498165, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
+        type: 3}
+      propertyPath: m_Text
+      value: text
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110921341003104474, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
+        type: 3}
+      propertyPath: description
+      value: 
+      objectReference: {fileID: 248378529}
     - target: {fileID: 780019468796121696, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14969,21 +14995,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3110921341003104474, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
-        type: 3}
-      propertyPath: description
-      value: 
-      objectReference: {fileID: 248378529}
-    - target: {fileID: 780019468763498165, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 780019468763498165, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
-        type: 3}
-      propertyPath: m_Text
-      value: text
       objectReference: {fileID: 0}
     - target: {fileID: 780019467807558672, guid: 3e0e7fe68effadf41bf73e29e66cd92e,
         type: 3}
