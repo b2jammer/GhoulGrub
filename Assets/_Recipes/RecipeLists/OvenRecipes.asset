@@ -104,7 +104,7 @@ MonoBehaviour:
   - target: {fileID: 11400000, guid: 85d89cdc78d61dd4187b0b6f04cc02d0, type: 2}
     targetQuantity: 1
     ingredients:
-    - type: {fileID: 11400000, guid: bf7fcd925bcc86a4b94bd3abf8d18404, type: 2}
+    - type: {fileID: 11400000, guid: d5694d7877701df408d482c1acc4e1cb, type: 2}
       quantity: 1
       quantityMax: 1
     - type: {fileID: 11400000, guid: 1172d95808a66de498e425543e97fe71, type: 2}
