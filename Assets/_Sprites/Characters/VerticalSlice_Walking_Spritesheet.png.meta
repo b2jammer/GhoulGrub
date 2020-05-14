@@ -1,12 +1,54 @@
 fileFormatVersion: 2
 guid: 306e678675f882a438c5b49415a70914
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7220105952114441250
+    second: VerticalSlice_Walking_Spritesheet_0
+  - first:
+      213: -5562058708551624597
+    second: VerticalSlice_Walking_Spritesheet_1
+  - first:
+      213: 9114444124794571556
+    second: VerticalSlice_Walking_Spritesheet_2
+  - first:
+      213: -7237642275654518595
+    second: VerticalSlice_Walking_Spritesheet_3
+  - first:
+      213: 5720112917100954649
+    second: VerticalSlice_Walking_Spritesheet_4
+  - first:
+      213: 5746806602511007169
+    second: VerticalSlice_Walking_Spritesheet_5
+  - first:
+      213: -1981983755124453034
+    second: VerticalSlice_Walking_Spritesheet_6
+  - first:
+      213: -7367042626540771449
+    second: VerticalSlice_Walking_Spritesheet_7
+  - first:
+      213: 4782052601923382647
+    second: VerticalSlice_Walking_Spritesheet_8
+  - first:
+      213: 2752604619994981939
+    second: VerticalSlice_Walking_Spritesheet_9
+  - first:
+      213: -2070679315368949000
+    second: VerticalSlice_Walking_Spritesheet_10
+  - first:
+      213: -1602275570302944084
+    second: VerticalSlice_Walking_Spritesheet_11
+  - first:
+      213: 3679551280757064768
+    second: VerticalSlice_Walking_Spritesheet_12
+  - first:
+      213: -4982902409426829115
+    second: VerticalSlice_Walking_Spritesheet_13
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,24 +76,24 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: -1
-    wrapV: -1
+    wrapU: 1
+    wrapV: 1
     wrapW: -1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -70,13 +112,319 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 102
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c467a6e9e837a46ad5a4c2db8e375d
+      internalID: 7220105952114441250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 97
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce760a366aa8a4b439cb8fa87664e9c3
+      internalID: -5562058708551624597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 104
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa34b479a52040b4e92742fcbbc1fab1
+      internalID: 9114444124794571556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 0
+        width: 89
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6da718639414746a46a60eb7b93658
+      internalID: -7237642275654518595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 0
+        width: 88
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7491342b8fa8ee345a427bc2711ae757
+      internalID: 5720112917100954649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 0
+        width: 88
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d10b195800e664983fdc4a69596630
+      internalID: 5746806602511007169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 0
+        width: 88
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f6af4cf7220694d84aca254c867bb5
+      internalID: -1981983755124453034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 0
+        width: 85
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30abf95b21c071144be685ed1f6029c5
+      internalID: -7367042626540771449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 0
+        width: 89
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c678eacd15c2441b907ec263562c22
+      internalID: 4782052601923382647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 0
+        width: 85
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24712f732b663a347bf654de4bc17711
+      internalID: 2752604619994981939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 0
+        width: 89
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce5dd3c273ef5841ab8dda88d0c979b
+      internalID: -2070679315368949000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 0
+        width: 104
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17db85626a34ccc49a7e9c730bc6ed11
+      internalID: -1602275570302944084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 0
+        width: 97
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2c80c198a1a5341a45927f97bec6f4
+      internalID: 3679551280757064768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalSlice_Walking_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 0
+        width: 102
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547d862b0d497f849bdcd618454c0061
+      internalID: -4982902409426829115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1127eed1244e5d7499849c7fffa85033
     internalID: 0
     vertices: []
     indices: 

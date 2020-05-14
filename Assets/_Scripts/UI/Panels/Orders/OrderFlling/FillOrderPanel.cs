@@ -50,18 +50,18 @@ public class FillOrderPanel : MonoBehaviour {
         if (currentOrder != order) {
             hasOrder = true;
             currentOrder = order;
-            orderInventory.InventoryData = order.preppedFoodItems;
             label.text = order.name;
+            orderInventory.InventoryData = order.preppedFoodItems;
             //closeable.OpenPanel();
 
             OnOrderSet.Invoke();
-            InventoryInteractablesManager.Instance.IsHidden = false;
+            //InventoryInteractablesManager.Instance.IsHidden = false;
         }
         
     }
 
     public void OpenFillOrderPanel() {
-        InventoryInteractablesManager.Instance.IsHidden = false;
+        //InventoryInteractablesManager.Instance.IsHidden = false;
         closeable.OpenPanel();
     }
 

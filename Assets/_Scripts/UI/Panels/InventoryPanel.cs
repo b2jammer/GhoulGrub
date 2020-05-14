@@ -74,11 +74,11 @@ public class InventoryPanel : MonoBehaviour
                 Destroy(foodPanels[type].gameObject);
             }
         }
-        foodPanels = new Dictionary<FoodItem, FoodItemPanel>();
-        foreach (FoodItem foodType in _inventory.GetFoodTypes())
-        {
-            for (int i = 0; i < _inventory.Count(foodType); i++)
-            {
+        foodPanels.Clear();
+        
+        //Add UI panels based on inventory data.
+        foreach (FoodItem foodType in _inventory.GetFoodTypes()) {
+            for (int i = 0; i < _inventory.Count(foodType); i++) {
                 AddItem(foodType);
             }
         }

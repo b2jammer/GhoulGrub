@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: CuttingBoardRecipes
   m_EditorClassIdentifier: 
   listTitle: Cutting Board
-  listIcon: {fileID: 21300000, guid: 1d571d13bf92f04498522afc7598f281, type: 3}
   recipes:
   - target: {fileID: 11400000, guid: 967541894fcc45041a0b7bcaea5e10ef, type: 2}
     targetQuantity: 1
@@ -28,8 +27,38 @@ MonoBehaviour:
       quantity: 1
       quantityMax: 1
   - target: {fileID: 11400000, guid: 2dc42ff891b51fa409e07f1435dd0fbc, type: 2}
-    targetQuantity: 1
+    targetQuantity: 4
     ingredients:
     - type: {fileID: 11400000, guid: fb13bc3e234259543b1674701808e924, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 38e5526ee2ee86243a376f975cc1f7b4, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: fbf9d59807a721f4fa53606772185e1b, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 7e6692fd65ac2ce4eb353ca8652605cc, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 17744aa41bd4087479108ae666ffd850, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: b356eab4dee73d04094678133600397b, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 4610657755882934a87cb104cfad71cd, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 014f782b660ec5e4692a7cc0d002b32d, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: e8e7251f1dea3fa4fa56098abf63410b, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 71c8fd519d35ab74cb941129567af9d1, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 95fd73e1a2160524398ec45ece328668, type: 2}
       quantity: 1
       quantityMax: 1

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d172bc1fe3babe4f98b459751880020, type: 3}
+  m_Name: SaagPaneer
+  m_EditorClassIdentifier: 
+  itemName: Saag Paneer
+  sprite: {fileID: 21300000, guid: 3311f11dcf507b74f830445e689a75ff, type: 3}
+  type: 3
+  rank: 8
+  recipe: "Place sliced ouvrier, curry sauce,\r\nsliced onion, two shredded lettuce,\r\nand
+    shredded cheese into the oven and bake.\r\nPlace prepped saag paneer onto\r\ncounter
+    and combine.\r\nDrag into order slip to complete."

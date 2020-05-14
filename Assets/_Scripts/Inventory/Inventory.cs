@@ -37,6 +37,10 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public bool IsEmpty() {
+        return (items.Keys.Count == 0);
+    }
+
     public int TotalItems()
     {
         int sum = 0;
@@ -48,7 +52,9 @@ public class Inventory : MonoBehaviour
     }
 
     public void ClearInventory() {
-        items = new Dictionary<FoodItem, int>();
+        //items = new Dictionary<FoodItem, int>();
+
+        items.Clear();
         OnClear.Invoke();
     }
 
@@ -84,6 +90,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void AddInventoryItem(FoodItem item) {
+        //Debug.Log(item);
         if (items.ContainsKey(item))
         {
             items[item] += 1;

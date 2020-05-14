@@ -16,11 +16,16 @@ public class InteractAgent : MonoBehaviour
     #region MonoBehaviour Methods
     private void OnTriggerEnter(Collider other)
     {
+        if (currentInteractable != null) {
+            currentInteractable.OnRetreat.Invoke();
+            //currentInteractable = null;
+        }
+
         Interactable otherInteract;
         if ((otherInteract = other.GetComponentInChildren<Interactable>()) != null)
         {
             currentInteractable = otherInteract;
-            otherInteract.OnApproach.Invoke();
+            currentInteractable.OnApproach.Invoke();
         }
     }
 
@@ -35,6 +40,14 @@ public class InteractAgent : MonoBehaviour
         {
             currentInteractable = null;
             otherInteract.OnRetreat.Invoke();
+        }
+    }
+
+    private void OnTriggerStay(Collider other) {
+        Interactable otherInteract;
+        if ((otherInteract = other.GetComponentInChildren<Interactable>()) != null && currentInteractable == null) {
+            currentInteractable = otherInteract;
+            currentInteractable.OnApproach.Invoke();
         }
     }
     #endregion

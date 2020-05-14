@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TomatoSauce
   m_EditorClassIdentifier: 
   itemName: Tomato Sauce
-  sprite: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
+  sprite: {fileID: 21300000, guid: d63f5da04e5459a4295036b4da47ad0f, type: 3}
   type: 0
   isCore: 0

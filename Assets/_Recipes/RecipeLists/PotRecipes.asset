@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: PotRecipes
   m_EditorClassIdentifier: 
   listTitle: Pot
-  listIcon: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
   recipes:
   - target: {fileID: 11400000, guid: 07d16893dad8a654cb0de9fa9272d8af, type: 2}
     targetQuantity: 1
@@ -31,5 +30,59 @@ MonoBehaviour:
     targetQuantity: 1
     ingredients:
     - type: {fileID: 11400000, guid: 40a4193fc86212948a234c809adee5cd, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 3a2e6f1cc92e3f344984f4331e65cd7a, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 1172d95808a66de498e425543e97fe71, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 4aeaec0316d5d0141ba80fa47c93c100, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 59e18adac83a99240b187f69f1409aeb, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 38e5526ee2ee86243a376f975cc1f7b4, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: b356eab4dee73d04094678133600397b, type: 2}
+      quantity: 0
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 71c8fd519d35ab74cb941129567af9d1, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 7e6692fd65ac2ce4eb353ca8652605cc, type: 2}
+      quantity: 0
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 698f472432f027544952d6f4e0822941, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 38e5526ee2ee86243a376f975cc1f7b4, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 71c8fd519d35ab74cb941129567af9d1, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: b356eab4dee73d04094678133600397b, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 014f782b660ec5e4692a7cc0d002b32d, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: c05f8fecd8eec7041a21d147da4ac280, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 07d16893dad8a654cb0de9fa9272d8af, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 71c8fd519d35ab74cb941129567af9d1, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: b356eab4dee73d04094678133600397b, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 014f782b660ec5e4692a7cc0d002b32d, type: 2}
       quantity: 1
       quantityMax: 1

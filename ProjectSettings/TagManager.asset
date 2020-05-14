@@ -8,6 +8,8 @@ TagManager:
   - Player Inventory
   - Floor
   - Station
+  - DisableOnEnd
+  - EnableOnEnd
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MashedPotatoes
   m_EditorClassIdentifier: 
   itemName: Mashed Potatoes
-  sprite: {fileID: 21300000, guid: da4771bf1d4bf1942829d04307f1d9e2, type: 3}
+  sprite: {fileID: 21300000, guid: 3544ca1f88c5d474b98e788d6ce47c12, type: 3}
   type: 0
   isCore: 0

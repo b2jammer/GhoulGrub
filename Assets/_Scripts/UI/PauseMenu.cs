@@ -8,19 +8,32 @@ public class PauseMenu : MonoBehaviour
     // Tracks whether the game is paused or not.
     public static bool GameIsPaused = false;
 
-    public GameObject pauseButton, pauseMenuUI, settingsMenuUI, controlsMenuUI;
+    public GameObject pauseButton, pauseMenuUI, settingsMenuUI, controlsMenuUI, recipeBookUI;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused)
-            {
+    private KeyboardInterfaceController interfaceController;
+    private bool isRunningTutorial;
+
+    private void Start() {
+        interfaceController = GameObject.FindObjectOfType<KeyboardInterfaceController>();
+        isRunningTutorial = false;
+    }
+
+    private void Update() {
+        if (!GameManager.Instance.GameEnded) {
+            CheckForPauseMenuHotkey();
+        }
+    }
+
+    public void SetIsRunningTutorial(bool tutorialStatus) {
+        isRunningTutorial = tutorialStatus;
+    }
+
+    private void CheckForPauseMenuHotkey() {
+        if (interfaceController.ActivatePauseMenu && !isRunningTutorial) {
+            if (GameIsPaused) {
                 Resume();
             }
-            else
-            {
+            else {
                 Pause();
             }
         }
@@ -29,6 +42,14 @@ public class PauseMenu : MonoBehaviour
     public void Resume ()
     {
         pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    public void RestartGame()
+    {
+        GameManager.Instance.CheckScore();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); //Loads current scene
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
@@ -42,6 +63,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        GameManager.Instance.CheckScore();
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
@@ -56,6 +78,16 @@ public class PauseMenu : MonoBehaviour
         settingsMenuUI.SetActive(false);
     }
 
+    public void RecipeBookON()
+    {
+        recipeBookUI.SetActive(true);
+    }
+
+    public void RecipeBookOFF()
+    {
+        recipeBookUI.SetActive(false);
+    }
+
     public void ControlsMenuON()
     {
         controlsMenuUI.SetActive(true);
@@ -68,6 +100,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        GameManager.Instance.CheckScore();
         Debug.Log("Quitting game...");
         Application.Quit();
     }

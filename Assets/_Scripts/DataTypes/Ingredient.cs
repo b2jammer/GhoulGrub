@@ -13,7 +13,8 @@ public class Ingredient : FoodItem
         Spice,
         Fruit,
         Dairy,
-        Meat
+        Meat,
+        Prepped
     }
     public IngredientType type;
     public bool isCore;

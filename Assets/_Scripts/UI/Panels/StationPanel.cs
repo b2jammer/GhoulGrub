@@ -34,8 +34,9 @@ public class StationPanel : MonoBehaviour {
     private Station currentStation;
     private Closeable closeable;
 
-    private Inventory _nullInventory;
+    //private Inventory _nullInventory;
     private Inventory playerInventory;
+    private RectTransform panelRect;
     #endregion
 
     #region MonoBehaviour Methods
@@ -46,41 +47,50 @@ public class StationPanel : MonoBehaviour {
         else {
             Instance = this;
         }
-        _nullInventory = GetComponent<Inventory>();
+        //_nullInventory = GetComponent<Inventory>();
         closeable = GetComponent<Closeable>();
-        NullifyStation();
+        panelRect = GetComponent<RectTransform>();
 
-        closeable.ClosePanel();
         playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
+        //closeable.ClosePanel();
+        //StartCoroutine(CloseWithDelay(.2f));
+        StartCoroutine(CloseAtEndOfFrame());
     }
     #endregion
 
     #region Script Specific Methods
+    private IEnumerator CloseWithDelay(float delay) {
+        yield return new WaitForSeconds(delay);
+        closeable.ClosePanel();
+    }
+
+    private IEnumerator CloseAtEndOfFrame() {
+        yield return new WaitForEndOfFrame();
+        closeable.ClosePanel();
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+    }
+
     public void SetStation(Station station) {
         currentStation = station;
         itemPanel.InventoryData = currentStation.StationInventory;
         label.text = currentStation.stationInfo.title;
         icon.sprite = currentStation.stationInfo.icon;
         actionLabel.text = currentStation.stationInfo.action;
-    }
-
-    public void NullifyStation() {
-        currentStation = null;
-        itemPanel.InventoryData = _nullInventory;
-        label.text = "NO STATION";
-        icon.sprite = defaultStationSprite;
-        actionLabel.text = "-";
+        itemPanel.ResetInventory();
     }
 
     public void OpenStation() {
-        InventoryInteractablesManager.Instance.IsHidden = false;
+        //InventoryInteractablesManager.Instance.IsHidden = false;
+        UpdatePanelPosition();
         closeable.OpenPanel();
     }
 
     public void CloseStation(Station station) {
         if (currentStation == station) {
-            NullifyStation();
-            InventoryInteractablesManager.Instance.TogglePanels();
+            CloseStation();
+            //InventoryInteractablesManager.Instance.TogglePanels();
         }
     }
 
@@ -90,24 +100,70 @@ public class StationPanel : MonoBehaviour {
 
     public void Combine() {
         if (currentStation != null) {
-            RecipeList recipes = currentStation.stationInfo.recipeList;
-            RecipeList.Recipe foundRecipe = RecipeList.FindMatchingRecipe(itemPanel.InventoryData.items, recipes, out int batches);
-            OnCombineAttempt.Invoke();
-            if (foundRecipe != null) {
-                for (int i = 0; i < foundRecipe.targetQuantity * batches; i++)
-                    playerInventory.AddInventoryItem(foundRecipe.target);
-                OnCombineSucceed.Invoke(foundRecipe, batches);
+            if (currentStation.stationInfo.title != "Refrigerator") {
+                RecipeList recipes = currentStation.stationInfo.recipeList;
+                RecipeList.Recipe foundRecipe = RecipeList.FindMatchingRecipe(itemPanel.InventoryData.items, recipes, out int batches);
+                OnCombineAttempt.Invoke();
+                if (foundRecipe != null) {
+                    for (int i = 0; i < foundRecipe.targetQuantity * batches; i++) {
+                        playerInventory.AddInventoryItem(foundRecipe.target);
+                    }
+                    OnCombineSucceed.Invoke(foundRecipe, batches);
+                }
+                else {
+                    if (itemPanel.InventoryData.items.Count > 0) {
+                        playerInventory.AddInventoryItem(mistakeItem);
+                        OnCombineFail.Invoke();
+                    }
+                }
+                itemPanel.InventoryData.ClearInventory();  
             }
             else {
-                playerInventory.AddInventoryItem(mistakeItem);
-                OnCombineFail.Invoke();
+                foreach (var item in itemPanel.InventoryData.items) {
+                    for (int i = 0; i < item.Value; i++) {
+                        playerInventory.AddInventoryItem(item.Key);
+                    }
+                }
+                itemPanel.InventoryData.ClearInventory();
             }
-            itemPanel.InventoryData.ClearInventory(); 
         }
     }
 
     public bool IsOpen() {
         return closeable.IsOpened();
+    }
+
+    public void UpdatePanelPosition() {
+        float screenHeight = Screen.height;
+        float screenWidth = Screen.width;
+
+        float resolutionHeight = Screen.currentResolution.height;
+        float resolutionWidth = Screen.currentResolution.width;
+
+        //Debug.Log(resolutionWidth + " " + resolutionHeight);
+
+        if (currentStation != null) {
+            float heightModifier = screenHeight/resolutionHeight;
+            float widthModifier = screenWidth/resolutionWidth;
+
+            Collider stationCollider = currentStation.StationCollider;
+            Vector3 max = stationCollider.bounds.max;
+            Vector3 min = stationCollider.bounds.min;
+
+            Vector3 viewportMax = Camera.main.WorldToViewportPoint(max);
+            Vector3 viewportMin = Camera.main.WorldToViewportPoint(min);
+
+            //Debug.Log(viewportMax + " " + viewportMin);
+
+            Vector2 updatedPosition = new Vector2((viewportMax.x * resolutionWidth + panelRect.rect.width/8 * widthModifier), (viewportMin.y * resolutionHeight - panelRect.rect.height/2.5f * heightModifier));
+            //Debug.Log(updatedPosition);
+            panelRect.anchoredPosition = updatedPosition;
+
+        }
+        else {
+            Vector2 updatedPosition = new Vector2(.5f * resolutionWidth, .5f * resolutionHeight);
+            panelRect.anchoredPosition = updatedPosition;
+        }
     }
     #endregion
 }

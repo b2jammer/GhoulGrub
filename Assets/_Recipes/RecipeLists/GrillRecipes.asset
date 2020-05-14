@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: GrillRecipes
   m_EditorClassIdentifier: 
   listTitle: Grill
-  listIcon: {fileID: 21300000, guid: f291279ec72127e44b66a99459b0c2c0, type: 3}
   recipes:
   - target: {fileID: 11400000, guid: 948357a28dd3de643893f63031cfbfe1, type: 2}
     targetQuantity: 1
@@ -21,18 +20,105 @@ MonoBehaviour:
     - type: {fileID: 11400000, guid: e8e7251f1dea3fa4fa56098abf63410b, type: 2}
       quantity: 1
       quantityMax: 1
-  - target: {fileID: 11400000, guid: a8ec76329a2fd9b41a5ac837baaa6071, type: 2}
+  - target: {fileID: 11400000, guid: ce9e014ee94c7834f893e55a65d751a8, type: 2}
     targetQuantity: 1
     ingredients:
-    - type: {fileID: 11400000, guid: bf7fcd925bcc86a4b94bd3abf8d18404, type: 2}
+    - type: {fileID: 11400000, guid: d5694d7877701df408d482c1acc4e1cb, type: 2}
       quantity: 1
       quantityMax: 1
-  - target: {fileID: 11400000, guid: a6f31832435ed2d4ca18b91c7b88490c, type: 2}
+  - target: {fileID: 11400000, guid: 2b8323d3269ba644db3b71cffccfe635, type: 2}
     targetQuantity: 1
     ingredients:
-    - type: {fileID: 11400000, guid: a8ec76329a2fd9b41a5ac837baaa6071, type: 2}
+    - type: {fileID: 11400000, guid: 168d3ceb5ffb97b44aa72c205c84aa2b, type: 2}
+      quantity: 2
+      quantityMax: 2
+    - type: {fileID: 11400000, guid: 2dc42ff891b51fa409e07f1435dd0fbc, type: 2}
       quantity: 1
       quantityMax: 1
-    - type: {fileID: 11400000, guid: fb13bc3e234259543b1674701808e924, type: 2}
+  - target: {fileID: 11400000, guid: da1fbb2813b432a488538429f90deaee, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 2f36db259bd579842970ab5b2db281ec, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 8945556ad4d6c2844aac1b305a15db9e, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 948357a28dd3de643893f63031cfbfe1, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 3a2e6f1cc92e3f344984f4331e65cd7a, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: b356eab4dee73d04094678133600397b, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: b1cd2e33f8967f341aefd5ea4d741347, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: ce9e014ee94c7834f893e55a65d751a8, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: b356eab4dee73d04094678133600397b, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 1172d95808a66de498e425543e97fe71, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 014f782b660ec5e4692a7cc0d002b32d, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 7c7978722eabfc34bb15a01647e23ac1, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: b421cc57ecdb8fa45ac579d90ecd924b, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 07d16893dad8a654cb0de9fa9272d8af, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 014f782b660ec5e4692a7cc0d002b32d, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 59e18adac83a99240b187f69f1409aeb, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 553c27f08dca95745a5561621d6404f3, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: ce9e014ee94c7834f893e55a65d751a8, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: b356eab4dee73d04094678133600397b, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 1172d95808a66de498e425543e97fe71, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 014f782b660ec5e4692a7cc0d002b32d, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 7e6692fd65ac2ce4eb353ca8652605cc, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 7c7978722eabfc34bb15a01647e23ac1, type: 2}
+      quantity: 1
+      quantityMax: 1
+  - target: {fileID: 11400000, guid: 3ae1b7036b7b44240976db18064e3125, type: 2}
+    targetQuantity: 1
+    ingredients:
+    - type: {fileID: 11400000, guid: 07d16893dad8a654cb0de9fa9272d8af, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 3a2e6f1cc92e3f344984f4331e65cd7a, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 014f782b660ec5e4692a7cc0d002b32d, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 7e6692fd65ac2ce4eb353ca8652605cc, type: 2}
+      quantity: 1
+      quantityMax: 1
+    - type: {fileID: 11400000, guid: 59e18adac83a99240b187f69f1409aeb, type: 2}
       quantity: 1
       quantityMax: 1

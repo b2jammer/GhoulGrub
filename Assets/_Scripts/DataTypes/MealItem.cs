@@ -12,9 +12,13 @@ public class MealItem : FoodItem
         Wrap,
         Stir_Fry,
         Soup,
-        Salad
+        Salad,
+        Pie
     }
     public MealType type;
-    [Range(1,5)]
+    [Range(1,10)]
     public int rank = 1;
+
+    [TextArea]
+    public string recipe;
 }

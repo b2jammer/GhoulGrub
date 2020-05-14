@@ -10,6 +10,9 @@ public class PlayerInteract : MonoBehaviour
     public KeyboardInterfaceController keyboardInput;
 
     public InteractAgent myInteractAgent;
+    public OrderFillingPanelsManager orderFillingPanel;
+    public Closeable inventoryPanel;
+
 
 
     //[Tooltip("Layer that all interactable objects are on")]
@@ -42,6 +45,16 @@ public class PlayerInteract : MonoBehaviour
         if (isInteracting) {
             myInteractAgent.Interact();
         }
+
+        if (keyboardInput.ToggledInventory) {
+            inventoryPanel.TogglePanel();
+        }
+
+        if (keyboardInput.ToggledOrder) {
+            orderFillingPanel.TogglePanels();
+        }
+
+
     }
     #endregion
 
